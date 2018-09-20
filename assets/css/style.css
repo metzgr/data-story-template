@@ -54,7 +54,7 @@ input, select, textarea {
 
 *, body {
   -webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body, h2 {
@@ -62,7 +62,7 @@ body, h2 {
 }
 
 .title-card h2 {
-  font-family:'Abhaya Libre', serif;
+  font-family: 'Abhaya Libre', serif;
   font-size: 48px;
   line-height: 1.1em;
 }
@@ -137,8 +137,6 @@ body {
   color: #656569;
   -webkit-tap-highlight-color: transparent
 }
-
-
 
 div.bigger, h2 {
   color: #22222a;
@@ -266,7 +264,7 @@ h3.large {
   div.bigger em:after, div.bigger strong:after {
     display: none
   }
-h3.large {
+  h3.large {
     font-size: 18px
   }
 }
@@ -313,12 +311,10 @@ a {
   color: inherit
 }
 
-
 main {
   background: #22222a;
   margin-top: 120px
 }
-
 
 header {
   position: fixed;
@@ -429,11 +425,9 @@ div.header-content .close a, div.header-content nav a, div.header-content nav sp
 }
 
 @media (max-width:650px), (max-height:440px) {
-
   div.header-content nav.main-home {
     display: none
   }
-
   div.header-content nav a {
     margin: 0 0 3px 0;
   }
@@ -461,7 +455,6 @@ div.header-content .title {
     text-overflow: ellipsis
   }
 }
-
 
 .wrap, section.intro .bigger {
   position: relative;
@@ -690,12 +683,11 @@ section.intro .screen .screen-holder {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
   background-image: url("../img/us-flag.jpg");
-box-shadow: inset 0px 0px 0px 1px #22222A;
-background-size: cover;
-background-position: bottom;
-opacity: .65;
+  box-shadow: inset 0px 0px 0px 1px #22222A;
+  background-size: cover;
+  background-position: bottom;
+  opacity: .65;
 }
-
 
 @media (max-width:850px) {
   section.intro .screen .screen-holder {
@@ -818,8 +810,6 @@ div.progress {
   transition: background-color 0.5s;
 }
 
-
-
 #site__bg {
   position: absolute;
   top: 0;
@@ -827,7 +817,8 @@ div.progress {
   right: 0;
   bottom: 0;
   z-index: 2;
-  display: block; }
+  display: block;
+}
 
 .intro p {
   font-family: 'Abhaya Libre', serif;
@@ -862,7 +853,9 @@ article h3 {
 }
 
 sup {
-  font-size: 60%; }
+  font-size: 60%;
+}
+
 }
 
 section.intro h3 {
@@ -870,12 +863,12 @@ section.intro h3 {
 }
 
 .acorn img {
-display: block;
-margin-left: auto;
-margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 80px;
-    margin-bottom: 26px;
-width: 43px;
+  margin-bottom: 26px;
+  width: 43px;
 }
 
 article h4 {
@@ -885,24 +878,20 @@ article h4 {
   font-weight: bold;
   color: #22222A;
   margin-left:
-
-
 }
 
 article h5 {
   font-size: 12px;
   line-height: 16px;
   letter-spacing: .1em;
-  color: rgba(34, 34, 42, .6)
-  color: #22222A;
-
+  color: rgba(34, 34, 42, .6) color: #22222A;
 }
 
 article a {
   border-bottom: 1px dotted #31515f;
   border-bottom-width: 1.5px;
   border-bottom-style: solid;
-  border-bottom-color: rgba(34, 34, 42,.3);
+  border-bottom-color: rgba(34, 34, 42, .3);
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -913,24 +902,24 @@ article sup a {
 
 #map-transition {
   width: 100%;
-background-image: linear-gradient(-180deg, #F9FAFB 11%, #22222A 100%);
-height: 300px;
+  background-image: linear-gradient(-180deg, #F9FAFB 11%, #22222A 100%);
+  height: 300px;
 }
 
-.research-citation  {
-	cursor: pointer;
+.research-citation {
+  cursor: pointer;
   border-bottom: 1px dotted #31515f;
   border-bottom-width: 1px;
   border-bottom-style: dotted;
-  border-bottom-color: rgba(34, 34, 42,.8);
+  border-bottom-color: rgba(34, 34, 42, .8);
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
 .research-citation img {
   display: inline-block;
- vertical-align: middle;
- margin-left: 5px;
+  vertical-align: middle;
+  margin-left: 5px;
 }
 
 /*
