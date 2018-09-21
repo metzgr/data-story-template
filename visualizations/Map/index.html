@@ -5,14 +5,20 @@
   <meta charset="utf-8">
   <style type="text/css">
     /*load the fonts from the .ttf files*/
-    @font-face {
-      font-family: 'LibreFranklin-Medium';
-      src: url('../../web/font/LibreFranklin-Medium.ttf');
+   @font-face {
+      font-family: 'Chivo-Bold';
+      src: url('../../web/font/Chivo-Bold.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-SemiBold';
-      src: url('../../web/font/LibreFranklin-SemiBold.ttf');
+   @font-face {
+      font-family: 'Chivo-Black';
+      src: url('../../web/font/Chivo-Black.ttf');
+    }
+
+
+   @font-face {
+      font-family: 'Chivo-Regular';
+      src: url('../../web/font/Chivo-Regular.ttf');
     }
 
     /*Set up hover over characteristics */
@@ -35,10 +41,10 @@
     }
 
     p.title {
-      font-family: LibreFranklin-SemiBold;
-      font-size: 14px;
+      font-family: Chivo-Bold;
+      font-size: 16px;
       line-height: 20px;
-      color: #2E2E2E;
+      color: white;
       text-align: center;
       margin-top: 0;
     }
@@ -81,8 +87,8 @@
 
     .legendItem input[id="white"] {
       cursor: default;
-      background: white;
-      color: white;
+      background: black;
+      color: black;
     }
 
     input[type=radio] {
@@ -98,7 +104,7 @@
 
     .legendItem {
       list-style-type: none;
-      font-family: LibreFranklin-Medium;
+      font-family: Chivo-Regular;
       font-size: 10pt;
     }
 
@@ -130,7 +136,7 @@
     }
     /*Set up special behavior for legend items when one item is selected*/
     .legendItem input[class*="hasSelector"]+label {
-      opacity: .2;
+      opacity: .1;
     }
 
     .legendItem input[class*="highlightButton"]+label {
@@ -139,7 +145,7 @@
 
     .legendItem label {
       padding-top: 1px;
-      color: #616161
+      color: white
     }
 
     .legendItem input[class*="legendButton"]:hover {
@@ -151,14 +157,14 @@
       height: 10px;
       transform: translate(255px, 0px);
       color: transparent;
-      text-shadow: 0 0 0 white;
+      text-shadow: 0 0 0 black;
       text-align: center;
       display: inline-block;
       font-size: 8pt;
     }
 
     div.triangle.highlightButton {
-      text-shadow: 0 0 0 black;
+      text-shadow: 0 0 0 white;
     }
 
     .background {
@@ -177,7 +183,7 @@
     #state-borders {
       fill: none;
       color: none;
-      stroke: white;
+      stroke: black;
       stroke-width: 2.7px;
     }
 
@@ -194,7 +200,7 @@
   <title>STEM chlorpleth</title>
 </head>
 
-<body style="height:725px; margin: 0;">
+<body style="height:725px; margin: 0;background-color:black;">
 
   <div class="wrapper">
     <!-- Title and Legend above map -->
@@ -394,29 +400,29 @@
 
    function hoverText(d) {
        if (d.properties.tbl4pct_alg == null) {
-           return "<span style='line-height: 2;font-family: LibreFranklin-Medium; font-size: 15px; color: white;'>" + d.properties
+           return "<span style='line-height: 2;font-family: Chivo-Regular; font-size: 15px; color: white;'>" + d.properties
                .NAME + "</span>" +
-               "<span style='line-height: 2;float:right; font-family: LibreFranklin-SemiBold; font-size: 15px;'>" + stateAbb(
+               "<span style='line-height: 2;float:right; font-family: Chivo-Bold; font-size: 15px;'>" + stateAbb(
                    d.properties.STATEFP) +
                "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-               "<span style='line-height: 2;font-family: LibreFranklin-Medium; color: white;'>Not Reported</span>";
+               "<span style='line-height: 2;font-family: Chivo-Regular; color: white;'>Not Reported</span>";
        } else if (d.properties.tbl4pct_alg == "?") {
-           return "<span style='line-height: 2;font-family: LibreFranklin-Medium; font-size: 15px; color: white;'>" + d.properties
+           return "<span style='line-height: 2;font-family: Chivo-Regular; font-size: 15px; color: white;'>" + d.properties
                .NAME + "</span>" +
-               "<span style='line-height: 2;float:right; font-family: LibreFranklin-SemiBold; font-size: 15px;'>" + stateAbb(
+               "<span style='line-height: 2;float:right; font-family: Chivo-Bold; font-size: 15px;'>" + stateAbb(
                    d.properties.STATEFP) +
                "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-               "<span style='line-height: 2;font-family: LibreFranklin-Medium; color: white;'Not Applicable</span><br>" +
-               "<span style='font-family: LibreFranklin-Medium;'>0 out of 0 schools</span>";
+               "<span style='line-height: 2;font-family: Chivo-Regular; color: white;'Not Applicable</span><br>" +
+               "<span style='font-family: Chivo-Regular;'>0 out of 0 schools</span>";
        } else {
-           return "<span style='line-height: 2;font-family: LibreFranklin-Medium; font-size: 15px; color: white;'>" + d.properties
+           return "<span style='line-height: 2;font-family: Chivo-Regular; font-size: 15px; color: white;'>" + d.properties
                .NAME + "</span>" +
-               "<span style='line-height: 2;float:right; font-family: LibreFranklin-SemiBold; font-size: 15px;'>" + stateAbb(
+               "<span style='line-height: 2;float:right; font-family: Chivo-Bold; font-size: 15px;'>" + stateAbb(
                    d.properties.STATEFP) +
                "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-               "<span style='line-height: 2;font-family: LibreFranklin-Medium; color: white;'>" + reportable_p(d.properties.tbl2pct) +
+               "<span style='line-height: 2;font-family: Chivo-Regular; color: white;'>" + reportable_p(d.properties.tbl2pct) +
                " offered Algebra I in 8th grade" + "</span><br>" +
-               "<span style='font-family: LibreFranklin-Medium;'>" + reportable(d.properties.tbl2n_alg_sch) + " out of " +
+               "<span style='font-family: Chivo-Regular;'>" + reportable(d.properties.tbl2n_alg_sch) + " out of " +
                reportable_s(d.properties.tbl2n_sch) + "</span>";
        }
    }

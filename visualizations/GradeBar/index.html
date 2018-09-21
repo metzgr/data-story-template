@@ -5,31 +5,22 @@
   <meta charset="utf-8">
   <style>
     /*load the fonts from the .ttf files*/
-    @font-face {
-      font-family: 'LibreFranklin-Medium';
-      src: url('../../web/font/LibreFranklin-Medium.ttf');
+   @font-face {
+      font-family: 'Chivo-Bold';
+      src: url('../../web/font/Chivo-Black.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-Bold';
-      src: url('../../web/font/LibreFranklin-Bold.ttf');
+
+   @font-face {
+      font-family: 'Chivo-Regular';
+      src: url('../../web/font/Chivo-Regular.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-Regular';
-      src: url('../../web/font/LibreFranklin-Regular.ttf');
-    }
 
-    @font-face {
-      font-family: 'LibreFranklin-ExtraBold';
-      src: url('../../web/font/LibreFranklin-ExtraBold.ttf');
+   @font-face {
+      font-family: 'Chivo-Black';
+      src: url('../../web/font/Chivo-Black.ttf');
     }
-
-    @font-face {
-      font-family: 'LibreFranklin-SemiBold';
-      src: url('../../web/font/LibreFranklin-SemiBold.ttf');
-    }
-
     /*set the fill color and border for the bar being hovered over*/
     .bar:hover {
       fill: #74CAE2;
@@ -55,30 +46,26 @@
       border: 0px;
       border-radius: 2px;
       pointer-events: none;
-      font-family: LibreFranklin;
+      font-family: Chivo-Regular;
       opacity: .9;
     }
 
-    /*creates a class to use for LibreFranklin font*/
+    /*creates a class to use for Chivo font*/
     option.LibreFranklin {
-      font-family: LibreFranklin-Medium;
+      font-family: Chivo-Regular;
       font-size: 14px;
       color: #2e2e2e;
       font-weight: 500;
     }
 
-    /*creates a class to use for LibreFranklin font*/
     g.annotation.label.showAnnotation {
-      /*  transform:translate(110px,-5px); */
-      font-family: LibreFranklin-Regular;
+      font-family: Chivo-Regular;
       font-size: 12px;
         font-weight: 500;
     }
 
-    /*creates a class to use for LibreFranklin font*/
     g.annotation.label.showAnnotation2 {
-      /*  transform:translate(110px,-5px); */
-      font-family: LibreFranklin-Regular;
+      font-family: Chivo-Regular;
       font-size: 12px;
         font-weight: 500;
     }
@@ -226,9 +213,9 @@
             .style("font-weight", 600)
             .style("font-family", function(d) {
                 if (d.characteristic == "8th grade") {
-                    return "LibreFranklin-Bold";
+                    return "Chivo-Black";
                 } else {
-                    return "LibreFranklin-SemiBold";
+                    return "Chivo-Bold";
                 }
             })
             .style("fill", function(d) {
@@ -249,7 +236,7 @@
             .attr("dx", ".2em")
             .attr("dy", "-1.5em")
             .style("font-size", "14px")
-            .style("font-family", "LibreFranklin-Medium")
+            .style("font-family", "Chivo-Regular")
             .style("fill", "#2e2e2e")
 
         //append the custom annotations
@@ -258,7 +245,7 @@
             .attr("y", 25)
             .attr("text-anchor", "start")
             .style("font-size", "15px")
-            .style("font-family", "LibreFranklin-SemiBold")
+            .style("font-family", "Chivo-Bold")
             .style("fill", "#2e2e2e")
             .style("font-weight", 600)
             .text("% of schools offering Algebra I in...");
@@ -348,12 +335,12 @@
         function mouseover(d) {
             div.transition().duration(100)
                 .style("opacity", .9);
-            div.html("<span style='font-family: LibreFranklin-Medium; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+            div.html("<span style='font-family: Chivo-Regular; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                     "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='font-family: LibreFranklin-Medium; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                    "<span style='font-family: Chivo-Regular; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                     d3.format(",.0f")(d.percentageEnrolledInAlgebra * 100) +
                     "% of schools offered Algebra I</span><br/>" +
-                    "<span style='font-family: LibreFranklin-Medium; line-height: 15px;'>" +
+                    "<span style='font-family: Chivo-Regular; line-height: 15px;'>" +
                     d3.format(",.0f")(d.n_sch_w_alg) + " out of " + d3.format(",.0f")(d.total) + " schools</span>")
                 .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
                 .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");

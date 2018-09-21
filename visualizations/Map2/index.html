@@ -4,15 +4,20 @@
 <head>
   <meta charset="utf-8">
   <style type="text/css">
-    /*load the fonts from the .ttf files*/
-    @font-face {
-      font-family: 'LibreFranklin-Medium';
-      src: url('../../web/font/LibreFranklin-Medium.ttf');
+   @font-face {
+      font-family: 'Chivo-Bold';
+      src: url('../../web/font/Chivo-Bold.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-SemiBold';
-      src: url('../../web/font/LibreFranklin-SemiBold.ttf');
+   @font-face {
+      font-family: 'Chivo-Black';
+      src: url('../../web/font/Chivo-Black.ttf');
+    }
+
+
+   @font-face {
+      font-family: 'Chivo-Regular';
+      src: url('../../web/font/Chivo-Regular.ttf');
     }
 
     div.tooltip {
@@ -34,9 +39,9 @@
     }
 
     p.title {
-      font-family: LibreFranklin-SemiBold;
-      font-size: 14px;
-      fill: #2E2E2E;
+      font-family: Chivo-Bold;
+      font-size: 16px;
+      color: white;
       line-height: 20px;
       text-align: center;
       margin-top: 0;
@@ -97,7 +102,7 @@
 
     .legendItem {
       list-style-type: none;
-      font-family: LibreFranklin-Medium;
+      font-family: Chivo-Regular;
       font-size: 10pt;
     }
 
@@ -129,7 +134,7 @@
     }
 
     .legendItem input[class*="hasSelector"]+label {
-      opacity: .2;
+      opacity: .1;
     }
 
     .legendItem input[class*="highlightButton"]+label {
@@ -150,14 +155,14 @@
       height: 10px;
       transform: translate(255px, 0px);
       color: transparent;
-      text-shadow: 0 0 0 white;
+      text-shadow: 0 0 0 black;
       text-align: center;
       display: inline-block;
       font-size: 8pt;
     }
 
     div.triangle.highlightButton {
-      text-shadow: 0 0 0 black;
+      text-shadow: 0 0 0 white;
     }
 
     .background {
@@ -176,13 +181,14 @@
     #state-borders {
       fill: none;
       color: none;
-      stroke: white;
+      stroke: black;
       stroke-width: 2.7px;
     }
 
     label {
       width: 50px;
       height: 10px;
+      color: white;
     }
 
     svg {
@@ -197,7 +203,7 @@
   <title>STEM chlorpleth</title>
 </head>
 
-<body style="height:725px; margin: 0;">
+<body style="height:725px; margin: 0;background: black;">
 
   <div class="wrapper">
     <!-- Title and Legend above map -->
@@ -216,7 +222,7 @@
     <ul class="legendItem">
       <li>
         <input type="radio" name="rad" class="legendButton" id="none" data-value="null" />
-        <label for="none" class="legendButton" style="text-indent: -8.4em;  color: #616161;">
+        <label for="none" class="legendButton" style="text-indent: -8.4em;">
           <p>No schools even offered it</p>
         </label>
       </li>
@@ -226,37 +232,37 @@
       </li>
       <li>
         <input type="radio" name="rad" class="legendButton" id="zero" data-value="0,25" />
-        <label for="&#62;0" style="text-indent: -1.2em; color: #616161;">
+        <label for="&#62;0" style="text-indent: -1.2em;">
           <p>&#62;0</p>
         </label>
       </li>
       <li>
         <input type="radio" name="rad" class="legendButton" id="twentyFive" data-value="25,50" />
-        <label for="25" style="text-indent: -.8em; color: #616161;">
+        <label for="25" style="text-indent: -.8em;">
           <p>25</p>
         </label>
       </li>
       <li>
         <input type="radio" name="rad" class="legendButton" id="fifty" data-value="50,75" />
-        <label for="50" style="text-indent: -.8em; color: #616161;">
+        <label for="50" style="text-indent: -.8em;">
           <p>50</p>
         </label>
       </li>
       <li>
         <input type="radio" name="rad" class="legendButton" id="seventyFive" data-value="75,99.99" />
-        <label for="75" style="text-indent: -.8em; color: #616161;">
+        <label for="75" style="text-indent: -.8em;">
           <p>75</p>
         </label>
       </li>
       <li>
         <input type="radio" name="rad" class="nolegendButton" id="white" data-value="" />
-        <label for="&lt;100" style="color: #616161;">
+        <label for="&lt;100">
           <p>&lt;100</p>
         </label>
       </li>
       <li>
         <input type="radio" name="rad" class="legendButton" id="oneHundred" data-value="99.99,100" />
-        <label for="custom" style="color: #616161" ;>
+        <label for="custom">
           <p>All 8th graders took it</p>
         </label>
       </li>
@@ -265,7 +271,7 @@
     <ul class="legendItem" style="transform:translate(-230px,55px)">
       <li>
         <input type="radio" name="rad" class="legendButton" id="missing" data-value="missing" />
-        <label for="custom" style="color: #616161;">
+        <label for="custom">
           <p>Missing</p>
         </label>
       </li>
@@ -382,29 +388,29 @@ function stateAbb(d) {
 
 function hoverText(d) {
     if (d.properties.tbl4pct_alg == null) {
-        return "<span style='line-height: 2;font-family: LibreFranklin-Medium; font-size: 15px; color: white;'>" + d.properties
+        return "<span style='line-height: 2;font-family: Chivo-Regular; font-size: 15px; color: white;'>" + d.properties
             .NAME + "</span>" +
-            "<span style='line-height: 2;float:right; font-family: LibreFranklin-SemiBold; font-size: 15px;'>" + stateAbb(
+            "<span style='line-height: 2;float:right; font-family: Chivo-Bold; font-size: 15px;'>" + stateAbb(
                 d.properties.STATEFP) +
             "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-            "<span style='line-height: 2;font-family: LibreFranklin-Medium; color: white;'>Not Reported</span>";
+            "<span style='line-height: 2;font-family: Chivo-Regular; color: white;'>Not Reported</span>";
     } else if (d.properties.tbl4pct_alg == "?") {
-        return "<span style='line-height: 2;font-family: LibreFranklin-Medium; font-size: 15px; color: white;'>" + d.properties
+        return "<span style='line-height: 2;font-family: Chivo-Regular; font-size: 15px; color: white;'>" + d.properties
             .NAME + "</span>" +
-            "<span style='line-height: 2;float:right; font-family: LibreFranklin-SemiBold; font-size: 15px;'>" + stateAbb(
+            "<span style='line-height: 2;float:right; font-family: Chivo-Bold; font-size: 15px;'>" + stateAbb(
                 d.properties.STATEFP) +
             "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-            "<span style='line-height: 2;font-family: LibreFranklin-Medium; color: white;'>Not Applicable</span><br>" +
-            "<span style='font-family: LibreFranklin-Medium;'>0 out of 0 students</span>";
+            "<span style='line-height: 2;font-family: Chivo-Regular; color: white;'>Not Applicable</span><br>" +
+            "<span style='font-family: Chivo-Regular;'>0 out of 0 students</span>";
     } else {
-        return "<span style='line-height: 2;font-family: LibreFranklin-Medium; font-size: 15px; color: white;'>" + d.properties
+        return "<span style='line-height: 2;font-family: Chivo-Regular; font-size: 15px; color: white;'>" + d.properties
             .NAME + "</span>" +
-            "<span style='line-height: 2;float:right; font-family: LibreFranklin-SemiBold; font-size: 15px;'>" + stateAbb(
+            "<span style='line-height: 2;float:right; font-family: Chivo-Bold; font-size: 15px;'>" + stateAbb(
                 d.properties.STATEFP) +
             "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-            "<span style='line-height: 2;font-family: LibreFranklin-Medium; color: white;'>" + reportable_p(d.properties.tbl4pct_alg) +
+            "<span style='line-height: 2;font-family: Chivo-Regular; color: white;'>" + reportable_p(d.properties.tbl4pct_alg) +
             " took Algebra I in 8th grade" + "</span><br>" +
-            "<span style='font-family: LibreFranklin-Medium;'>" + reportable(d.properties.tbl4n_stu_alg) + " out of " +
+            "<span style='font-family: Chivo-Regular;'>" + reportable(d.properties.tbl4n_stu_alg) + " out of " +
             reportable_s(d.properties.tbl4n_students) + "</span>";
     }
 }

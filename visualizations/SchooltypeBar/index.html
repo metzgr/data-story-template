@@ -4,15 +4,20 @@
   <meta charset="utf-8">
   <style>
     /*load the fonts from the .ttf files*/
-    @font-face {
-      font-family: 'LibreFranklin-Medium';
-      src: url('../../web/font/LibreFranklin-Medium.ttf');
+
+
+   @font-face {
+      font-family: 'Chivo-Bold';
+      src: url('../../web/font/Chivo-Bold.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-ExtraBold';
-      src: url('../../web/font/LibreFranklin-ExtraBold.ttf');
+
+   @font-face {
+      font-family: 'Chivo-Regular';
+      src: url('../../web/font/Chivo-Regular.ttf');
     }
+
+
 
     /*set the fill color and border for the bar being hovered over*/
     .bar:hover {
@@ -42,17 +47,16 @@
     }
 
     /*creates a class to use for LibreFranklin font*/
-    option.LibreFranklin {
-      font-family: LibreFranklin-Medium;
+    option.ChivoRegular {
+      font-family: Chivo-Regular;
       font-size: 14px;
       color: #2e2e2e;
     }
     
-    /*set characteristics for y axis*/
-    path.yAxisLine {
-    stroke: #2E2E2E;
-    stroke-width: 2px;
-  }
+    g.annotation #showAnnotation2 {
+        font-family: Chivo-Regular;
+    }
+
    path.domain {
     stroke: transparent;
   }
@@ -61,6 +65,7 @@
 
 <body onload="makeChart()" style="height:270px; width:765px; margin: 0;">
   <!-- load the proper libraries -->
+
 
   <!-- minified production script -->
   <script src="../../build/prod/uglified.js"></script>
@@ -75,7 +80,7 @@ function makeChart() {
     var margin = {
             top: 35,
             right: 0,
-            bottom: 10,
+            bottom: 25,
             left: 135
         },
         width = 500,
@@ -189,7 +194,7 @@ function makeChart() {
             })
             .attr("text-anchor", "right")
             .style("font-size", "13px")
-            .style("font-family", "LibreFranklin-Medium")
+            .style("font-family", "Chivo-Bold")
             .style("fill", "#616161");
 
 
@@ -202,7 +207,7 @@ function makeChart() {
             .attr("dx", "-.5em")
             .attr("dy", ".4em")
             .style("font-size", "14px")
-            .style("font-family", "LibreFranklin-Medium")
+            .style("font-family", "Chivo-Regular")
             .style("fill", "#474747");
 
         var new_axis = svg.append("line")
@@ -212,16 +217,67 @@ function makeChart() {
             .attr("y2", 235)
             .attr("stroke-width", 2)
             .attr("stroke", "#2E2E2E");
+        
+        var new_axis = svg.append("line")
+            .attr("x1", x(.79588))
+            .attr("y1", -5)
+            .attr("x2",  x(.79588))
+            .attr("y2", 245)
+            .attr("stroke-width", 1)
+             .attr("stroke-dasharray", 3)
+            .attr("stroke", "#2E2E2E");
+
+
 
         var annotation = svg.append("text")
             .attr("x", x(0))
             .attr("y", -20)
             .attr("text-anchor", "start")
             .style("font-size", "14px")
-            .style("font-family", "LibreFranklin-Medium")
+            .style("font-family", "Chivo-Bold")
             .style("fill", "#2e2e2e")
             .style("font-weight", 600)
             .text("% of 8th graders who could take Algebra I at...");
+
+        var annotation = svg.append("text")
+            .attr("x", x(.75))
+            .attr("y", 250)
+            .attr("text-anchor", "end")
+            .style("font-size", "14px")
+            .style("font-family", "Chivo-Regular")
+            .style("fill", "#2e2e2e")
+            .style("font-weight", 600)
+            .text("overall 80% of 8th graders could take Algebra 1");
+
+        const type = d3.annotationLabel
+
+        const annotations = [
+            {
+                connector: {
+                    type: "curve",
+                    points: [
+                        [20, 10]
+                    ]
+                },
+                className: "showAnnotation",
+                x: 500,
+                y: 285,
+                dx: 35,
+                dy: -8
+            }
+        ].map(function(d) {
+            d.color = "#2e2e2e";
+            return d
+        })
+
+        const makeAnnotations = d3.annotation()
+            .type(type)
+            .annotations(annotations)
+
+
+        d3.select("svg")
+            .append("g")
+            .call(makeAnnotations)
 
         //Move the hover over as needed
         function position_tip(x, y) {
@@ -242,12 +298,12 @@ function makeChart() {
         function mouseover(d) {
             div.transition().duration(100)
                 .style("opacity", .9);
-            div.html("<span style='font-family: LibreFranklin-Medium; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+            div.html("<span style='font-family: Chivo-Regular; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                     "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='font-family: LibreFranklin-Medium; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                    "<span style='font-family: Chivo-Regular; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                     d3.format(",.0f")(d.percentageEnrolledInAlgebra * 100) +
                     "% could take Algebra I in 8th grade</span><br/>" +
-                    "<span style='font-family: LibreFranklin-Medium; line-height: 16px;'>" +
+                    "<span style='font-family: Chivo-Regular; line-height: 16px;'>" +
                     d3.format(",.0f")(d.n_sch_w_alg) + " out of " + d3.format(",.0f")(d.total) + " students</span>")
                 .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
                 .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
