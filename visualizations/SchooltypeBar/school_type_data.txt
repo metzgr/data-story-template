@@ -1,0 +1,7 @@
+characteristic	percentageEnrolledInAlgebra	total	n_sch_w_alg
+Magnet schools	.876	202632	177458
+Traditional	.806	3217594	2594042
+Charter	.604	204690	123568
+Alternative/other	.441	20772	9160
+Vocational	.434	509	221
+Special Education	.177	7679	1358

@@ -1,0 +1,4 @@
+characteristic	percentageEnrolledInAlgebra	total	n_sch_w_alg
+8th grade	.590	29385	17323
+9th or 10th	.843	25773	21733
+11th or 12th	.597	25773	15397
