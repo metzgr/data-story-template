@@ -6,23 +6,25 @@
   <title>D3 Pie</title>
   <style type="text/css">
     /*load the fonts from the .ttf files*/
-    @font-face {
-      font-family: 'LibreFranklin-Bold';
-      src: url('../../web/font/LibreFranklin-Bold.ttf');
+   @font-face {
+      font-family: 'Chivo-Bold';
+      src: url('../../web/font/Chivo-Black.ttf');
     }
-    @font-face {
-      font-family: 'LibreFranklin-SemiBold';
-      src: url('../../web/font/LibreFranklin-SemiBold.ttf');
+
+   @font-face {
+      font-family: 'Chivo-Regular';
+      src: url('../../web/font/Chivo-Regular.ttf');
     }
-    @font-face {
-      font-family: 'LibreFranklin-Regular';
-      src: url('../../web/font/LibreFranklin-Regular.ttf');
-    }
+
+   @font-face {
+      font-family: 'Chivo-Black';
+      src: url('../../web/font/Chivo-Black.ttf');
+
     body {
       font: 10px sans-serif;
     }
     .pie {
-      padding: 0 12px 5px 12px;
+      padding: 0 20px 5px 20px;
     }
     svg {
       padding: 0px 10px 40px 0px;
@@ -32,7 +34,7 @@
       vertical-align: top;
     }
     .pieTextTitle {
-      font-family: LibreFranklin-SemiBold;
+      font-family: Chivo-Bold;
       font-size: 14px;
       color: #474747;
       text-anchor: middle;
@@ -40,7 +42,7 @@
       text-align: center;
     }
     .pieText {
-      font-family: LibreFranklin-Regular;
+      font-family: Chivo-Regular;
       font-size: 12px;
       color: #474747;
       line-height: 15px;
@@ -126,10 +128,10 @@ d3.csv("data.csv", function(d, i, columns) {
     function multiple(d) {
         var r = radius(+d.number);
         var pie_svg = d3.select(this)
-            .attr("width", r * 2.1 + 20)
+            .attr("width", r * 2.1 + 30)
             .attr("height", 280)
             .append("g")
-            .attr("transform", "translate(" + (1.1 * r + 5) + "," + (170 - r) + ")");
+            .attr("transform", "translate(" + (1.1 * r + 15) + "," + (170 - r) + ")");
         pie_svg.selectAll(".arc")
             .data(function(d) {
                 return pie(d.portions);
@@ -145,7 +147,9 @@ d3.csv("data.csv", function(d, i, columns) {
         pie_svg.append("text")
             .attr("class", "pieTextTitle")
             .attr("color", "white")
-            .attr("x", 0)
+            .style("font-family", "Chivo-Bold")
+            .attr("x", 0 )
+            .attr("text-anchor", "middle")
             .attr("fill", "#474747")
             .attr("dy", function(d) {
                 return radius(+d.number) * -1.2
@@ -158,20 +162,19 @@ d3.csv("data.csv", function(d, i, columns) {
         var bottom_label = pie_svg.append("text")
             .attr("class", "pieText")
             .attr("x", 0)
-            .attr("y", function(d) {
-                return r + 25
-            })
-            .style("font-family", "LibreFranklin-SemiBold")
+            .attr("y", r + 25)
+            .attr("text-anchor", "middle")
+            .style("font-family", "Chivo-Black")
             .text(function(d) {
                 return d3.format(",")(Math.round(d.portions[1].piePortion)) + "%";
             })
             .append("tspan")
             .text(" of ")
-            .style("font-family", "LibreFranklin-Regular")
+            .style("font-family", "Chivo-Regular")
             .append("tspan").
         text(function(d) {
             return rounding(d);
-        }).style("font-family", "LibreFranklin-SemiBold");
+        }).style("font-family", "Chivo-Black");
 
         pie_svg.append("text")
             .attr("class", "pieText")
@@ -179,10 +182,11 @@ d3.csv("data.csv", function(d, i, columns) {
             .attr("dy", function(d) {
                 return r + 44
             })
-            .style("font-family", "LibreFranklin-Regular")
+            .style("font-family", "Chivo-Regular")
+             .attr("text-anchor", "middle")
             .text(function(d) {
                 if (d.characteristic == "At suburban schools") {
-                    return "8th graders could take";
+                    return "8th graders could";
                 } else {
                     return "8th graders";
                 }
@@ -190,18 +194,19 @@ d3.csv("data.csv", function(d, i, columns) {
 
         pie_svg.append("text")
             .attr("class", "pieText")
-            .attr("x", 0)
+            .attr("x", 0 )
+             .attr("text-anchor", "middle")
             .attr("y", function(d) {
                 return r + 62
             })
             .text(function(d) {
                 if (d.characteristic == "At suburban schools") {
-                    return "Algebra I";
+                    return "take Algebra I";
                 } else {
                     return "";
                 }
             })
-            .style("font-family", "LibreFranklin-Regular");
+            .style("font-family", "Chivo-Regular");
 
 
     }

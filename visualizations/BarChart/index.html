@@ -7,20 +7,18 @@
   <meta charset="utf-8">
   <style>
     /*load the fonts from the .ttf files*/
-    @font-face {
-      font-family: 'LibreFranklin-Medium';
-      src: url('../../web/font/LibreFranklin-Medium.ttf');
+
+   @font-face {
+      font-family: 'Chivo-Bold';
+      src: url('../../web/font/Chivo-Bold.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-ExtraBold';
-      src: url('../../web/font/LibreFranklin-ExtraBold.ttf');
+
+   @font-face {
+      font-family: 'Chivo-Regular';
+      src: url('../../web/font/Chivo-Regular.ttf');
     }
 
-    @font-face {
-      font-family: 'LibreFranklin-Regular';
-      src: url('../../web/font/LibreFranklin-Regular.ttf');
-    }
 
     /*set the attributes for the axix lines*/
     .axis path,
@@ -30,7 +28,7 @@
 
     /*set the attributes for the axis labels*/
     .axis {
-      font-family: LibreFranklin-Medium;
+      font-family: Chivo-Regular;
       font-size: 12px;
       color: #2E2E2E;
     }
@@ -76,11 +74,11 @@
       stroke-width: 0;
     }
 
-    /*creates a class to use for LibreFranklin font*/
-    option.LibreFranklin {
-      font-family: LibreFranklin-Regular;
+    /*creates a class to use for font*/
+    option.ChivoRegular {
+      font-family: Chivo-Regular;
       font-size: 14px;
-      color: #2E2E2E;
+      color: #2E2E2E;Chivo-Regular
     }
 
     path.domain {
@@ -117,7 +115,7 @@
           top: 30,
           right: 0,
           bottom: 20,
-          left: 210
+          left: 215
       },
       width = 500,
       height = 400 - margin.top - margin.bottom;
@@ -271,7 +269,7 @@
           })
           .attr("text-anchor", "right")
           .style("font-size", "11px")
-          .style("font-family", "LibreFranklin-Medium")
+          .style("font-family", "Chivo-Regular")
           .style("fill", "#616161");
 
 
@@ -288,7 +286,7 @@
           })
           .attr("text-anchor", "end")
           .style("font-size", "14px")
-          .style("font-family", "LibreFranklin-Regular")
+          .style("font-family", "Chivo-Regular")
           .style("fill", "#2e2e2e")
           .text(function(d) {
               return d.characteristic;
@@ -301,7 +299,7 @@
           .attr("y", -15)
           .attr("text-anchor", "middle")
           .style("font-size", "14px")
-          .style("font-family", "LibreFranklin-ExtraBold")
+          .style("font-family", "Chivo-Bold")
           .style("fill", "#2e2e2e")
           .text(Math.round(totalLineData * 100));
       var annotation = svg.append("text")
@@ -309,7 +307,7 @@
           .attr("y", -15)
           .attr("text-anchor", "middle")
           .style("font-size", "14px")
-          .style("font-family", "LibreFranklin-Medium")
+          .style("font-family", "Chivo-Regular")
           .style("fill", "#2e2e2e")
           .text("% of 8th graders took Algebra I");
 
@@ -386,12 +384,12 @@
 
           div.transition().duration(100)
               .style("opacity", .9);
-          div.html("<span style='font-family: LibreFranklin-Medium; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+          div.html("<span style='font-family: Chivo-Regular; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                   "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                  "<span style='font-family: LibreFranklin-Medium; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                  "<span style='font-family: Chivo-Regular; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                   d3.format(",.0f")(d.percentageEnrolledInAlgebra_orig) +
                   "% took Algebra I in 8th grade</span><br/>" +
-                  "<span style='font-family: LibreFranklin-Medium; line-height: 15px;'>" +
+                  "<span style='font-family: Chivo-Regular; line-height: 15px;'>" +
                   d3.format(",.0f")(d.total * d.percentageEnrolledInAlgebra) + " out of " + d3.format(",.0f")(d.total) +
                   " students</span>")
               .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
