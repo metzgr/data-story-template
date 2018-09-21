@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-87.000000, -7183.000000)">
+            <g id="Section-3:-Enrollment-lags-behind-access" transform="translate(56.000000, 5403.000000)">
+                <g id="Chart-6" transform="translate(0.000000, 1606.000000)">
+                    <g id="Group-4" transform="translate(31.000000, 174.000000)">
+                        <g id="plus">
+                            <path d="M20.4444444,0 L2.55555556,0 C1.15,0 0,1.15 0,2.55555556 L0,20.4444444 C0,21.85 1.15,23 2.55555556,23 L20.4444444,23 C21.85,23 23,21.85 23,20.4444444 L23,2.55555556 C23,1.15 21.85,0 20.4444444,0 Z" id="Shape" fill="#2E2E2E" fill-rule="nonzero"></path>
+                            <polygon id="Path" fill="#FFFFFF" points="12.7777778 17.8876107 10.2222222 17.8876107 10.2222222 5.11111111 12.7777778 5.11111111"></polygon>
+                            <polygon id="Path" fill="#FFFFFF" transform="translate(11.500000, 11.499361) rotate(-270.000000) translate(-11.500000, -11.499361) " points="12.7777778 17.8876107 10.2222222 17.8876107 10.2222222 5.11111111 12.7777778 5.11111111"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

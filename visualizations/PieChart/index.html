@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>D3 Pie</title>
+  <style type="text/css">
+    /*load the fonts from the .ttf files*/
+    @font-face {
+      font-family: 'LibreFranklin-Bold';
+      src: url('../../web/font/LibreFranklin-Bold.ttf');
+    }
+    @font-face {
+      font-family: 'LibreFranklin-SemiBold';
+      src: url('../../web/font/LibreFranklin-SemiBold.ttf');
+    }
+    @font-face {
+      font-family: 'LibreFranklin-Regular';
+      src: url('../../web/font/LibreFranklin-Regular.ttf');
+    }
+    body {
+      font: 10px sans-serif;
+    }
+    .pie {
+      padding: 0 12px 5px 12px;
+    }
+    svg {
+      padding: 0px 10px 40px 0px;
+
+    }
+    .legend {
+      vertical-align: top;
+    }
+    .pieTextTitle {
+      font-family: LibreFranklin-SemiBold;
+      font-size: 14px;
+      color: #474747;
+      text-anchor: middle;
+      line-height: 17px;
+      text-align: center;
+    }
+    .pieText {
+      font-family: LibreFranklin-Regular;
+      font-size: 12px;
+      color: #474747;
+      line-height: 15px;
+      text-anchor: middle;
+      position: absolute;
+      text-align: left;
+    }
+  </style>
+
+<body style="width: 620px; height:235px; margin: 0;">
+
+  <!-- minified production script -->
+  <script src="../../build/prod/uglified.js"></script>
+
+  <!-- for development, you could uncomment the following and comment out built script -->
+  <!-- <script src="../ChartLibs/d3.v4.js"></script> -->
+
+  <script>
+    /* Set up basic graph appearance parameters*/
+var formatSum = d3.format(".1s");
+
+var padding = 10;
+
+var radius = d3.scaleSqrt()
+    .range([0, 70]);
+
+var color = d3.scaleOrdinal()
+    .domain([0, 1])
+    .range(["#F2F2F2", "#2EB4E7"]);
+
+var arc = d3.arc()
+    .padRadius(5);
+
+var pie = d3.pie()
+    .sort(null)
+    .padAngle(0.02)
+    .value(function(d) {
+        return d.piePortion;
+    });
+
+function rounding(d) {
+    if (d.characteristic == "At suburban schools" || d.characteristic == "Urban") {
+        return d3.format(".2s")(d.total)
+    } else {
+        return d3.format(".3s")(d.total).toUpperCase()
+    }
+}
+
+/* Data load function*/
+d3.csv("data.csv", function(d, i, columns) {
+    return {
+        characteristic: d.characteristic,
+        total: +d.total,
+        number: +d.number,
+        sum: d3.sum(columns.slice(3, 5), function(key) {
+            return +d[key];
+        }),
+        portions: columns.slice(3).map(function(key) {
+            return {
+                portion: key,
+                piePortion: +d[key]
+            };
+        })
+    };
+}, function(error, data) {
+    if (error) throw error;
+    // console.log(data)
+    radius.domain([0, d3.max(data, function(d) {
+        return d.number;
+    })]);
+    color.domain(data.columns.slice(1));
+
+
+    var svg = d3.select("body").selectAll(".pie")
+        .data(data.sort(function(a, b) {
+            return b.sum - a.sum;
+        }))
+        .enter().append("svg").attr("class", "pie")
+        .each(multiple)
+        .select("g");
+
+    /* funciton that iterate through each school type pie chart adding chart and labels */
+    function multiple(d) {
+        var r = radius(+d.number);
+        var pie_svg = d3.select(this)
+            .attr("width", r * 2.1 + 20)
+            .attr("height", 280)
+            .append("g")
+            .attr("transform", "translate(" + (1.1 * r + 5) + "," + (170 - r) + ")");
+        pie_svg.selectAll(".arc")
+            .data(function(d) {
+                return pie(d.portions);
+            })
+            .enter().append("path")
+            .attr("class", "arc")
+            .attr("stroke", "#2EB4E7")
+            .attr("d", arc.outerRadius(r).innerRadius(0))
+            .style("fill", function(d) {
+                return color(d.data.portion);
+            });
+
+        pie_svg.append("text")
+            .attr("class", "pieTextTitle")
+            .attr("color", "white")
+            .attr("x", 0)
+            .attr("fill", "#474747")
+            .attr("dy", function(d) {
+                return radius(+d.number) * -1.2
+            })
+            .text(function(d) {
+                return d.characteristic
+            });
+
+
+        var bottom_label = pie_svg.append("text")
+            .attr("class", "pieText")
+            .attr("x", 0)
+            .attr("y", function(d) {
+                return r + 25
+            })
+            .style("font-family", "LibreFranklin-SemiBold")
+            .text(function(d) {
+                return d3.format(",")(Math.round(d.portions[1].piePortion)) + "%";
+            })
+            .append("tspan")
+            .text(" of ")
+            .style("font-family", "LibreFranklin-Regular")
+            .append("tspan").
+        text(function(d) {
+            return rounding(d);
+        }).style("font-family", "LibreFranklin-SemiBold");
+
+        pie_svg.append("text")
+            .attr("class", "pieText")
+            .attr("x", 0)
+            .attr("dy", function(d) {
+                return r + 44
+            })
+            .style("font-family", "LibreFranklin-Regular")
+            .text(function(d) {
+                if (d.characteristic == "At suburban schools") {
+                    return "8th graders could take";
+                } else {
+                    return "8th graders";
+                }
+            })
+
+        pie_svg.append("text")
+            .attr("class", "pieText")
+            .attr("x", 0)
+            .attr("y", function(d) {
+                return r + 62
+            })
+            .text(function(d) {
+                if (d.characteristic == "At suburban schools") {
+                    return "Algebra I";
+                } else {
+                    return "";
+                }
+            })
+            .style("font-family", "LibreFranklin-Regular");
+
+
+    }
+});
+  </script>
