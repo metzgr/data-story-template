@@ -18,7 +18,6 @@
     }
 
 
-
     /*set the fill color and border for the bar being hovered over*/
     .bar:hover {
       fill: #74CAE2;
@@ -222,7 +221,7 @@ function makeChart() {
             .attr("x1", x(.79588))
             .attr("y1", -5)
             .attr("x2",  x(.79588))
-            .attr("y2", 245)
+            .attr("y2", 240)
             .attr("stroke-width", 1)
              .attr("stroke-dasharray", 3)
             .attr("stroke", "#2E2E2E");
@@ -240,44 +239,16 @@ function makeChart() {
             .text("% of 8th graders who could take Algebra I at...");
 
         var annotation = svg.append("text")
-            .attr("x", x(.75))
-            .attr("y", 250)
+            .attr("x", x(.75) + 60)
+            .attr("y", 255)
             .attr("text-anchor", "end")
             .style("font-size", "14px")
             .style("font-family", "Chivo-Regular")
             .style("fill", "#2e2e2e")
             .style("font-weight", 600)
-            .text("overall 80% of 8th graders could take Algebra 1");
+            .text("Overall 80% of 8th graders could take Algebra 1");
 
-        const type = d3.annotationLabel
-
-        const annotations = [
-            {
-                connector: {
-                    type: "curve",
-                    points: [
-                        [20, 10]
-                    ]
-                },
-                className: "showAnnotation",
-                x: 500,
-                y: 285,
-                dx: 35,
-                dy: -8
-            }
-        ].map(function(d) {
-            d.color = "#2e2e2e";
-            return d
-        })
-
-        const makeAnnotations = d3.annotation()
-            .type(type)
-            .annotations(annotations)
-
-
-        d3.select("svg")
-            .append("g")
-            .call(makeAnnotations)
+        
 
         //Move the hover over as needed
         function position_tip(x, y) {
