@@ -888,13 +888,18 @@ article h5 {
 }
 
 article a {
-  border-bottom: 1px dotted #31515f;
   border-bottom-width: 1.5px;
   border-bottom-style: solid;
   border-bottom-color: rgba(34, 34, 42, .3);
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
+article a:hover {
+  border-bottom-color: rgba(34, 34, 42, .7);
+  transition: .2s;
+}
+
 
 article sup a {
   border-bottom: none;
@@ -920,6 +925,8 @@ article sup a {
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
+  height: 16px;
+  padding-bottom: 4px;
 }
 
 /*
