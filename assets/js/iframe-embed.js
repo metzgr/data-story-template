@@ -1,5 +1,5 @@
 // responsive vizs via iframe
-// scale iframe (and its content) up and down
+// scale iframe (and its content) up and down, to fit in its parent container
 function resizeIframe(iframeEl) {
     "use strict";
 
@@ -22,18 +22,20 @@ function resizeIframe(iframeEl) {
     // scale the 1-to-1 sized iframe down/up, to fit in its containing div's width
     // the scaling ratio
     let contentContainerRatio = parentContainerWidth / contentWidth;
-    // apply the scaling ratio with CSS transform
-    let iframeScaling = iframeEl.style;
-    iframeScaling.setProperty("-webkit-transform-origin", "0 0");
-    iframeScaling.setProperty("-webkit-transform", "scale(" + contentContainerRatio + ")");
-    iframeScaling.setProperty("-moz-transform-origin",  "0 0"); 
-    iframeScaling.setProperty("-moz-transform", "scale(" + contentContainerRatio + ")");
-    iframeScaling.setProperty("-ms-transform-origin", "0 0");
-    iframeScaling.setProperty("-ms-transform", "scale(" + contentContainerRatio + ")"); 
-    iframeScaling.setProperty("-o-transform-origin", "0 0"); 
-    iframeScaling.setProperty("-o-transform", "scale(" + contentContainerRatio + ")"); 
-    iframeScaling.setProperty("transform-origin", "0 0"); 
-    iframeScaling.setProperty("transform", "scale(" + contentContainerRatio + ")");
+    // apply the scaling ratio by transform
+    let iframeStyles = iframeEl.style;
+    iframeStyles.setProperty("-webkit-transform-origin", "0 0");
+    iframeStyles.setProperty("-webkit-transform", "scale(" + contentContainerRatio + ")");
+    iframeStyles.setProperty("-moz-transform-origin",  "0 0"); 
+    iframeStyles.setProperty("-moz-transform", "scale(" + contentContainerRatio + ")");
+    iframeStyles.setProperty("-ms-transform-origin", "0 0");
+    iframeStyles.setProperty("-ms-transform", "scale(" + contentContainerRatio + ")"); 
+    iframeStyles.setProperty("-o-transform-origin", "0 0"); 
+    iframeStyles.setProperty("-o-transform", "scale(" + contentContainerRatio + ")"); 
+    iframeStyles.setProperty("transform-origin", "0 0"); 
+    iframeStyles.setProperty("transform", "scale(" + contentContainerRatio + ")");
+    // overflow hidden for better ux
+    iframeStyles.setProperty("overflow", "hidden");
 
     // set the parent container height to show the entire iframe
     // get the scaled up height
@@ -46,7 +48,7 @@ function apply_resize() {
 
     document.querySelectorAll("iframe").forEach(function(ele) {
         resizeIframe(ele);
-    })
+    });
 }
 
 // resize on initial page load
