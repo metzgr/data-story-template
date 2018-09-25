@@ -1,6 +1,8 @@
 // responsive vizs via iframe
 // scale iframe (and its content) up and down
 function resizeIframe(iframeEl) {
+    "use strict";
+
     // get iframe parent container width
     let parentContainerWidth = iframeEl.parentElement.clientWidth;
 
@@ -40,6 +42,8 @@ function resizeIframe(iframeEl) {
 }
 
 function apply_resize() {
+    "use strict";
+
     document.querySelectorAll("iframe").forEach(function(ele) {
         resizeIframe(ele);
     })
@@ -47,9 +51,14 @@ function apply_resize() {
 
 // resize on initial page load
 window.onload = function () {
+    "use strict";
+
     apply_resize();
 };
+
 // resize on window resize
 window.onresize = function () {
+    "use strict";
+
     apply_resize();
 };
