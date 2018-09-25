@@ -95,11 +95,11 @@
     //set the margin attributes
     var margin = {
             top: -10,
-            right: 60,
+            right: 80,
             bottom: -35,
-            left: 60
+            left: 0
         },
-        width = 620 - margin.left - margin.right,
+        width = 560 - margin.left - margin.right,
         height = 280;
 
     //set the appropriate bar padding
@@ -128,7 +128,7 @@
 
     //svg is the standard name for the d3 bar chart graphic, this creates it and sets some attributes, append appends to it
     var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.left + margin.right)
+        .attr("width", width + margin.left + margin.right + 10 ) //extra padding for annotation
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -260,7 +260,7 @@
                     ]
                 },
                 className: "showAnnotation",
-                x: 370,
+                x: 310,
                 y: 55,
                 dx: 97,
                 dy: -30
@@ -274,7 +274,7 @@
                     lineType: "none"
                 },
                 className: "showAnnotation",
-                x: 480,
+                x: 420,
                 y: 15,
             },
             {
@@ -286,7 +286,7 @@
                     lineType: "none"
                 },
                 className: "showAnnotation2",
-                x: 440,
+                x: 380,
                 y: 185,
             },
             {
@@ -297,7 +297,7 @@
                     ]
                 },
                 className: "showAnnotation",
-                x: 375,
+                x: 315,
                 y: 205,
                 dx: 60,
                 dy: 0
