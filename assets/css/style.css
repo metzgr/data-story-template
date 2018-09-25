@@ -940,40 +940,6 @@ article sup a {
 
 */
 
-/* embed vizs with iframe
-
-.iframe-container {
-  overflow: hidden;
-  padding-top: 56.25%;
-  position: relative;
-}
-
-.iframe-container iframe {
-   border: 0;
-   height: 100%;
-   left: 0;
-   position: absolute;
-   top: 0;
-   width: 100%;
-}
-
-.iframe-container-aspect {
-
-}
-
-.iframe-scale {
-  -webkit-transform-origin: 0 0;
-   -webkit-transform: scale();
-   -moz-transform-origin: 0 0;
-   -moz-transform: scale();
-   -ms-transform-origin: 0 0;
-   -ms-transform: scale();
-   -o-transform-origin: 0 0;
-   -o-transform: scale();
-   transform-origin: 0 0;
-   transform: scale();
-} */
-
 iframe {
   overflow: hidden;
 }

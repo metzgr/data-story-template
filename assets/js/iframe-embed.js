@@ -1,46 +1,42 @@
-// responsive/adaptive iframe
-function resizeIframe(obj) {
+// responsive vizs via iframe
+// scale iframe (and its content) up and down
+function resizeIframe(iframeEl) {
     // get iframe parent container width
-    var parent_container_width = obj.parentElement.clientWidth;
-    // console.log(parent_container_width)
+    let parentContainerWidth = iframeEl.parentElement.clientWidth;
 
-    if (obj.contentWindow.document.body.scrollWidth === null) {
+    // do nothing for iframe without content
+    if (iframeEl.contentWindow.document.body.scrollWidth === null) {
         return;
     }
-    // obj.contentWindow.document.body.style.height ? obj.contentWindow.document.body.style.height.replace("px", "") : 
-    var content_width = obj.contentWindow.document.body.scrollWidth;
-    console.log(content_width)
-    var content_height = obj.contentWindow.document.body.style.height ? obj.contentWindow.document.body.style.height.replace("px", "") : obj.contentWindow.document.body.scollHeight;
-    console.log(content_height)
-    // set iframe size&dimension to just fit the actual content
-    obj.style.width = content_width + "px";
 
-    obj.style.height = content_height + "px";
-    console.log(obj, obj.style.width, obj.style.height)
+    // the inner content's actual width and height
+    let contentWidth = iframeEl.contentWindow.document.body.scrollWidth;
+    let contentHeight = iframeEl.contentWindow.document.body.style.height ? iframeEl.contentWindow.document.body.style.height.replace("px", "") : iframeEl.contentWindow.document.body.scollHeight;
 
+    // set iframe to be the same size as the actual content
+    iframeEl.style.width = contentWidth + "px";
+    iframeEl.style.height = contentHeight + "px";
 
-    // scale down iframe
-    var content_container_ratio = parent_container_width / content_width;
-    var elStyles = obj.style;
-    elStyles.setProperty("-webkit-transform-origin", "0 0");
-    elStyles.setProperty("-webkit-transform", "scale(" + content_container_ratio + ")");
-    elStyles.setProperty("-moz-transform-origin",  "0 0"); 
-    elStyles.setProperty("-moz-transform", "scale(" + content_container_ratio + ")");
-    elStyles.setProperty("-ms-transform-origin", "0 0");
-    elStyles.setProperty("-ms-transform", "scale(" + content_container_ratio + ")"); 
-    elStyles.setProperty("-o-transform-origin", "0 0"); 
-    elStyles.setProperty("-o-transform", "scale(" + content_container_ratio + ")"); 
-    elStyles.setProperty("transform-origin", "0 0"); 
-    elStyles.setProperty("transform", "scale(" + content_container_ratio + ")");
+    // scale the 1-to-1 sized iframe down/up, to fit in its containing div's width
+    // the scaling ratio
+    let contentContainerRatio = parentContainerWidth / contentWidth;
+    // apply the scaling ratio with CSS transform
+    let iframeScaling = iframeEl.style;
+    iframeScaling.setProperty("-webkit-transform-origin", "0 0");
+    iframeScaling.setProperty("-webkit-transform", "scale(" + contentContainerRatio + ")");
+    iframeScaling.setProperty("-moz-transform-origin",  "0 0"); 
+    iframeScaling.setProperty("-moz-transform", "scale(" + contentContainerRatio + ")");
+    iframeScaling.setProperty("-ms-transform-origin", "0 0");
+    iframeScaling.setProperty("-ms-transform", "scale(" + contentContainerRatio + ")"); 
+    iframeScaling.setProperty("-o-transform-origin", "0 0"); 
+    iframeScaling.setProperty("-o-transform", "scale(" + contentContainerRatio + ")"); 
+    iframeScaling.setProperty("transform-origin", "0 0"); 
+    iframeScaling.setProperty("transform", "scale(" + contentContainerRatio + ")");
 
-    // reset the iframe parent container height
-    var newParentHeight = content_container_ratio * content_height;
-    // console.log("ratio ", content_container_ratio)
-    // console.log("contenHeight ", content_height)
-    // console.log("multiplyied ", newParentHeight)
-    // console.log("objparenhei before ", obj.parentElement.style.height)
-    obj.parentElement.style.height = newParentHeight + "px";
-    // console.log("after conhei ", obj.parentElement.style.height)
+    // set the parent container height to show the entire iframe
+    // get the scaled up height
+    let newParentHeight = contentContainerRatio * contentHeight;
+    iframeEl.parentElement.style.height = newParentHeight + "px";
 }
 
 function apply_resize() {
@@ -49,15 +45,11 @@ function apply_resize() {
     })
 }
 
-// iframe responsiveness
-// window resize
-window.onresize = function () {
-    apply_resize();
-};
-
-// initial page load calculation
+// resize on initial page load
 window.onload = function () {
     apply_resize();
 };
-
-// tab switch
+// resize on window resize
+window.onresize = function () {
+    apply_resize();
+};
