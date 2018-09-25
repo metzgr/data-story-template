@@ -957,3 +957,7 @@ article sup a {
 .tab-menu li:first-child {
   float: left;
 }
+
+.tab-menu a {
+  border-bottom: none;
+}
