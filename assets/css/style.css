@@ -940,6 +940,20 @@ article sup a {
 
 */
 
+/* spacing between viz lead text & viz */
 .pure-u-12-24 h4 {
   margin-bottom: 40px;
+}
+
+/* tabbed containers */
+.tab-menu ul {
+  text-align: right;
+}
+
+.tab-menu li {
+  display: inline-block;
+}
+
+.tab-menu li:first-child {
+  float: left;
 }

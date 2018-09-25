@@ -47,8 +47,16 @@
     // get all iframes
     let iframes = document.querySelectorAll("iframe");
 
-    // attach resizer on initial page load
+    // resize all iframes
+    function resizeAll() {
+        iframes.forEach(function (ele) {
+            resizeIframe(ele);
+        });
+    }
+
+    // resize all & attach resizer on initial page load
     window.onload = function () {
+        resizeAll();
         iframes.forEach(function (ele) {
             ele.onload = function () {
                 resizeIframe(this);
@@ -58,9 +66,7 @@
 
     // resize on window resize
     window.onresize = function () {
-        iframes.forEach(function (ele) {
-            resizeIframe(ele);
-        });
+        resizeAll();
     };
 
 })();
