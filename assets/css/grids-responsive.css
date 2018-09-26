@@ -4,7 +4,24 @@ Copyright 2013 Yahoo!
 Licensed under the BSD License.
 https://github.com/yahoo/pure/blob/master/LICENSE.md
 */
-@media screen and (min-width: 35.5em) {
+
+.pure-g {
+    /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+
+    /* Prevents distributing space between rows */
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+}
+
+@media only screen and (min-width: 0em) {
     .pure-u-sm-1,
     .pure-u-sm-1-1,
     .pure-u-sm-1-2,
@@ -27,6 +44,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     .pure-u-sm-5-12,
     .pure-u-sm-7-12,
     .pure-u-sm-11-12,
+    .pure-u-sm-0-24,
     .pure-u-sm-1-24,
     .pure-u-sm-2-24,
     .pure-u-sm-3-24,
@@ -58,6 +76,10 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
         word-spacing: normal;
         vertical-align: top;
         text-rendering: auto;
+    }
+
+    .pure-u-sm-0-24 {
+      display: none;
     }
 
     .pure-u-sm-1-24 {
@@ -218,7 +240,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     }
 }
 
-@media screen and (min-width: 48em) {
+@media only screen and (min-width: 35.5em) {
     .pure-u-md-1,
     .pure-u-md-1-1,
     .pure-u-md-1-2,
@@ -432,7 +454,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     }
 }
 
-@media screen and (min-width: 64em) {
+@media only screen and (min-width: 70.625em) {
     .pure-u-lg-1,
     .pure-u-lg-1-1,
     .pure-u-lg-1-2,
@@ -646,7 +668,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     }
 }
 
-@media screen and (min-width: 80em) {
+@media screen and (min-width: 91.875em) {
     .pure-u-xl-1,
     .pure-u-xl-1-1,
     .pure-u-xl-1-2,
