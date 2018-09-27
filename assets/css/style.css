@@ -873,7 +873,7 @@ article h3 {
 
 @media (max-width:53.125em) {  /* Up to 850px */
   article h3 {
-    font-size: 1.750em; /* 28px */
+    font-size: 1.938em; /* 31px */
   }
 }
 
@@ -985,4 +985,11 @@ article sup a {
 
 .tab-menu a {
   border-bottom: none;
+}
+
+@media (max-width:53.125em) {  /* Up to 850px */
+  .tab-menu li:first-child {
+    font-size: 0.563em;
+  }
+
 }
