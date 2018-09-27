@@ -989,7 +989,7 @@ article sup a {
 
 @media (max-width:53.125em) {  /* Up to 850px */
   .tab-menu li:first-child {
-    font-size: 0.563em;
+    font-size: 9px;
   }
 
 }
