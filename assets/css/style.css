@@ -752,9 +752,16 @@ section.title-card .title-card h2 {
   font-family: 'Abhaya Libre', serif;
   line-height: 1.2;
   margin-bottom: 100px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: calc(1.188em + 0.5vw);
   font-size: calc(2.375em + 1vw);
+}
+
+@media (max-width:53.125em) {  /* Up to 850px */
+section.title-card .title-card h2 {
+  margin-bottom: 1.875em; /* 30 px */
+  }
+
 }
 
 section.title-card .title-card h3 {
@@ -822,6 +829,7 @@ div.progress {
   letter-spacing: 1px;
   font-size: 36px;
   color: #fff;
+  line-height: 1.3;
 }
 
 article {
