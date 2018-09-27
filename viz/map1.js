@@ -140,7 +140,7 @@
     var loader = new Spinner(loader_appearance).spin(target);
 
     /* Load GEOjson via queue */
-    queue()
+    d3.queue()
         .defer(d3.json, 'viz/data/us.json')
         .defer(d3.json, 'viz/data/with_attributes_v8.json')
         .await(makeMap);
