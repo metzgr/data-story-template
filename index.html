@@ -8,11 +8,10 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <title>STEM Data Story</title>
-
   <meta name="description" content="Looking at STEM access.">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>STEM Data Story</title>
 
   <!-- SOCIAL
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -38,11 +37,12 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/component.css">
   <link rel="stylesheet" href="assets/css/Glyphter-font.css">
+  <link rel="stylesheet" href="assets/css/viz-style.css">
 
   <!-- FONT
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Chivo:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre:400,500,600,700" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
@@ -54,6 +54,7 @@
 
   <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    
   <link rel="icon" type="assets/image/ico" href="assets/img/favicon.ico">
 
 </head>
@@ -209,7 +210,7 @@
           </h4>
 
           <div id="chart1_content_1" class="chart1_tabcontent">
-            <iframe class="lazyload" data-src="visualizations/GradeBar" frameborder="0" scrolling="no"></iframe>
+            <div id="grade_bar"></div>
           </div>
           <div id="chart1_content_2" class="chart1_tabcontent" style="display:none;">
             <div>
@@ -342,7 +343,7 @@
             more likely to have access to Algebra I in 8th grade.
           </h4>
           <div id="chart2_content_1" class="chart2_tabcontent">
-            <iframe class="lazyload" data-src="visualizations/SchooltypeBar" frameborder="0" scrolling="no"></iframe>
+            <div id="school_type_bar"></div>
           </div>
           <div id="chart2_content_2" class="chart2_tabcontent" style="display:none;">
             <div>
@@ -536,7 +537,7 @@
             suburban schools were more likely to have access to Algebra I.
           </h4>
           <div id="chart3_content_1" class="chart3_tabcontent">
-            <iframe class="lazyload" data-src="visualizations/PieChart" frameborder="0" scrolling="no"></iframe>
+            <div id="pie_chart" style="width:1000px;"></div>
           </div>
           <div id="chart3_content_2" class="chart3_tabcontent" style="display:none;">
             <div>
@@ -719,7 +720,81 @@
 
     <div class="map-transition wrap">
       <div id="chart4_content_1" class="chart4_tabcontent">
-        <iframe class="lazyload" data-src="visualizations/Map" frameborder="0" scrolling="no"></iframe>
+        <div id="map1">
+          <div class="wrapper">
+            <!-- Title and Legend above map -->
+            <p class="title">% of schools offering Algebra I in 8th grade<br>by school district</p>
+            <!-- Selector Indicators above legend items -->
+            <div class="triangle" id="none">&#9660;</div>
+            <div class="triangle" id="white"></div>
+            <div class="triangle" id="zero">&#9660;</div>
+            <div class="triangle" id="twentyFive">&#9660;</div>
+            <div class="triangle" id="fifty"> &#9660;</div>
+            <div class="triangle" id="seventyFive">&#9660;</div>
+            <div class="triangle" id="white"></div>
+            <div class="triangle" id="oneHundred">&#9660;</div>
+            <div class="triangle" id="missing" style="transform:translate(25px,55px)">&#9660;</div>
+            <!-- first line of legend radio buttons -->
+            <ul class="legendItem">
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="none" data-value="null" />
+                <label for="none" class="legendButton" style="text-indent: -6em;">
+                  <p>No schools offered it</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="nolegendButton" id="white" data-value="" />
+                <label for="&lt;100"><br></label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="zero" data-value="0,25" />
+                <label for="&#62;0" style="text-indent: -1.2em;">
+                  <p>&#62;0</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="twentyFive" data-value="25,50" />
+                <label for="25" style="text-indent: -.8em;">
+                  <p>25</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="fifty" data-value="50,75" />
+                <label for="50" style="text-indent: -.8em;">
+                  <p>50</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="seventyFive" data-value="75,99.99" />
+                <label for="75" style="text-indent: -.8em;">
+                  <p>75</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="nolegendButton" id="white" data-value="" />
+                <label for="&lt;100">
+                  <p>&lt;100</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="oneHundred" data-value="99.99,100" />
+                <label for="custom">
+                  <p>All schools offered it</p>
+                </label>
+              </li>
+            </ul>
+            <!-- second line of legend -->
+            <ul class="legendItem" style="transform:translate(-230px,55px)">
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="missing" data-value="missing" />
+                <label for="custom">
+                  <p>Missing</p>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <section id='map1_content'></section>
+        </div>
       </div>
       <div id="chart4_content_2" class="chart4_tabcontent" style="display:none;">
         <div>
@@ -854,7 +929,7 @@
             types of students.
           </h4>
           <div id="chart5_content_1" class="chart5_tabcontent">
-            <iframe class="lazyload" data-src="visualizations/BarChart" frameborder="0" scrolling="no"></iframe>
+            <div id="eth_gen_bar"></div>
           </div>
           <div id="chart5_content_2" class="chart5_tabcontent" style="display:none;">
             <div>
@@ -1081,7 +1156,81 @@
 
     <div class="map-area wrap">
       <div id="chart6_content_1" class="chart6_tabcontent">
-        <iframe class="lazyload" data-src="visualizations/Map2" frameborder="0" scrolling="no"></iframe>
+        <div id="map2">
+          <div class="wrapper">
+            <!-- Title and Legend above map -->
+            <p class="title">% of 8th graders who took Algebra I in 8th grade<br>by school district</p>
+            <!-- Selector Indicators above legend items -->
+            <div class="triangle" id="none">&#9660;</div>
+            <div class="triangle" id="white"></div>
+            <div class="triangle" id="zero">&#9660;</div>
+            <div class="triangle" id="twentyFive">&#9660;</div>
+            <div class="triangle" id="fifty"> &#9660;</div>
+            <div class="triangle" id="seventyFive">&#9660;</div>
+            <div class="triangle" id="white"></div>
+            <div class="triangle" id="oneHundred">&#9660;</div>
+            <div class="triangle" id="missing" style="transform:translate(25px,55px)">&#9660;</div>
+            <!-- first line of legend radio buttons -->
+            <ul class="legendItem">
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="none" data-value="null" />
+                <label for="none" class="legendButton" style="text-indent: -8.4em;">
+                  <p>No schools even offered it</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="nolegendButton" id="white" data-value="" />
+                <label for="&lt;100"><br></label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="zero" data-value="0,25" />
+                <label for="&#62;0" style="text-indent: -1.2em;">
+                  <p>&#62;0</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="twentyFive" data-value="25,50" />
+                <label for="25" style="text-indent: -.8em;">
+                  <p>25</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="fifty" data-value="50,75" />
+                <label for="50" style="text-indent: -.8em;">
+                  <p>50</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="seventyFive" data-value="75,99.99" />
+                <label for="75" style="text-indent: -.8em;">
+                  <p>75</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="nolegendButton" id="white" data-value="" />
+                <label for="&lt;100">
+                  <p>&lt;100</p>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="oneHundred" data-value="99.99,100" />
+                <label for="custom">
+                  <p>All 8th graders took it</p>
+                </label>
+              </li>
+            </ul>
+            <!-- second line of legend -->
+            <ul class="legendItem" style="transform:translate(-230px,55px)">
+              <li>
+                <input type="radio" name="rad" class="legendButton" id="missing" data-value="missing" />
+                <label for="custom">
+                  <p>Missing</p>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <section id='map2_content'></section>
+        </div>
       </div>
       <div id="chart6_content_2" class="chart6_tabcontent" style="display:none;">
         <div>
@@ -1209,11 +1358,8 @@
   </div>
 </body>
 
-<div class="md-overlay"></div>
 <!-- the overlay element -->
-
-<!-- lazyloading -->
-<script src="assets/js/lazysizes.min.js"></script>
+<div class="md-overlay"></div>
 
 <!-- social share buttons -->
 <script src="assets/js/social-share.js"></script>
@@ -1238,7 +1384,33 @@
 <script src="assets/js/modal-effect/cssParser.js"></script>
 <script src="assets/js/modal-effect/css-filters-polyfill.js"></script>
 
-<!-- embed vizs using iframe -->
-<script src="assets/js/iframe-embed.js"></script>
+<!-- viz -->
+<!-- viz libraries -->
+<script src="viz/libs/d3.v4.js"></script>
+<script src="viz/libs/jquery.slim.min.js"></script>
+<script src="viz/libs/d3-annotation.min.js"></script>
+<script src="viz/libs/d3-array.v1.min.js"></script>
+<script src="viz/libs/d3-geo.v1.min.js"></script>
+<script src="viz/libs/d3-legend.js"></script>
+<script src="viz/libs/d3-scale-chromatic.v1.min.js"></script>
+<script src="viz/libs/d3-zoom.v1.min.js"></script>
+<script src="viz/libs/queue.v1.min.js"></script>
+<script src="viz/libs/topojson.v1.min.js"></script>
+<script src="viz/libs/spin.min.js"></script>
+<!-- Grade Bar Chart -->
+<script src="viz/grade_bar.js"></script>
+<!-- School Type Bar Chart -->
+<script src="viz/school_type_bar.js"></script>
+<!-- Pie Chart -->
+<script src="viz/pie.js"></script>
+<!-- Ethnicity/Gender Bar Chart -->
+<script src="viz/eth_gen_bar.js"></script>
+<!-- load US shape data to prepare for map -->
+<script src="viz/data/albers-usa-pr.js"></script>
+<!-- Map1 -->
+<script src="viz/map1.js"></script>
+<!-- Map2 -->
+<script src="viz/map2.js"></script>
+<!-- Note: while developing, you can comment out the rest of the vizs when you want to focus on one of them -->
 
 </html>

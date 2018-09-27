@@ -1,0 +1,631 @@
+/* all styles for 5 vizs consolidated here */
+/* segmentation by prefixing everything with viz parent container's class ID */
+
+/* font is already loaded on index.html so no need to load them here again */
+/* font-weight 400 for Regular, 700 for bold */
+/* custom on Google Fonts if you need more font styles and replace on index.html */
+
+
+
+/* --- */
+/* Grade Bar Chart Style */
+/* parent container ID: grade_bar */
+/* --- */
+
+/*set the fill color and border for the bar being hovered over*/
+#grade_bar .bar:hover {
+    fill: #74CAE2;
+    border: #ffffff;
+    border-width: 5px;
+}
+
+/*attributes for the tip to show during a hover over of a bar*/
+#grade_bar div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 223px;
+    height: 80px;
+    padding: 2px;
+    margin-left: 20px;
+    font-size: 12px;
+
+    line-height: 1.6;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #CDCCCC;
+
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+    opacity: .9;
+}
+
+/*creates a class to use for Chivo font*/
+#grade_bar option.LibreFranklin {
+    font-family: 'Chivo', sans-serif;
+    font-size: 14px;
+    color: #2e2e2e;
+    font-weight: 500;
+}
+
+#grade_bar g.annotation.label.showAnnotation {
+    font-family: 'Chivo', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#grade_bar g.annotation.label.showAnnotation2 {
+    font-family: 'Chivo', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#grade_bar g.annotation #showAnnotation2 {
+    transform: translate(50px, 25px);
+    font-weight: 500;
+}
+
+#grade_bar path.domain {
+    stroke: transparent;
+}
+
+
+
+/* --- */
+/* School Type Bar Chart Style */
+/* parent container ID: school_type_bar */
+/* --- */
+
+/*set the fill color and border for the bar being hovered over*/
+#school_type_bar .bar:hover {
+    fill: #74CAE2;
+    border: #ffffff;
+    border-width: 5px;
+}
+
+/*attributes for the tip to show during a hover over of a bar*/
+#school_type_bar div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 245px;
+    height: 75px;
+    padding: 2px;
+    margin-left: 20px;
+    font-size: 12px;
+
+    line-height: 1.6;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #CDCCCC;
+
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/*creates a class to use for LibreFranklin font*/
+#school_type_bar option.ChivoRegular {
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2e2e2e;
+}
+
+#school_type_bar g.annotation #showAnnotation2 {
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+}
+
+#school_type_bar path.domain {
+    stroke: transparent;
+}
+
+
+
+/* --- */
+/* Pie Chart Style */
+/* parent container ID: pie_chart */
+/* --- */
+
+#pie_chart .pie {
+    padding: 0 20px 5px 20px;
+}
+
+#pie_chart svg {
+    padding: 0px 10px 40px 0px;
+
+}
+
+#pie_chart .legend {
+    vertical-align: top;
+}
+
+#pie_chart .pieTextTitle {
+    font-family: 'Chivo', sans-serif;
+    /* 700 for bold */
+    font-weight: 700;
+    font-size: 14px;
+    color: #474747;
+    text-anchor: middle;
+    line-height: 17px;
+    text-align: center;
+}
+
+#pie_chart .pieText {
+    font-family: 'Chivo', sans-serif;
+    /* 400 for regular */
+    font-weight: 400;
+    font-size: 12px;
+    color: #474747;
+    line-height: 15px;
+    text-anchor: middle;
+    position: absolute;
+    text-align: left;
+}
+
+
+
+/* --- */
+/* Map1 Style */
+/* parent container ID: map1 */
+/* --- */
+
+/*Set up hover over characteristics */
+#map1 {
+    background-color: #22222a;
+}
+
+#map1 div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 400px;
+    height: 100px;
+    padding: 2px;
+    margin-left: 20px;
+    font: 14px sans-serif;
+    line-height: 1.2;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #CDCCCC;
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+    opacity: .9;
+}
+
+#map1 p.title {
+    font-family: 'Chivo', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+#map1 .wrapper {
+    width: 937px;
+    height: 170px;
+    padding-bottom: 0px;
+}
+
+/*Set up instances of legenditems with colors matching the d3 color scale*/
+#map1 .legendItem input[id="oneHundred"]+label {
+    background: #046B99;
+}
+
+#map1 .legendItem input[id="seventyFive"]+label {
+    background-color: #0883A0;
+}
+
+#map1 .legendItem input[id="fifty"]+label {
+    background: #099ACC;
+}
+
+#map1 .legendItem input[id="twentyFive"]+label {
+    background: #2EB4E7;
+}
+
+#map1 .legendItem input[id="zero"]+label {
+    background: #74cae2;
+}
+
+#map1 .legendItem input[id="none"]+label {
+    background: #C1E7F2;
+}
+
+#map1 .legendItem input[id="missing"]+label {
+    background: #909090;
+    position: absolute;
+}
+
+#map1 .legendItem input[id="white"] {
+    cursor: default;
+    background: black;
+    color: black;
+}
+
+#map1 input[type=radio] {
+    cursor: pointer;
+    height: 10px;
+    width: 50px;
+}
+
+#map1 ul {
+    width: 50%;
+    margin: auto;
+}
+
+#map1 .legendItem {
+    list-style-type: none;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+    font-size: 10pt;
+}
+
+#map1 .legendItem li {
+    float: left;
+    width: 50px;
+    height: 10px;
+    position: relative;
+    margin-left: 2px;
+}
+
+#map1 .legendItem label,
+#map1 .legendItem input {
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    vertical-align: bottom;
+
+}
+
+#map1 .legendItem input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+    display: block;
+    margin: 0 auto;
+}
+
+/*Set up special behavior for legend items when one item is selected*/
+#map1 .legendItem input[class*="hasSelector"]+label {
+    opacity: .1;
+}
+
+#map1 .legendItem input[class*="highlightButton"]+label {
+    opacity: 1;
+}
+
+#map1 .legendItem label {
+    padding-top: 1px;
+    color: white
+}
+
+#map1 .legendItem input[class*="legendButton"]:hover {
+    border: 1px solid #CCC;
+}
+
+/*Set up the triangle that is used to indicate which legend item is selected */
+#map1 div.triangle {
+    width: 48px;
+    height: 10px;
+    transform: translate(255px, 0px);
+    color: transparent;
+    text-shadow: 0 0 0 #22222a;
+    text-align: center;
+    display: inline-block;
+    font-size: 8pt;
+}
+
+#map1 div.triangle.highlightButton {
+    text-shadow: 0 0 0 white;
+}
+
+#map1 .background {
+    fill: none;
+    pointer-events: all;
+}
+
+#map1 #states {
+    fill: none;
+}
+
+#map1 #states .active {
+    fill: none;
+}
+
+#map1 #state-borders {
+    fill: none;
+    color: none;
+    stroke: #22222a;
+    stroke-width: 2.7px;
+}
+
+#map1 label {
+    width: 50px;
+    height: 10px;
+}
+
+#map1 svg {
+    overflow: hidden;
+}
+
+
+
+/* --- */
+/* Ethnicity/Gender Bar Chart Style */
+/* parent container ID: eth_gen_bar */
+/* --- */
+
+/*set the attributes for the axix lines*/
+#eth_gen_bar .axis path,
+#eth_gen_bar .axis line {
+    shape-rendering: crispEdges;
+}
+
+/*set the attributes for the axis labels*/
+#eth_gen_bar .axis {
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #2E2E2E;
+}
+
+#eth_gen_bar .x.axis path {
+    display: none;
+    /*do not want any lines, just the labels on the x axis*/
+}
+
+#eth_gen_bar .y.axis path {
+    display: line;
+    /*a line to go up the y axis*/
+}
+
+/*attributes for the tip to show during a hover over of a bar*/
+#eth_gen_bar div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 250px;
+    height: 75px;
+    padding: 2px;
+    margin-left: 20px;
+    font-size: 12px;
+
+    line-height: 1.6;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #CDCCCC;
+
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/*format the verticle tick lines to be lightgrey and have an opacity*/
+#eth_gen_bar .grid .tick {
+    stroke: lightgrey;
+    opacity: 0.3;
+}
+
+/*set the width to 0 so the x axis and right border do not appear*/
+#eth_gen_bar .grid path {
+    stroke-width: 0;
+}
+
+/*creates a class to use for font*/
+#eth_gen_bar option.ChivoRegular {
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2E2E2E;
+}
+
+#eth_gen_bar path.domain {
+    stroke: transparent;
+}
+
+/*Set custom characteristics for the two seperate y axis lines*/
+#eth_gen_bar path.yAxisLine {
+    stroke: #2E2E2E;
+    stroke-width: 2px;
+}
+
+#eth_gen_bar path.yAxisLine2 {
+    stroke: #2E2E2E;
+    stroke-width: 2px;
+}
+
+#eth_gen_bar path.yAxisLine3 {
+    stroke: #2E2E2E;
+    stroke-width: 1px;
+    stroke-dasharray: 3;
+}
+
+
+
+/* --- */
+/* Map2 Style */
+/* parent container ID: map2 */
+/* --- */
+
+#map2 div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 400px;
+    height: 100px;
+    padding: 2px;
+    margin-left: 20px;
+    font: 14px sans-serif;
+    line-height: 1.2;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #CDCCCC;
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+    opacity: .9;
+}
+
+#map2 p.title {
+    font-family: Chivo-Bold;
+    font-size: 16px;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 0;
+}
+
+#map2 .wrapper {
+    width: 937px;
+    height: 170px;
+    padding-bottom: 0px;
+    /* padding-top: 0px; */
+}
+
+#map2 .legendItem input[id="oneHundred"]+label {
+    background: #046B99;
+}
+
+#map2 .legendItem input[id="seventyFive"]+label {
+    background-color: #0883A0;
+}
+
+#map2 .legendItem input[id="fifty"]+label {
+    background: #099ACC;
+}
+
+#map2 .legendItem input[id="twentyFive"]+label {
+    background: #2EB4E7;
+}
+
+#map2 .legendItem input[id="zero"]+label {
+    background: #74cae2;
+}
+
+#map2 .legendItem input[id="none"]+label {
+    background: #C1E7F2;
+}
+
+#map2 .legendItem input[id="missing"]+label {
+    background: #909090;
+    position: absolute;
+}
+
+#map2 .legendItem input[id="white"] {
+    cursor: default;
+    background: white;
+    color: white;
+}
+
+#map2 input[type=radio] {
+    cursor: pointer;
+    height: 10px;
+    width: 50px;
+}
+
+#map2 ul {
+    width: 50%;
+    margin: auto;
+}
+
+#map2 .legendItem {
+    list-style-type: none;
+    font-family: Chivo-Regular;
+    font-size: 10pt;
+}
+
+#map2 .legendItem li {
+    float: left;
+    width: 50px;
+    height: 10px;
+    position: relative;
+    margin-left: 2px;
+}
+
+#map2 .legendItem label,
+#map2 .legendItem input {
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    vertical-align: bottom;
+
+}
+
+#map2 .legendItem input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+    display: block;
+    margin: 0 auto;
+}
+
+#map2 .legendItem input[class*="hasSelector"]+label {
+    opacity: .1;
+}
+
+#map2 .legendItem input[class*="highlightButton"]+label {
+    /*border:1px solid #2e2e2e;*/
+    opacity: 1;
+}
+
+#map2 .legendItem label {
+    padding-top: 1px;
+}
+
+#map2 .legendItem input[class*="legendButton"]:hover {
+    border: 1px solid #CCC;
+}
+
+#map2 div.triangle {
+    width: 48px;
+    height: 10px;
+    transform: translate(255px, 0px);
+    color: transparent;
+    text-shadow: 0 0 0 #22222a;
+    text-align: center;
+    display: inline-block;
+    font-size: 8pt;
+}
+
+#map2 div.triangle.highlightButton {
+    text-shadow: 0 0 0 white;
+}
+
+#map2 .background {
+    fill: none;
+    pointer-events: all;
+}
+
+#map2 #states {
+    fill: none;
+}
+
+#map2 #states .active {
+    fill: none;
+}
+
+#map2 #state-borders {
+    fill: none;
+    color: none;
+    stroke: #22222a;
+    stroke-width: 2.7px;
+}
+
+#map2 label {
+    width: 50px;
+    height: 10px;
+    color: white;
+}
+
+#map2 svg {
+    overflow: hidden;
+    padding: 0px 10px 40px 0px;
+
+}
