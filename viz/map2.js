@@ -34,10 +34,6 @@
 
     var formatDecimalComma = d3.format(",");
 
-    var stateAbbData;
-    d3.json("viz/data/stateAbb.json", function (data) {
-        stateAbbData = data;
-    });
     /* ```````````````````` CONVIENIENCE FUNCTIONS ```````````````````` */
     function get_fill(d) {
         if (d.properties.tbl4pct_alg === null || d.properties.tbl4pct_alg == "?") {
@@ -140,14 +136,8 @@
     /*create loader that will be stopped in map function */
     var loader = new Spinner(loader_appearance).spin(target);
 
-    /* Load GEOjson via queue */
-    d3.queue()
-        .defer(d3.json, 'viz/data/us.json')
-        .defer(d3.json, 'viz/data/with_attributes_v8.json')
-        .await(makeMap);
-
     /* Function to generate maps via json arguments */
-    function makeMap(error, us, districts) {
+    window.makeMap2 = function (error, us, districts) {
         //Define path generator
         var path = d3.geoPath()
             .projection(projection);

@@ -35,11 +35,6 @@
 
     var formatDecimalComma = d3.format(",");
 
-    var stateAbbData;
-    d3.json("viz/data/stateAbb.json", function (data) {
-        stateAbbData = data;
-    });
-
     /* ```````````````````` CONVIENIENCE FUNCTIONS ```````````````````` */
     function get_fill(d) {
         if (d.properties.tbl2pct === null || d.properties.tbl2pct == "?") {
@@ -139,14 +134,8 @@
     /*create loader that will be stopped in map function */
     var loader = new Spinner(loader_appearance).spin(target);
 
-    /* Load GEOjson via queue */
-    d3.queue()
-        .defer(d3.json, 'viz/data/us.json')
-        .defer(d3.json, 'viz/data/with_attributes_v8.json')
-        .await(makeMap);
-
     /* Function to generate maps via json arguments */
-    function makeMap(error, us, districts) {
+    window.makeMap1 = function (error, us, districts) {
 
         //Define path generator
         var path = d3.geoPath()
@@ -323,7 +312,7 @@
         };
 
         createZoomButtons();
-        
+
         // select the correct element
         d3.selectAll('#map1 g[class="zoomButton"]').on('click', function () {
             if (this.id === 'zoom_in') {

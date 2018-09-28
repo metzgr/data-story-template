@@ -173,10 +173,6 @@
 /* --- */
 
 /*Set up hover over characteristics */
-#map1 {
-    background-color: #22222a;
-}
-
 #map1 div.tooltip {
     position: absolute;
     text-align: left;
@@ -453,6 +449,7 @@
 /* parent container ID: map2 */
 /* --- */
 
+/*Set up hover over characteristics */
 #map2 div.tooltip {
     position: absolute;
     text-align: left;
