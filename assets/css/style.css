@@ -52,10 +52,6 @@ input, select, textarea {
   font: inherit
 }
 
-html {
-  font-size: 1em;
-}
-
 *, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -194,26 +190,6 @@ h2.large {
   }
 }
 
-div.bigger {
-  font-size: 36px;
-  line-height: 55px;
-  letter-spacing: 2px
-}
-
-@media (max-width:1280px) {
-  div.bigger {
-    font-size: 2.81vw;
-    line-height: 4.3vw
-  }
-}
-
-@media (max-width:53.125em) {
-  div.bigger {
-    font-size: 20px;
-    line-height: 35px
-  }
-}
-
 div.bigger em, div.bigger strong {
   overflow: hidden;
   display: inline-block;
@@ -323,7 +299,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 100;
-  background: #fff;
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0 1px 1px rgba(34, 34, 42, 0)
 }
 
@@ -725,12 +701,12 @@ section .title-card {
   width: 46%;
   background: #fff;
   z-index: 2;
-  padding: 90px 50px 50px 50px;
+  padding: 50px 50px 50px 50px;
 }
 
 @media (min-width: 91.875em) {
 section .title-card {
-  padding: 100px 75px 75px 75px;
+  padding: 75px 75px 75px 75px;
 }
 }
 
@@ -751,11 +727,12 @@ section .title-card {
 section.title-card .title-card h2 {
   font-family: 'Abhaya Libre', serif;
   line-height: 1.2;
-  margin-bottom: 100px;
+  margin-bottom: calc(1em + 1vw);
   letter-spacing: -0.5px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: calc(1.188em + 0.5vw);
-  font-size: calc(2.375em + 1vw);
+  font-size: calc(2.250em + 1vw);
+  max-width: 400px;
 }
 
 @media (max-width:53.125em) {  /* Up to 850px */
@@ -828,9 +805,9 @@ div.progress {
 .intro p {
   font-family: 'Abhaya Libre', serif;
   letter-spacing: -.5px;
-  font-size: 36px;
   color: #fff;
-  line-height: 1.3;
+  line-height: calc(1.33em + 0.5vw);
+  font-size: calc(2.5em + 1vw);
 }
 
 article {
@@ -878,12 +855,24 @@ article p:first-child {
 
 article h3 {
   font-family: 'Abhaya Libre', serif;
-  font-size: 2.125em;
   font-weight: 400;
   letter-spacing: -.5px;
-  line-height: 1.28;
   margin-bottom: 26px;
   color: #22222A;
+  line-height: calc(1.188em + 0.5vw);
+  font-size: 2.000em;
+}
+
+@media screen and (min-width: 100.000em) {
+    article h3 {
+      font-family: 'Abhaya Libre', serif;
+      font-size: 2.125em;
+      font-weight: 400;
+      letter-spacing: -.5px;
+      line-height: 1.28;
+      margin-bottom: 26px;
+      color: #22222A;
+    }
 }
 
 @media (max-width:53.125em) {  /* Up to 850px */
@@ -896,10 +885,6 @@ sup {
   font-size: 60%;
 }
 
-}
-
-section.intro h3 {
-  color: rgba(255, 255, 255, .6);
 }
 
 .acorn img {
