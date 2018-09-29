@@ -930,6 +930,11 @@ sup {
   font-size: 60%;
 }
 
+article a sup {
+
+  border-bottom: none;
+}
+
 }
 
 section.intro h3 {
