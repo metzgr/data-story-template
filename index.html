@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="assets/css/component.css">
   <link rel="stylesheet" href="assets/css/Glyphter-font.css">
   <link rel="stylesheet" href="assets/css/viz-style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
 
   <!-- FONT
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -89,10 +90,13 @@
         <div class="bigger">
           <div data-parallax="-0.3">
             <p>In America, <strong>only 24% of students</strong> take algebra in 8<sup>th</sup> grade.</p>
-            <h3 style="color: #fff; font-size: 17px;"><i class="fas fa-arrow-down" style="margin-right: 8px;"></i>EXPLORE THIS DATA
+            <h3 class="animated delay-2s fadeInDown" style="color: #fff; font-size: 15px;"><i class="fas fa-arrow-down" style="margin-right: 8px;"></i>EXPLORE THIS DATA
               STORY</h3>
           </div>
         </div>
+
+
+                  <img class="logo-overlay animated delay-3s rotateIn"src="assets/img/logo-white.svg" alt="U.S. Department of Education seal" style="opacity: .6;">
 
         <div class="screen" data-parallax="0.2">
           <div class="screen-holder"></div>
@@ -103,7 +107,7 @@
 
     <section class="title-card">
       <div class="wrap">
-        <div><img src="assets/img/student-hero.jpg"></div>
+        <div><img src="assets/img/student-hero.jpg" style="width: 100%" srcset="assets/img/student-hero.jpg 1x, assets/img/student-hero_2x.jpg 2x" alt="Figure of a high school student with backpack against a gradient sky"></div>
         <div class="title-card">
           <h2>A Leak in the STEM Pipeline: Early Access to Algebra</h2>
           <h3>SEP 2018 | U.S. DEPT. OF EDUCATION</h3>
@@ -1383,6 +1387,7 @@
 </script>
 <script src="assets/js/modal-effect/cssParser.js"></script>
 <script src="assets/js/modal-effect/css-filters-polyfill.js"></script>
+<script src="assets/js/anime.min.js"></script>
 
 <!-- viz -->
 <!-- viz libraries -->
