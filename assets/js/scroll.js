@@ -69,8 +69,3 @@ document.addEventListener("scroll", function () {
     })
   })
 })
-
-// when we scroll the page, make header a little transparent
-document.addEventListener("scroll", function () {
-  header.style.background = `rgba(34, 34, 42, 0)`
-})
