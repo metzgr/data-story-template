@@ -911,13 +911,13 @@ article h3 {
   margin-bottom: 26px;
   color: #22222A;
   line-height: calc(1.188em + 0.5vw);
-  font-size: 2.000em;
+  font-size: 1.8em;
 }
 
 @media screen and (min-width: 100.000em) {
     article h3 {
       font-family: 'Abhaya Libre', serif;
-      font-size: 2.125em;
+      font-size: 2em;
       font-weight: 400;
       letter-spacing: -.5px;
       line-height: 1.28;
