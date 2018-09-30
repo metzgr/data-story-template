@@ -826,7 +826,7 @@ div.progress {
   font-family: 'Abhaya Libre', serif;
   letter-spacing: -.5px;
   color: #fff;
-  line-height: calc(1.063em + 0.5vw);
+  line-height: calc(1.188em + 0.5vw);
   font-size: calc(2.250em + 1vw);
 }
 
@@ -910,7 +910,7 @@ article h3 {
   letter-spacing: -.5px;
   margin-bottom: 26px;
   color: #22222A;
-  line-height: calc(1.188em + 0.5vw);
+  line-height: calc(1.063em + 0.5vw);
   font-size: 1.8em;
 }
 
