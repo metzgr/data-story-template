@@ -750,7 +750,7 @@ section.title-card .title-card h2 {
   margin-bottom: calc(1em + 1vw);
   letter-spacing: -0.5px;
   font-weight: 400;
-  line-height: calc(1.063em + 0.5vw);
+  line-height: calc(1.188em + 0.5vw);
   font-size: calc(2.250em + 1vw);
   max-width: 400px;
 }
@@ -826,7 +826,7 @@ div.progress {
   font-family: 'Abhaya Libre', serif;
   letter-spacing: -.5px;
   color: #fff;
-  line-height: calc(1.188em + 0.5vw);
+  line-height: calc(1.063em + 0.5vw);
   font-size: calc(2.250em + 1vw);
 }
 
