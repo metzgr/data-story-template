@@ -831,7 +831,7 @@ div.progress {
 }
 
 .intro .logo-overlay {
-  height: calc(12em + 5vw + 5vh);
+  height: calc(11em + 5vw + 5vh);
   right: 0;
   position: absolute;
   z-index: 2;
@@ -844,6 +844,12 @@ div.progress {
   .intro .logo-overlay {
     right: calc(.8em + 1vw);
   }
+}
+
+@media (max-height: 730px) {
+  .intro .logo-overlay {
+    height: calc(9em + 5vw + 5vh);
+}
 }
 
 
