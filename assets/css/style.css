@@ -865,21 +865,6 @@ article {
   padding: 52px;
   background-color: #F9FAFB;
 }
-
-/* Dropcap */
-
-#first-character {
-	float: left;
-	color: #22222A;
-	font-size:5em;
-	line-height:80%;
-	padding-top: 0.05em;
-	padding-right: .05em;
-	font-family: 'Abhaya Libre', serif;
-	font-weight: 500;
-  text-transform:uppercase;
-}
-
 /* */
 
 @media (max-width:53.125em) {  /* Up to 850px */
@@ -978,7 +963,7 @@ article h4 {
   letter-spacing: none;
   font-weight: bold;
   color: #22222A;
-  margin-left:
+  margin-bottom: 1.625em;
 }
 
 article h5 {
@@ -1039,16 +1024,10 @@ article sup a {
   line-height: calc(1.1em + 0.5vw);
 }
 
-*/
-
-/* spacing between viz lead text & viz */
-.pure-u-12-24 h4 {
-  margin-bottom: 40px;
-}
-
 /* tabbed containers */
 .tab-menu ul {
   text-align: right;
+  margin-top: 1.625em;
 }
 
 .tab-menu li {
