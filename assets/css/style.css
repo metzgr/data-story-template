@@ -657,6 +657,7 @@ section.intro .screen .screen-holder {
   background-image: url("../img/dummy.jpg");
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   background-size: cover;
+  background-position: auto;
   opacity: .65;
 }
 
@@ -749,8 +750,7 @@ section.title-card .title-card h2 {
   margin-bottom: calc(1em + 1vw);
   letter-spacing: -0.5px;
   font-weight: 400;
-  line-height: calc(1.188em + 0.5vw);
-  line-height: calc(1em + 0.5vw);
+  line-height: calc(1.063em + 0.5vw);
   font-size: calc(2.250em + 1vw);
   max-width: 400px;
 }
