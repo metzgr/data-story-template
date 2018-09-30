@@ -134,8 +134,8 @@ body {
   letter-spacing: .05em;
   color: #656569;
   -webkit-tap-highlight-color: transparent;
-    transition: background-color 1s ease;
-      background: #22222a;
+  transition: background-color 1s ease;
+  background: #22222a;
 }
 
 div.bigger, h2 {
@@ -239,15 +239,13 @@ h3.large {
 @media (max-width:1050px) {
   div.bigger em, div.bigger strong {
     display: inline;
-      border-bottom: 3px solid  #7EC255;
+    border-bottom: 3px solid #7EC255;
   }
-
-@media only screen and (max-width: 1050px) and (min-width: 650px) {
+  @media only screen and (max-width: 1050px) and (min-width: 650px) {
     div.bigger em, div.bigger strong {
-  border-bottom: 3px solid #fff
-}
-}
-
+      border-bottom: 3px solid #fff
+    }
+  }
   div.bigger em:after, div.bigger strong:after {
     display: none
   }
@@ -443,10 +441,10 @@ div.header-content .close a, div.header-content nav a, div.header-content nav sp
 
 @media (max-width:46.875em) {
   main article .wrap {
-    padding: 1.875em; /* 30px */
+    padding: 1.875em;
+    /* 30px */
   }
 }
-
 
 footer {
   padding: 90px 0 0
@@ -636,11 +634,11 @@ section.intro .screen {
   }
 }
 
-@media (max-width: 40.625em) { /* Up to 650px */
+@media (max-width: 40.625em) {
+  /* Up to 650px */
   section.intro .screen {
     display: none;
   }
-
 }
 
 section.intro .screen .screen-holder {
@@ -661,12 +659,10 @@ section.intro .screen .screen-holder {
   opacity: .65;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-
-    section.intro .screen .screen-holder {
-        background-image: url("../img/dummy_2x.jpg");
-    }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  section.intro .screen .screen-holder {
+    background-image: url("../img/dummy_2x.jpg");
+  }
 }
 
 @media (max-width:53.125em) {
@@ -696,7 +692,6 @@ section.title-card p {
   margin-bottom: 0;
 }
 
-
 @media (max-width:1050px) {
   section.title-card {
     padding: 40px 0
@@ -725,9 +720,9 @@ section .title-card {
 }
 
 @media (min-width: 91.875em) {
-section .title-card {
-  padding: 75px 75px 75px 75px;
-}
+  section .title-card {
+    padding: 75px 75px 75px 75px;
+  }
 }
 
 @media (max-width:1050px) {
@@ -755,11 +750,12 @@ section.title-card .title-card h2 {
   max-width: 400px;
 }
 
-@media (max-width:53.125em) {  /* Up to 850px */
-section.title-card .title-card h2 {
-  margin-bottom: 1.875em; /* 30 px */
+@media (max-width:53.125em) {
+  /* Up to 850px */
+  section.title-card .title-card h2 {
+    margin-bottom: 1.875em;
+    /* 30 px */
   }
-
 }
 
 section.title-card .title-card h3 {
@@ -767,7 +763,8 @@ section.title-card .title-card h3 {
 }
 
 @media (max-width: 71.875em) section.title-card .title-card {
-  max-width: 34.375em; /* 550px */
+  max-width: 34.375em;
+  /* 550px */
 }
 
 @media (max-width:1050px) {
@@ -839,7 +836,6 @@ div.progress {
   margin-bottom: calc(-.8em - 1vw);
 }
 
-
 @media (max-width:1050px) {
   .intro .logo-overlay {
     right: calc(.8em + 1vw);
@@ -849,27 +845,28 @@ div.progress {
 @media (max-height: 730px) {
   .intro .logo-overlay {
     height: calc(9em + 5vw + 5vh);
-}
+  }
 }
 
-
-@media (max-width:53.125em) {  /* Up to 850px */
+@media (max-width:53.125em) {
+  /* Up to 850px */
   .intro .logo-overlay {
     display: none;
   }
-
 }
-
 
 article {
   padding: 52px;
   background-color: #F9FAFB;
 }
+
 /* */
 
-@media (max-width:53.125em) {  /* Up to 850px */
+@media (max-width:53.125em) {
+  /* Up to 850px */
   article {
-    padding: 1.875em; /* 30px */
+    padding: 1.875em;
+    /* 30px */
   }
 }
 
@@ -879,7 +876,8 @@ article p {
   letter-spacing: .01em;
 }
 
-@media (max-width:53.125em) {  /* Up to 850px */
+@media (max-width:53.125em) {
+  /* Up to 850px */
   article p {
     letter-spacing: .05em;
   }
@@ -900,20 +898,22 @@ article h3 {
 }
 
 @media screen and (min-width: 100.000em) {
-    article h3 {
-      font-family: 'Abhaya Libre', serif;
-      font-size: 2em;
-      font-weight: 400;
-      letter-spacing: -.5px;
-      line-height: 1.28;
-      margin-bottom: 26px;
-      color: #22222A;
-    }
+  article h3 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 2em;
+    font-weight: 400;
+    letter-spacing: -.5px;
+    line-height: 1.28;
+    margin-bottom: 26px;
+    color: #22222A;
+  }
 }
 
-@media (max-width:53.125em) {  /* Up to 850px */
+@media (max-width:53.125em) {
+  /* Up to 850px */
   article h3 {
-    font-size: 1.938em; /* 31px */
+    font-size: 1.938em;
+    /* 31px */
   }
 }
 
@@ -932,20 +932,19 @@ sup {
   margin-right: 0.24em;
   margin-bottom: 0;
   line-height: 1;
- display: block;
-float: left;
-font-size: 5.05em;
+  display: block;
+  float: left;
+  font-size: 5.05em;
 }
 
 @supports (initial-letter) {
-  .sidebar { float: left; }
+  .sidebar {
+    float: left;
+  }
 }
-
 
 section.intro h3 {
   color: rgba(255, 255, 255, 1);
-
-
 }
 
 .acorn img {
@@ -958,7 +957,7 @@ section.intro h3 {
 }
 
 article h4 {
-  font-family: 'Chivo', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   line-height: 1.7;
   letter-spacing: none;
   font-weight: bold;
@@ -985,7 +984,6 @@ article a:hover {
   border-bottom-color: rgba(34, 34, 42, .7);
   transition: .2s;
 }
-
 
 article sup a {
   border-bottom: none;
@@ -1025,9 +1023,11 @@ article sup a {
 }
 
 /* tabbed containers */
+
 .tab-menu ul {
   text-align: right;
   margin-top: 1.625em;
+  margin-bottom: 0;
 }
 
 .tab-menu li {
@@ -1036,25 +1036,29 @@ article sup a {
 
 .tab-menu li:first-child {
   float: left;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 11px;
 }
 
 .tab-menu a {
   border-bottom: none;
 }
 
-@media (max-width:53.125em) {  /* Up to 850px */
+@media (max-width:53.125em) {
+  /* Up to 850px */
   .tab-menu li:first-child {
     font-size: 0.625em;
   }
-
 }
 
 /* panel styles */
+
 .panel {
   border: 1px solid red;
 }
 
 /* colours */
+
 .color-dark {
   background-color: #22222A;
 }
@@ -1077,13 +1081,13 @@ article sup a {
 }
 
 #story-notes p {
-    margin-bottom: 15px;
-    margin-top: 0;
+  margin-bottom: 15px;
+  margin-top: 0;
 }
 
 #story-notes h5 {
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    margin-top: 30px;
-  }
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
