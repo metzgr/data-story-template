@@ -928,14 +928,28 @@ article h3 {
 
 sup {
   font-size: 60%;
-}
-
-article a sup {
-
   border-bottom: none;
 }
 
+/* Dropcap */
+
+.opener p:first-of-type::first-letter {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 500;
+  color: #7EC255;
+  color: #22222A;
+  margin-right: 0.24em;
+  margin-bottom: 0;
+  line-height: 1;
+ display: block;
+float: left;
+font-size: 5.05em;
 }
+
+@supports (initial-letter) {
+  .sidebar { float: left; }
+}
+
 
 section.intro h3 {
   color: rgba(255, 255, 255, 1);
@@ -992,7 +1006,7 @@ article sup a {
   height: 300px;
 }
 
-.research-citation {
+.more-info {
   cursor: pointer;
   border-bottom: 1px dotted #31515f;
   border-bottom-width: 1px;
@@ -1002,7 +1016,7 @@ article sup a {
   border-bottom-left-radius: 4px;
 }
 
-.research-citation img {
+.more-info img {
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
@@ -1063,3 +1077,28 @@ article sup a {
 .color-white {
   background-color: #ffffff;
 }
+
+#story-notes {
+  margin-top: 90px;
+  margin-bottom: 52px;
+}
+
+#story-notes hr {
+  opacity: .6;
+}
+
+#story-notes :not(sup) {
+  font-size: 13px;
+}
+
+#story-notes p {
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+#story-notes h5 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-top: 30px;
+  }
