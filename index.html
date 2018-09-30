@@ -53,6 +53,16 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script src="assets/js/loader.js"></script>
+  <script>
+
+  document.getElementById("hero").classList.add('js-loading');
+
+  window.addEventListener("load", showPage);
+
+  function showPage() {
+    document.body.classList.remove('js-loading');
+  }
+</script>
 
   <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -89,7 +99,7 @@
 
   <main class="mod_scale_fluid">
 
-    <section class="intro">
+    <section id="hero" class="intro">
       <div class="wrap">
 
         <div id="site__bg"></div>

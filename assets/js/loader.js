@@ -16,17 +16,3 @@ window.addEventListener("load", function () {
     setTimeout(function () { document.body.removeChild(loader_wrapper) }, 1000);
 
 });
-
-$(document).ready(function() {
-
-    $('body').addClass('loaded');
-
-});
-
-document.body.classList.add('js-loading');
-
-window.addEventListener("load", showPage, false);
-
-function showPage() {
-  document.body.classList.remove('js-loading');
-}
