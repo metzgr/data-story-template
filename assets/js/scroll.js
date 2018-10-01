@@ -10,7 +10,9 @@ const headerTag = document.querySelector("header")
 document.addEventListener("scroll", function () {
   const pixels = window.pageYOffset
 
-  pixelsTag.innerHTML = pixels
+  if (pixelsTag) {
+    pixelsTag.innerHTML = pixels
+  }
 })
 
 // when we scroll the page, make a progress bar that track of the distance
@@ -32,9 +34,12 @@ document.addEventListener("scroll", function () {
 
   sections.forEach(section => {
     if (section.offsetTop - 60 <= pixels) {
-      clientTag.innerHTML = section.getAttribute("data-client")
-      pageTag.innerHTML = section.getAttribute("data-page")
-
+      if (clientTag) {
+        clientTag.innerHTML = section.getAttribute("data-client")
+      }
+      if (pageTag) {
+        pageTag.innerHTML = section.getAttribute("data-page")
+      }
       if (section.hasAttribute("data-is-dark")) {
         headerTag.classList.add("white")
         progressTag.classList.add("white")
