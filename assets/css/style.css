@@ -889,7 +889,7 @@ article p:first-child {
 
 article h3 {
   font-family: 'Abhaya Libre', serif;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -.5px;
   margin-bottom: 26px;
   color: #22222A;
@@ -952,7 +952,7 @@ section.intro h3 {
 }
 
 article h4 {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Chivo', sans-serif;
   line-height: 1.7;
   letter-spacing: none;
   font-weight: bold;
@@ -1031,7 +1031,7 @@ article sup a {
 
 .tab-menu li:first-child {
   float: left;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 12px;
 }
 
