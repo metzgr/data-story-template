@@ -30,7 +30,7 @@ ol, ul {
 }
 
 blockquote, q {
-  quotes: none
+  quotes: none;
 }
 
 blockquote:after, blockquote:before, q:after, q:before {
@@ -889,7 +889,7 @@ article p:first-child {
 
 article h3 {
   font-family: 'Abhaya Libre', serif;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -.5px;
   margin-bottom: 26px;
   color: #22222A;
@@ -1032,7 +1032,7 @@ article sup a {
 .tab-menu li:first-child {
   float: left;
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .tab-menu a {
@@ -1073,6 +1073,8 @@ article sup a {
 
 #story-notes :not(sup) {
   font-size: 13px;
+
+    color: rgba(34, 34, 42, .6);
 }
 
 #story-notes p {
@@ -1085,6 +1087,9 @@ article sup a {
   text-transform: uppercase;
   margin-bottom: 15px;
   margin-top: 30px;
+  font-size: 13px;
+
+    color: rgba(34, 34, 42, .6);
 }
 
 /* Preloader */

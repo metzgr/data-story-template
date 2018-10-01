@@ -19,7 +19,6 @@ perspective effects (not including the modals and the overlay).
 }
 
 .container {
-	background: #e74c3c;
 	min-height: 100%;
 }
 
@@ -72,18 +71,31 @@ perspective effects (not including the modals and the overlay).
 	background: #F9FAFB;
 	position: relative;
 	margin: 0 auto;
+
+		font-size: 12px;
 }
 
-.md-content h3 {
-	font-size: 12px;
-  line-height: 16px;
-  letter-spacing: .1em;
-  color: rgba(34, 34, 42, 1);
-	text-transform: uppercase;
-	text-align: left;
+.md-content > div h6 {
+	font-family: 'Chivo', sans-serif;
+	font-size: 13px;
+	line-height: 1.4;
+  letter-spacing: .01em;
+	font-style: italic;
+	color: rgba(34,34,34,.6);
 	margin:0;
 	margin-top: 15px;
 	margin-bottom: 40px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #7EC255;
+
+}
+
+.md-content > div img {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	height: 17px;
+	opacity: .6;
 }
 
 .md-content > div {
@@ -93,21 +105,20 @@ perspective effects (not including the modals and the overlay).
 	font-size: 1.15em;
 }
 
-.md-content > div p {
+.md-content > div blockquote {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 18px;
 	margin-top: 27px;
-	font-family: 'Abhaya Libre', serif;
-	font-size: 24px;
-	letter-spacing: -.5px;
-	line-height: 1.25;
+	font-family: 'Chivo', sans-serif;
+	font-size: 15px;
+	line-height: 1.7;
+  letter-spacing: .01em;
 	color: #656569;
 }
 
 .md-content > div i {
-	color: #7EC255;
-	font-size: 30px;
+	font-size: 17px;
 	display:inline-block;
     text-align: center;
 		width: 100%;
