@@ -76,17 +76,18 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-content > div h6 {
-  line-height: 16px;
-  letter-spacing: .1em;
-  color: rgba(34, 34, 42, 1);
-	text-transform: uppercase;
-	text-align: left;
+	font-family: 'Chivo', sans-serif;
+	font-size: 13px;
+	line-height: 1.4;
+  letter-spacing: .01em;
+	font-style: italic;
+	color: rgba(34,34,34,.6);
 	margin:0;
 	margin-top: 15px;
 	margin-bottom: 40px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #7EC255;
-	font-size: 14px;
+
 }
 
 .md-content > div img {
@@ -109,7 +110,7 @@ perspective effects (not including the modals and the overlay).
 	padding: 0;
 	margin-bottom: 18px;
 	margin-top: 27px;
-	font-family: 'Chivo', serif;
+	font-family: 'Chivo', sans-serif;
 	font-size: 15px;
 	line-height: 1.7;
   letter-spacing: .01em;
