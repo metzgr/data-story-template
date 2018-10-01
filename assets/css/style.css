@@ -30,7 +30,7 @@ ol, ul {
 }
 
 blockquote, q {
-  quotes: none
+  quotes: none;
 }
 
 blockquote:after, blockquote:before, q:after, q:before {
