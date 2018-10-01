@@ -1217,3 +1217,8 @@ article sup a {
     /*-webkit-transition: all 0.3s 1s ease-out;
     /*transition: all 0.3s 1s ease-out; */
 }
+
+.chart-area iframe {
+  width: 100%;
+  min-height: 300px;
+}
