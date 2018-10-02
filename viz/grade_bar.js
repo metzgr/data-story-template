@@ -263,8 +263,10 @@
 
             }
 
+
             //set up interactive funcaitonality 
             var div = d3.select('#chart1_content_1').select("svg").append("div")
+
                 .attr("class", "tooltip")
                 .style("opacity", 0);
 
@@ -302,5 +304,6 @@
         }
     }
 
-
 })();
+
+

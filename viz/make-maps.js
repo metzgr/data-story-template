@@ -51,12 +51,12 @@
         return yPosition;
     }
 
-    let map1_top = getPosition(document.getElementById("pie_chart"));
+    let map1_top = getPosition(document.getElementsByClassName("map_containers")[0]);
 
     function scrolled() {
         let scrollDistance = window.pageYOffset;
 
-        if (scrollDistance > map1_top) {
+        if (scrollDistance > (map1_top * 0.8) ) {
             if (readInDataAsStringFired === false) {
                 readInDataAsString(-1);
             }
