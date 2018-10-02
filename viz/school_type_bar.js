@@ -2,9 +2,13 @@
 (function () { // write everything inside the bracket of this function
 
     makeChart();
+    window.addEventListener("resize",makeChart);
 
     function makeChart() {
+        d3.select('#chart2_content_1').select("svg").remove();
 
+        div_width = parseInt(d3.select('#chart2_content_1').style('width'))
+        
         //set the margin attributes
         var margin = {
                 top: 35,
@@ -12,7 +16,7 @@
                 bottom: 25,
                 left: 135
             },
-            width = 500,
+            width = div_width-margin.left -margin.right,
             height = 236;
 
 
@@ -44,7 +48,7 @@
         }
 
         //svg is the standard name for the d3 bar chart graphic, this creates it and sets some attributes, append appends to it
-        var svg = d3.select("#school_type_bar").append("svg")
+        var svg_st = d3.select("#school_type_bar").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -59,7 +63,7 @@
             }));
 
             //append the bars to the chart
-            var barBackground = svg.selectAll(".bar")
+            var barBackground = svg_st.selectAll(".bar")
                 .data(data)
                 .enter().append("rect")
                 .attr("class", "barBackground")
@@ -78,7 +82,7 @@
                 .attr("width", width);
 
             //append the bars to the chart
-            var bar = svg.selectAll(".bar")
+            var bar = svg_st.selectAll(".bar")
                 .data(data)
                 .enter().append("rect")
                 .attr("class", "bar")
@@ -101,7 +105,7 @@
                 .on('mouseout', mouseout);
 
             //append the text to the chart
-            svg.selectAll("text")
+            svg_st.selectAll("text")
                 .data(data)
                 .enter().append("text")
                 .text(function (d) {
@@ -123,12 +127,20 @@
                 })
                 .attr("text-anchor", "right")
                 .style("font-size", "13px")
-                .style("font-family", "Chivo-Bold")
+                .style("font-family", "Chivo")
+                .attr("font-weight", function(d){
+                if (d.characteristic == "Magnet schools")
+                            return 700;
+                        else {
+                            return 600;
+                        };
+                    }
+                    )
                 .style("fill", "#616161");
 
 
             //append the y axis
-            var appendYAxis = svg.append("g")
+            var appendYAxis = svg_st.append("g")
                 .attr("class", "yAxis")
                 .call(yAxis)
                 .selectAll("text")
@@ -136,10 +148,10 @@
                 .attr("dx", "-.5em")
                 .attr("dy", ".4em")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo-Regular")
+                .style("font-family", "Chivo")
                 .style("fill", "#474747");
 
-            var new_axis = svg.append("line")
+            var new_axis = svg_st.append("line")
                 .attr("x1", 0)
                 .attr("y1", 5)
                 .attr("x2", 0)
@@ -147,7 +159,7 @@
                 .attr("stroke-width", 2)
                 .attr("stroke", "#2E2E2E");
 
-            var new_axis = svg.append("line")
+            var new_axis = svg_st.append("line")
                 .attr("x1", x(.79588))
                 .attr("y1", -5)
                 .attr("x2", x(.79588))
@@ -158,22 +170,22 @@
 
 
 
-            var annotation = svg.append("text")
+            var annotation = svg_st.append("text")
                 .attr("x", x(0))
                 .attr("y", -20)
                 .attr("text-anchor", "start")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo-Bold")
+                .style("font-family", "Chivo")
                 .style("fill", "#2e2e2e")
-                .style("font-weight", 600)
+                .style("font-weight", 700)
                 .text("% of 8th graders who could take Algebra I at...");
 
-            var annotation = svg.append("text")
+            var annotation = svg_st.append("text")
                 .attr("x", x(.75) + 60)
                 .attr("y", 255)
                 .attr("text-anchor", "end")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo-Regular")
+                .style("font-family", "Chivo")
                 .style("fill", "#2e2e2e")
                 .style("font-weight", 600)
                 .text("Overall 80% of 8th graders could take Algebra 1");
@@ -192,7 +204,7 @@
             }
 
             //set up interactive funcaitonality 
-            var div = d3.select("body").append("div")
+            var div = d3.select('#chart2_content_1').select("svg").append("div")
                 .attr("class", "tooltip")
                 .style("opacity", 0);
 

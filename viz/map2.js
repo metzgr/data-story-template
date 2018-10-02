@@ -1,6 +1,15 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
 
+
+  makeChart();
+    window.addEventListener("resize",makeChart);
+
+    function makeChart() {
+        d3.select('#chart6_content_1').select("pie_chart").remove();
+
+        div_width = parseInt(d3.select('#chart6_content_1').style('width'))
+
     var loader_appearance = {
         length: 10,
         radius: 20,
@@ -14,13 +23,13 @@
     var target = document.getElementById('map2_content'); // this <section> element ID is "map1_content" for map1
 
     //Width and height
-    //actual map size 937 x 627
-    var width = 937,
-        height = 580;
+
+      var width = div_width,
+        height = div_width * 2/3;
 
     //Define map projection
     var projection = albersUsaPr()
-        .scale(1200)
+        .scale(1200*div_width/940)
         .translate([width / 2, (height) / 2 - 15]);
     /* color scheme */
     var color = d3.scaleThreshold()
@@ -315,4 +324,5 @@
             }
         });
     }
+}
 })();

@@ -1,13 +1,25 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
+    makeChart();
+    window.addEventListener("resize",makeChart);
+
+    function makeChart() {
+        d3.select('#chart3_content_1').select("pie_chart").remove();
+
+        div_width = parseInt(d3.select('#chart3_content_1').style('width'))
 
     /* Set up basic graph appearance parameters*/
     var formatSum = d3.format(".1s");
 
+    var max_r = (div_width-40)/8;
+
+    //charts need atleast 50 radius for horizonal presentation, otherwise trigger vertical
+    
     var padding = 10;
 
     var radius = d3.scaleSqrt()
-        .range([0, 70]);
+        .range([0, max_r]);
+   
 
     var color = d3.scaleOrdinal()
         .domain([0, 1])
@@ -68,10 +80,11 @@
         function multiple(d) {
             var r = radius(+d.number);
             var pie_svg = d3.select(this)
-                .attr("width", r * 2.1 + 30)
-                .attr("height", 280)
+                .attr("width", r * 2.2 + 30)
+                .attr("height",max_r*2 + 85 )
                 .append("g")
-                .attr("transform", "translate(" + (1.1 * r + 15) + "," + (170 - r) + ")");
+                .attr("transform", "translate(" + (1.1 * r + 15) + "," + ((max_r)*2 +20- r) + ")");
+
             pie_svg.selectAll(".arc")
                 .data(function (d) {
                     return pie(d.portions);
@@ -87,12 +100,12 @@
             pie_svg.append("text")
                 .attr("class", "pieTextTitle")
                 .attr("color", "white")
-                .style("font-family", "Chivo-Bold")
+                .style("font-family", "Chivo")
                 .attr("x", 0)
                 .attr("text-anchor", "middle")
                 .attr("fill", "#474747")
                 .attr("dy", function (d) {
-                    return radius(+d.number) * -1.2
+                    return radius(+d.number)  *-1 -8
                 })
                 .text(function (d) {
                     return d.characteristic
@@ -104,17 +117,17 @@
                 .attr("x", 0)
                 .attr("y", r + 25)
                 .attr("text-anchor", "middle")
-                .style("font-family", "Chivo-Black")
+                .style("font-family", "Chivo")
                 .text(function (d) {
                     return d3.format(",")(Math.round(d.portions[1].piePortion)) + "%";
                 })
                 .append("tspan")
                 .text(" of ")
-                .style("font-family", "Chivo-Regular")
+                .style("font-family", "Chivo")
                 .append("tspan").
             text(function (d) {
                 return rounding(d);
-            }).style("font-family", "Chivo-Black");
+            }).style("font-family", "Chivo");
 
             pie_svg.append("text")
                 .attr("class", "pieText")
@@ -122,7 +135,7 @@
                 .attr("dy", function (d) {
                     return r + 44
                 })
-                .style("font-family", "Chivo-Regular")
+                .style("font-family", "Chivo")
                 .attr("text-anchor", "middle")
                 .text(function (d) {
                     if (d.characteristic == "At suburban schools") {
@@ -146,7 +159,8 @@
                         return "";
                     }
                 })
-                .style("font-family", "Chivo-Regular");
+                .style("font-family", "Chivo");
         }
     });
+}
 })();
