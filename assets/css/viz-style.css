@@ -130,7 +130,7 @@
 /* --- */
 
 #pie_chart .pie {
-    padding: 0 20px 5px 20px;
+    padding: 0 0px 5px 0px;
 }
 
 #pie_chart svg {
@@ -138,9 +138,6 @@
 
 }
 
-#pie_chart .legend {
-    vertical-align: top;
-}
 
 #pie_chart .pieTextTitle {
     font-family: 'Chivo', sans-serif;
@@ -313,7 +310,7 @@
     transform: translate(255px, 0px);
     color: transparent;
     text-shadow: 0 0 0 #22222a;
-    text-align: center;
+    text-align: left;
     display: inline-block;
     font-size: 8pt;
 }

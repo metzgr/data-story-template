@@ -1,6 +1,13 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
+  
+  makeChart();
+    window.addEventListener("resize",makeChart);
 
+    function makeChart() {
+        d3.select('#chart5_content_1').select("pie_chart").remove();
+
+        div_width = parseInt(d3.select('#chart5_content_1').style('width'))
     //set the margin attributes
     var margin = {
             top: 30,
@@ -8,7 +15,7 @@
             bottom: 20,
             left: 215
         },
-        width = 500,
+        width = div_width- margin.left-margin.right,
         height = 400 - margin.top - margin.bottom;
 
 
@@ -94,6 +101,8 @@
             }) //align bar with proper y axis characteristic
             .attr("width", width);
 
+            console.log(width);
+
         //append the bars to the chart
         var bar = svg.selectAll(".bar")
             .data(data)
@@ -160,7 +169,7 @@
             })
             .attr("text-anchor", "right")
             .style("font-size", "11px")
-            .style("font-family", "Chivo-Regular")
+            .style("font-family", "Chivo")
             .style("fill", "#616161");
 
 
@@ -177,30 +186,22 @@
             })
             .attr("text-anchor", "end")
             .style("font-size", "14px")
-            .style("font-family", "Chivo-Regular")
+            .style("font-family", "Chivo")
             .style("fill", "#2e2e2e")
             .text(function (d) {
                 return d.characteristic;
             });
 
 
-        //append the x axis label
-        var annotation = svg.append("text")
-            .attr("x", x(0.06 * totalLineData))
-            .attr("y", -15)
-            .attr("text-anchor", "middle")
-            .style("font-size", "14px")
-            .style("font-family", "Chivo-Bold")
-            .style("fill", "#2e2e2e")
-            .text(Math.round(totalLineData * 100));
+    
         var annotation = svg.append("text")
             .attr("x", x(totalLineData))
             .attr("y", -15)
             .attr("text-anchor", "middle")
             .style("font-size", "14px")
-            .style("font-family", "Chivo-Regular")
+            .style("font-family", "Chivo")
             .style("fill", "#2e2e2e")
-            .text("% of 8th graders took Algebra I");
+            .text("24% of 8th graders took Algebra I");
 
         /* custom y axis lines for two seperate graphs */
         var axisLineData = [{
@@ -275,12 +276,12 @@
 
             div.transition().duration(100)
                 .style("opacity", .9);
-            div.html("<span style='font-family: Chivo-Regular; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+            div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                     "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='font-family: Chivo-Regular; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                    "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                     d3.format(",.0f")(d.percentageEnrolledInAlgebra_orig) +
                     "% took Algebra I in 8th grade</span><br/>" +
-                    "<span style='font-family: Chivo-Regular; line-height: 15px;'>" +
+                    "<span style='font-family: Chivo; line-height: 15px;'>" +
                     d3.format(",.0f")(d.total * d.percentageEnrolledInAlgebra) + " out of " + d3.format(",.0f")(d.total) +
                     " students</span>")
                 .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
@@ -314,4 +315,5 @@
         d.percentageEnrolledInAlgebra = +d.percentageEnrolledInAlgebra;
         return d;
     }
+}
 })();

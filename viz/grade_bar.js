@@ -2,17 +2,34 @@
 (function () { // write everything inside the bracket of this function
 
     makeChart();
+    window.addEventListener("resize", makeChart);
 
     function makeChart() {
+        //remove old chart 
+        d3.select('#chart1_content_1').select("svg").remove();
+         div_width = parseInt(d3.select('#chart1_content_1').style('width'))
+
+        //temporary x for margin calc
+        var temp_x = d3.scaleLinear()
+            .domain([1.0, 0])
+            .range([div_width-80, 0]);
+
+
+         //calculate necessary right margin to maximzie chart space while ensuring enough annotation space
+         if ((temp_x(.3))<120){
+            margin_right = 200 -temp_x(.3)
+         } else {
+         margin_right = 80
+        }
 
         //set the margin attributes
         var margin = {
                 top: -10,
-                right: 80,
+                right: margin_right,
                 bottom: -35,
                 left: 0
             },
-            width = 560 - margin.left - margin.right,
+            width = div_width- margin.left - margin.right,
             height = 280;
 
         //set the appropriate bar padding
@@ -46,7 +63,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
+         
 
         var dataFile = "viz/data/grade.txt";
 
@@ -126,9 +143,9 @@
                 .style("font-weight", 600)
                 .style("font-family", function (d) {
                     if (d.characteristic == "8th grade") {
-                        return "Chivo-Black";
+                        return "Chivo";
                     } else {
-                        return "Chivo-Bold";
+                        return "Chivo";
                     }
                 })
                 .style("fill", function (d) {
@@ -136,6 +153,12 @@
                         return "#474747";
                     } else {
                         return "#616161";
+                    }
+                })       .style("font-weigth", function (d) {
+                    if (d.characteristic == "8th grade") {
+                        return 700;
+                    } else {
+                        return  600;
                     }
                 });
 
@@ -149,7 +172,7 @@
                 .attr("dx", ".2em")
                 .attr("dy", "-1.5em")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo-Regular")
+                .style("font-family", "Chivo")
                 .style("fill", "#2e2e2e")
 
             //append the custom annotations
@@ -158,9 +181,9 @@
                 .attr("y", 25)
                 .attr("text-anchor", "start")
                 .style("font-size", "15px")
-                .style("font-family", "Chivo-Bold")
+                .style("font-family", "Chivo")
                 .style("fill", "#2e2e2e")
-                .style("font-weight", 600)
+                .style("font-weight", 700)
                 .text("% of schools offering Algebra I in...");
 
             const type = d3.annotationLabel
@@ -169,13 +192,13 @@
                     connector: {
                         type: "curve",
                         points: [
-                            [60, -30]
+                            [x(.1), -30]
                         ]
                     },
                     className: "showAnnotation",
-                    x: 310,
+                    x: x(.65),
                     y: 55,
-                    dx: 97,
+                    dx: x(.88)-x(.65),
                     dy: -30
                 },
                 {
@@ -187,7 +210,7 @@
                         lineType: "none"
                     },
                     className: "showAnnotation",
-                    x: 420,
+                    x: x(.9),
                     y: 15,
                 },
                 {
@@ -199,20 +222,20 @@
                         lineType: "none"
                     },
                     className: "showAnnotation2",
-                    x: 380,
+                    x: x(.8),
                     y: 185,
                 },
                 {
                     connector: {
                         type: "curve",
                         points: [
-                            [20, 10]
+                            [(x(.8)-x(.65))/2, 10]
                         ]
                     },
                     className: "showAnnotation",
-                    x: 315,
+                    x: x(.65),
                     y: 205,
-                    dx: 60,
+                    dx: x(.8)-x(.65),
                     dy: 0
                 }
             ].map(function (d) {
@@ -240,24 +263,29 @@
 
             }
 
-            //set up interactive funcaitonality
-            var div = d3.select("body").append("div")
+
+            //set up interactive funcaitonality 
+            var div = d3.select('#chart1_content_1').select("svg").append("div")
+
                 .attr("class", "tooltip")
                 .style("opacity", 0);
 
             function mouseover(d) {
                 div.transition().duration(100)
                     .style("opacity", .9);
-                div.html("<span style='font-family: Chivo-Regular; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+                div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                         "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                        "<span style='font-family: Chivo-Regular; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                        "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                         d3.format(",.0f")(d.percentageEnrolledInAlgebra * 100) +
                         "% of schools offered Algebra I</span><br/>" +
-                        "<span style='font-family: Chivo-Regular; line-height: 15px;'>" +
+                        "<span style='font-family: Chivo; line-height: 15px;'>" +
                         d3.format(",.0f")(d.n_sch_w_alg) + " out of " + d3.format(",.0f")(d.total) + " schools</span>")
-                    .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
-                    .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
+            .style("left", "10px")
+                .style("top",  "10px");
             }
+                //    .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
+            //         .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
+            // }
 
 
 
@@ -277,3 +305,5 @@
     }
 
 })();
+
+
