@@ -63,8 +63,6 @@
         }
     }
 
-    window.onscroll = function () {
-        scrolled();
-    };
+    window.addEventListener('scroll', scrolled);
 
 })();
