@@ -549,6 +549,10 @@ section.intro .wrap {
   max-height: 40.625em
 }
 
+.map-area .wrap {
+  height: calc(100vh - 300px);
+}
+
 @media (max-width:1050px) {
   section.intro {
     padding: 40px 0
