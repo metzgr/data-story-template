@@ -193,9 +193,11 @@
 
 
             //Move the hover over as needed
+             total_width = parseInt(d3.select('body').style('width'))
+
             function position_tip(x, y) {
-                if (x > (50 + width / 2)) {
-                    x = d3.max(x - 500, 140) //move tooltip to left of mouse for elements in the right of page
+                if (x > (50 + total_width / 2)) {
+                    x = d3.max(x - total_width, 140) //move tooltip to left of mouse for elements in the right of page
                 }
                 if (y > height / 2) {
                     y = y - 125
@@ -204,22 +206,20 @@
             }
 
             //set up interactive funcaitonality 
-            var div = d3.select('#chart2_content_1').select("svg").append("div")
-                .attr("class", "tooltip")
-                .style("opacity", 0);
+            var div= d3.select("body").append("div").attr("class", "grade_tooltip").style("opacity", .9);
 
             function mouseover(d) {
                 div.transition().duration(100)
                     .style("opacity", .9);
-                div.html("<span style='font-family: Chivo-Regular; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+                div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                         "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                        "<span style='font-family: Chivo-Regular; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                        "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                         d3.format(",.0f")(d.percentageEnrolledInAlgebra * 100) +
                         "% could take Algebra I in 8th grade</span><br/>" +
-                        "<span style='font-family: Chivo-Regular; line-height: 16px;'>" +
+                        "<span style='font-family: Chivo; line-height: 16px;'>" +
                         d3.format(",.0f")(d.n_sch_w_alg) + " out of " + d3.format(",.0f")(d.total) + " students</span>")
-                    .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
-                    .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
+            .style("left",  (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
+                .style("top",  (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
             }
 
             function mouseout(d) {

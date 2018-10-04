@@ -20,11 +20,11 @@
 }
 
 /*attributes for the tip to show during a hover over of a bar*/
-#grade_bar div.tooltip {
+div.grade_tooltip {
     position: absolute;
     text-align: left;
-    width: 223px;
-    height: 80px;
+    width: 300px;
+    height: 100px;
     padding: 2px;
     margin-left: 20px;
     font-size: 12px;
@@ -86,7 +86,7 @@
 }
 
 /*attributes for the tip to show during a hover over of a bar*/
-#school_type_bar div.tooltip {
+div.type_tooltip {
     position: absolute;
     text-align: left;
     width: 245px;
@@ -170,11 +170,11 @@
 /* --- */
 
 /*Set up hover over characteristics */
-#map1 div.tooltip {
+div.map1_tooltip {
     position: absolute;
     text-align: left;
     width: 400px;
-    height: 100px;
+    height: 130px;
     padding: 2px;
     margin-left: 20px;
     font: 14px sans-serif;
@@ -380,11 +380,11 @@
 }
 
 /*attributes for the tip to show during a hover over of a bar*/
-#eth_gen_bar div.tooltip {
+div.eth_gen_tooltip {
     position: absolute;
     text-align: left;
     width: 250px;
-    height: 75px;
+    height: 100px;
     padding: 2px;
     margin-left: 20px;
     font-size: 12px;
@@ -447,11 +447,11 @@
 /* --- */
 
 /*Set up hover over characteristics */
-#map2 div.tooltip {
+div.map2_tooltip {
     position: absolute;
     text-align: left;
     width: 400px;
-    height: 100px;
+    height: 130px;
     padding: 2px;
     margin-left: 20px;
     font: 14px sans-serif;
@@ -462,7 +462,6 @@
     border: 0px;
     border-radius: 2px;
     pointer-events: none;
-    opacity: .9;
 }
 
 #map2 p.title {
