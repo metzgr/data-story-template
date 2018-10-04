@@ -200,10 +200,9 @@ div.map1_tooltip {
 }
 
 #map1 .wrapper {
-    width: 937px;
-    height: 170px;
     padding-bottom: 0px;
     margin: 52px auto;
+    margin-bottom: 0;
 }
 
 /*Set up instances of legenditems with colors matching the d3 color scale*/
