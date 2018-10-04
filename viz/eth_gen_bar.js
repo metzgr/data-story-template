@@ -1,13 +1,14 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
   
-  makeChart();
-    window.addEventListener("resize",makeChart);
+    makeChart();
+    //window.addEventListener("resize",makeChart);
 
     function makeChart() {
-        d3.select('#chart5_content_1').select("pie_chart").remove();
+        //d3.select('#chart5_content_1').select("svg").remove();
 
-        div_width = parseInt(d3.select('#chart5_content_1').style('width'))
+    div_width = parseInt(d3.select('#chart5_content_1').style('width'))
+    console.log("here")
     //set the margin attributes
     var margin = {
             top: 30,
@@ -218,6 +219,7 @@
                 'x': 0,
                 'y': 7
             },
+
             {
                 'x': 0,
                 'y': 9
@@ -249,9 +251,10 @@
         var path = svg.append('path').attr("class", "yAxisLine3").attr('d', line(axisLineData3));
 
         //move tooltip to left of mouse for elements in the right of page
+           total_width = parseInt(d3.select('body').style('width'))
         function position_tip(x, y) {
-            if (x > (50 + width / 2)) {
-                x = d3.max(x - 500, 140)
+            if (x > (50 + total_width / 2)) {
+                x = d3.max(x - total_width, 140)
             }
             if (y > height / 2) {
                 y = y - 75
@@ -261,9 +264,9 @@
         }
 
         //set up interactive funcaitonality 
-        var div = d3.select("#eth_gen_bar").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
+        var div = d3.select("body").append("div")
+            .attr("class", "eth_gen_tooltip")
+            .style("opacity", .9);
 
         function mouseover(d) {
             //highlight selected school types

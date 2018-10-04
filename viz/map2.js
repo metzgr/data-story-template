@@ -6,7 +6,7 @@
     window.addEventListener("resize",makeChart);
 
     function makeChart() {
-        d3.select('#chart6_content_1').select("pie_chart").remove();
+        d3.select('#chart6_content_1').select("svg").remove();
 
         div_width = parseInt(d3.select('#chart6_content_1').style('width'))
 
@@ -36,10 +36,7 @@
         .domain([0.01, 25, 50, 75, 99.99])
         .range(["#C1E7F2", "#74CAE2", "#2EB4E7", "#099ACC", "#0883A0", "#046B99"]);
 
-    //set up interactive functionality for tooltip
-    var div = d3.select("#map2").append("div")
-        .attr("class", "tooltip")
-        .style("display", "none");
+
 
     var formatDecimalComma = d3.format(",");
 
@@ -76,9 +73,9 @@
             return formatDecimalComma(+d) + " students";
         }
     }
-
+    total_width = parseInt(d3.select('body').style('width'))
     function position_tip(x, y) {
-        if (x > width / 2) {
+        if (x > total_width / 2) {
             x = x - 450; //move tooltip to left of mouse for elements in the right of page
         }
         if (y > height / 2) {
@@ -94,6 +91,24 @@
             }
         }
     }
+
+
+   //set up interactive functionality for tooltip
+    // get the correct container for map1
+    var div2 = d3.select("body").append("div")
+        .attr("class", "map2_tooltip").style("opacity", .9);
+
+    function mouseover(d) {
+        //highlight selected school district 
+        d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
+        div2.transition().duration(100)
+            .style("display", "inline-block");
+        div2.html(hoverText(d))
+            .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
+            .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
+    }
+
+
 
     function hoverText(d) {
         if (d.properties.tbl4pct_alg == null) {
@@ -124,21 +139,9 @@
         }
     }
 
-    function mouseover(d) {
-        //highlight selected school district 
-        d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
-
-        div.transition().duration(100)
-            .style("display", "inline-block");
-        div.html(hoverText(d))
-            .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
-            .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
-
-    }
 
     function mouseout(d) {
-        div.transition().duration(200).style("display", "none");
-
+        div2.transition().duration(200).style("opacity", 0);
         d3.select(this).style('stroke', 'grey').style('stroke-width', ".15px");
     }
 

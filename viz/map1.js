@@ -6,7 +6,7 @@
     window.addEventListener("resize",makeChart);
 
     function makeChart() {
-        d3.select('#chart4_content_1').select("pie_chart").remove();
+        d3.select('#chart4_content_1').select("svg").remove();
 
         div_width = parseInt(d3.select('#chart4_content_1').style('width'))
 
@@ -29,7 +29,7 @@
 
     //Define map projection
     var projection = albersUsaPr()
-        .scale(1200 * div_width/937)
+        .scale(1200 * div_width/940)
         .translate([width / 2, (height) / 2 - 15]);
 
     /* color scheme */
@@ -37,11 +37,7 @@
         .domain([0.01, 25, 50, 75, 99.99])
         .range(["#C1E7F2", "#74CAE2", "#2EB4E7", "#099ACC", "#0883A0", "#046B99"]);
 
-    //set up interactive functionality for tooltip
-    // get the correct container for map1
-    var div = d3.select("#map1").append("div")
-        .attr("class", "tooltip")
-        .style("display", "none");
+ 
 
     var formatDecimalComma = d3.format(",");
 
@@ -78,10 +74,11 @@
         }
     }
 
-    //moves tooltip depending on x and y position in map
+    //moves tooltip depending on x and y position in map\
+    total_width = parseInt(d3.select('body').style('width'))
     function position_tip(x, y) {
-        if (x > width / 2) {
-            x = x - 450; //move tooltip to left of mouse for elements in the right of page
+        if (x > total_width / 2) {
+            x = x - total_width/2; //move tooltip to left of mouse for elements in the right of page
         }
         if (y > height / 2) {
             y = y - 150;
@@ -106,6 +103,13 @@
             .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
             .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
     }
+
+
+   //set up interactive functionality for tooltip
+    // get the correct container for map1
+    var div = d3.select("body").append("div")
+        .attr("class", "map1_tooltip").style("opacity", .9);
+
 
     function hoverText(d) {
         if (d.properties.tbl4pct_alg == null) {
