@@ -711,7 +711,7 @@ section.intro .screen .screen-holder {
 }
 
 section.title-card {
-  padding: 90px 0 0 0;
+  padding: 45px 0 0 0;
 }
 
 section.title-card p {
@@ -1077,7 +1077,7 @@ article sup a {
 }
 
 .tab-menu li:nth-child(2) {
-  margin-right: 4px;
+  margin-right: 3px;
   font-size: 1.063em;
   color: #22222A;
 }
@@ -1087,7 +1087,7 @@ article sup a {
 }
 
 .tab-menu li:nth-child(3) {
-  margin-right: 4px;
+  margin-right: 3px;
   font-size: 1.063em;
     color: #22222A;
     opacity: .6;

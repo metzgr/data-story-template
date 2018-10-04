@@ -337,7 +337,7 @@ div.map1_tooltip {
     fill: none;
     color: none;
     stroke: #22222a;
-    stroke-width: 1px;
+    stroke-width: 2px;
 }
 
 #map1 label {
