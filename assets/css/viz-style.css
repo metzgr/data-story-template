@@ -196,6 +196,7 @@ div.map1_tooltip {
     color: white;
     text-align: center;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 #map1 .wrapper {
@@ -256,7 +257,7 @@ div.map1_tooltip {
     list-style-type: none;
     font-family: 'Chivo', sans-serif;
     font-weight: 400;
-    padding-top: 20px;
+    padding-top: 0;
 }
 
 #map1 .legendItem li {
