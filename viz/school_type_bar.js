@@ -206,10 +206,11 @@
             }
 
             //set up interactive funcaitonality 
-            var div= d3.select("body").append("div").attr("class", "grade_tooltip").style("opacity", .9);
+            var div= d3.select("body").append("div")
+            .attr("class", "grade_tooltip").style("display","inline-block");
 
             function mouseover(d) {
-                div.transition().duration(100)
+                div.transition().duration(100).style("display","inline-block")
                     .style("opacity", .9);
                 div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                         "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
@@ -223,7 +224,7 @@
             }
 
             function mouseout(d) {
-                div.transition().duration(200).style("opacity", 0);
+                div.transition().duration(200).style("display","none");
 
             }
 

@@ -6,6 +6,7 @@
     window.addEventListener("resize",makeChart);
 
     function makeChart() {
+        console.log("make chart 2")
         d3.select('#chart6_content_1').select("svg").remove();
 
         div_width = parseInt(d3.select('#chart6_content_1').style('width'))
@@ -141,7 +142,7 @@
 
 
     function mouseout(d) {
-        div2.transition().duration(200).style("opacity", 0);
+        div2.transition().duration(200).style("display", "none");
         d3.select(this).style('stroke', 'grey').style('stroke-width', ".15px");
     }
 
