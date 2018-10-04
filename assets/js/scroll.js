@@ -86,7 +86,6 @@
   // shrink header when scroll
   // ---
 
-  // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
   let header = document.querySelector("header");
   let mainHome = document.querySelector(".main-home");
   // get a copy of the default edu title link
@@ -108,7 +107,7 @@
     linkList.appendChild(listItem);
   });
 
-  window.changeHeader = function () {
+  function changeHeader() {
     // three social icons
     let socialLinks = document.querySelectorAll(".header-content .social-links");
     // the default edu title link
@@ -122,33 +121,25 @@
         elm.style.lineHeight = "80px";
       });
       header.setAttribute("class", "shrinked");
-      if (eduLink) {
-        // if EDU link exist, remove it
-        eduLink.remove();
-      }
-      if (!linkListElem) {
-        // if list of links does not exit, append it
-        mainHome.appendChild(linkList);
-      }
+
+      // if EDU link exist, remove it
+      eduLink ? eduLink.remove() : null;
+      // if list of links does not exit, append it
+      !linkListElem ? mainHome.appendChild(linkList) : null;
     } else {
-      // expand the header (dictated by social links height)
       socialLinks.forEach(function (elm) {
+        // expand the header (dictated by social links height)
         elm.style.lineHeight = "120px";
       });
       header.setAttribute("class", "");
-      if (linkListElem) {
-        // if list of links exist, remove it
-        linkListElem.remove();
-      }
-      if (!eduLink) {
-        // if EDU link does not exist, append it
-        mainHome.appendChild(eduLinkClone);
-      }
+
+      // if list of links exist, remove it
+      linkListElem ? linkListElem.remove() : null;
+      // if EDU link does not exist, append it
+      !eduLink ? mainHome.appendChild(eduLinkClone) : null;
     }
   }
 
-  // call once on page load
-  changeHeader();
   window.addEventListener('scroll', changeHeader);
 
 

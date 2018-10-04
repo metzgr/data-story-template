@@ -367,7 +367,7 @@ div.header-content nav a:hover, div.header-content nav span:hover {
 
 div.header-content .close a, div.header-content nav a, div.header-content nav span {
   line-height: 120px;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 @media (max-width:53.125em) {
@@ -1249,7 +1249,7 @@ article sup a {
 
 header {
   height: 120px;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 header.shrinked {
