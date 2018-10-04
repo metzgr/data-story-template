@@ -1082,6 +1082,21 @@ article sup a {
   color: #22222A;
 }
 
+.map-area .tab-menu li:nth-child(2) {
+  color: #fff;
+}
+
+
+.map-area .tab-menu li:nth-child(3) {
+    color: #fff;
+    opacity: .6;
+}
+
+.map-area .tab-menu li:last-child {
+  color: #fff;
+  opacity: .6;
+}
+
 .tab-menu li:hover {
   opacity: 1;
 }
@@ -1288,6 +1303,11 @@ article sup a {
 }
 
 .chart-area iframe {
+  width: 100%;
+  min-height: 300px;
+}
+
+.map-area iframe {
   width: 100%;
   min-height: 300px;
 }
