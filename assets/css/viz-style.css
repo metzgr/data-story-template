@@ -477,8 +477,8 @@ div.map2_tooltip {
 }
 
 #map2 .wrapper {
-    width: 937px;
-    height: 170px;
+    height: calc(100vh - 300px);
+        width: auto;
     padding-bottom: 0px;
     /* padding-top: 0px; */
 }
