@@ -78,7 +78,7 @@
     total_width = parseInt(d3.select('body').style('width'))
     function position_tip(x, y) {
         if (x > total_width / 2) {
-            x = x - total_width/2; //move tooltip to left of mouse for elements in the right of page
+            x = x - 450; //move tooltip to left of mouse for elements in the right of page
         }
         if (y > height / 2) {
             y = y - 150;
@@ -190,7 +190,7 @@
             .data(districts.features)
             .enter()
             .append("path")
-            .style('stroke', "gray")
+            .style('stroke', "white")
             .style('stroke-width', ".15px")
             .attr("d", path)
             .attr("fill", get_fill)

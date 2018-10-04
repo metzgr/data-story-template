@@ -185,7 +185,7 @@
             .data(districts.features)
             .enter()
             .append("path")
-            .style('stroke', "gray")
+            .style('stroke', "white")
             .style('stroke-width', ".15px")
             .attr("d", path)
             .attr("fill", get_fill)
