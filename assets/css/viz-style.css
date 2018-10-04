@@ -202,6 +202,7 @@
     width: 937px;
     height: 170px;
     padding-bottom: 0px;
+    margin: 52px auto;
 }
 
 /*Set up instances of legenditems with colors matching the d3 color scale*/
@@ -255,7 +256,7 @@
     list-style-type: none;
     font-family: 'Chivo', sans-serif;
     font-weight: 400;
-    font-size: 10pt;
+    padding-top: 20px;
 }
 
 #map1 .legendItem li {
@@ -310,7 +311,7 @@
     transform: translate(255px, 0px);
     color: transparent;
     text-shadow: 0 0 0 #22222a;
-    text-align: left;
+    text-align: center;
     display: inline-block;
     font-size: 8pt;
 }
@@ -336,7 +337,7 @@
     fill: none;
     color: none;
     stroke: #22222a;
-    stroke-width: 2.7px;
+    stroke-width: 1px;
 }
 
 #map1 label {
