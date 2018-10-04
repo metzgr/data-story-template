@@ -202,26 +202,24 @@ div.map1_tooltip {
 #map1 .wrapper {
     padding-bottom: 0px;
     margin: 52px auto;
-    margin-bottom: 0;
+    margin-bottom:
 }
-
-/* 20BF55 possible green color */
 
 /*Set up instances of legenditems with colors matching the d3 color scale*/
 #map1 .legendItem input[id="oneHundred"]+label {
-    background: #2EB4E7;
+    background: #046B99;
 }
 
 #map1 .legendItem input[id="seventyFive"]+label {
-    background-color: #54C1EB;
+    background-color: #0883A0;
 }
 
 #map1 .legendItem input[id="fifty"]+label {
-    background: #7ACFEF;
+    background: #099ACC;
 }
 
 #map1 .legendItem input[id="twentyFive"]+label {
-    background: #A0DCF4;
+    background: #2EB4E7;
 }
 
 #map1 .legendItem input[id="zero"]+label {
@@ -229,11 +227,11 @@ div.map1_tooltip {
 }
 
 #map1 .legendItem input[id="none"]+label {
-    background: #ECF8FC;
+    background: #C1E7F2;
 }
 
 #map1 .legendItem input[id="missing"]+label {
-    background: #717D8A;
+    background: #909090;
     position: absolute;
 }
 
