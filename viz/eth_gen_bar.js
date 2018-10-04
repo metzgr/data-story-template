@@ -8,7 +8,7 @@
         //d3.select('#chart5_content_1').select("svg").remove();
 
     div_width = parseInt(d3.select('#chart5_content_1').style('width'))
-    console.log("here")
+
     //set the margin attributes
     var margin = {
             top: 30,
@@ -266,7 +266,7 @@
         //set up interactive funcaitonality 
         var div = d3.select("body").append("div")
             .attr("class", "eth_gen_tooltip")
-            .style("opacity", .9);
+               .style("display","inline-block");
 
         function mouseover(d) {
             //highlight selected school types
@@ -277,7 +277,7 @@
                     return tooltipColor(d.characteristic);
                 })
 
-            div.transition().duration(100)
+            div.transition().duration(100).style("display","inline-block")
                 .style("opacity", .9);
             div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                     "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
@@ -294,7 +294,7 @@
 
 
         function mouseout(d) {
-            div.transition().duration(200).style("opacity", 0);
+            div.transition().duration(200).style("display","none");
 
             d3.select(this)
                 .classed("active", false)

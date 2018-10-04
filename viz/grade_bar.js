@@ -274,7 +274,9 @@
 
             function mouseover(d) {
                 div.transition().duration(100)
+                .style("display","inline-block")
                     .style("opacity", .9);
+
                 div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                         "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
                         "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
@@ -285,14 +287,11 @@
             .style("left",  (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
                 .style("top",  (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
             }
-                //    .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
-            //         .style("top", (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");
-            // }
 
 
 
             function mouseout(d) {
-                div.transition().duration(200).style("opacity", 0);
+                div.transition().duration(200).style("display", "none");
 
             }
 
