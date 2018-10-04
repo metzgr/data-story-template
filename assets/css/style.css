@@ -130,7 +130,7 @@ body, h2 {
 
 body {
   font-family: "Chivo", Arial, sans-serif;
-  font-size: 1.125em;
+  font-size: 1.063em;
   letter-spacing: .05em;
   color: #656569;
   -webkit-tap-highlight-color: transparent;
@@ -348,9 +348,25 @@ div.header-content nav.main-home {
   margin: 0;
   font-size: 10px;
   line-height: 20px;
+  display: inline-block;
+  padding-right: 10px;
 }
 .main-home ul {
-  margin: 10px 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.active-nav:before {
+      content: ""; /* This is necessary for the pseudo element to work. */
+      display: block; /* This will put the pseudo element on its own line. */
+      margin: 0; /* This will center the border. */
+      width: 30px; /* Change this to whatever width you want. */
+      padding-bottom: 10px; /* This creates some space between the element and the border. */
+      border-top: 2px solid #7EC255; /* This creates the border. Replace black with whatever color you want. */\
+  }
+
+
+.active-nav a {
+  color: #22222A !important;
 }
 
 div.header-content nav a, div.header-content nav span {
@@ -427,7 +443,7 @@ div.header-content .close a, div.header-content nav a, div.header-content nav sp
 
 @media screen and (min-width: 100.000em) {
   .wrap {
-    max-width: 1400px;
+    max-width: 1450px;
   }
 }
 
@@ -700,6 +716,7 @@ section.title-card {
 
 section.title-card p {
   margin-bottom: 0;
+  font-size:   font-size: 1.063em;
 }
 
 @media (max-width:1050px) {
@@ -716,14 +733,27 @@ section.title-card p {
 
 section.title-card .wrap {
   display: block;
-  position: relative
+  position: relative;
+  height: calc(100vh);
+  background-image: url("../img/student-hero.jpg");
+  background-size: cover;
+  background-position: auto;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  section.title-card .wrap {
+    background-image: url("../img/student-hero_2x.jpg");"
+  }
+
+}
+
 
 section .title-card {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 46%;
+  max-width: 35.625em;
   background: #fff;
   z-index: 2;
   padding: 50px 50px 50px 50px;
@@ -833,7 +863,7 @@ div.progress {
   font-family: 'Abhaya Libre', serif;
   letter-spacing: -.5px;
   color: #fff;
-  line-height: calc(1.188em + 0.5vw);
+  line-height: calc(1.250em + 0.5vw);
   font-size: calc(2.250em + 1vw);
 }
 
@@ -893,8 +923,8 @@ article p {
   }
 }
 
-article p:first-child {
-  margin-top: 40px;
+.opener p:first-child {
+  margin-top: 45px;
 }
 
 article h3 {
@@ -910,7 +940,7 @@ article h3 {
 @media screen and (min-width: 100.000em) {
   article h3 {
     font-size: 2em;
-    line-height: 1.28;
+  line-height: calc(1.125em + 0.5vw);
   }
 }
 
@@ -934,12 +964,13 @@ sup {
   font-weight: 500;
   color: #7EC255;
   color: #22222A;
-  margin-right: 0.24em;
+  margin-right: 0.1em;
   margin-bottom: 0;
-  line-height: 1;
+  line-height: 0.1;
+  padding-top: 30px;
   display: block;
   float: left;
-  font-size: 5.05em;
+  font-size: 4.3em;
 }
 
 @supports (initial-letter) {
@@ -1043,6 +1074,29 @@ article sup a {
   float: left;
   font-family: 'Arial', sans-serif;
   font-size: 12px;
+}
+
+.tab-menu li:nth-child(2) {
+  margin-right: 4px;
+  font-size: 1.063em;
+  color: #22222A;
+}
+
+.tab-menu li:hover {
+  opacity: 1;
+}
+
+.tab-menu li:nth-child(3) {
+  margin-right: 4px;
+  font-size: 1.063em;
+    color: #22222A;
+    opacity: .6;
+}
+
+.tab-menu li:last-child {
+  font-size: 1.063em;
+  color: #22222A;
+  opacity: .6;
 }
 
 .tab-menu a {
@@ -1236,15 +1290,6 @@ article sup a {
 .chart-area iframe {
   width: 100%;
   min-height: 300px;
-}
-
-.active-nav {
-  background: #7EC255;
-  padding-left: 10px;
-}
-
-.active-nav a {
-  color: white !important;
 }
 
 header {
