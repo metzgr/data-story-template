@@ -360,13 +360,42 @@ div.header-content nav.main-home {
       display: block; /* This will put the pseudo element on its own line. */
       margin: 0; /* This will center the border. */
       width: 30px; /* Change this to whatever width you want. */
-      padding-bottom: 10px; /* This creates some space between the element and the border. */
-      border-top: 2px solid #7EC255; /* This creates the border. Replace black with whatever color you want. */\
+      padding-bottom: 0px; /* This creates some space between the element and the border. */
+      border-bottom: 2px solid #7EC255; /* This creates the border. Replace with whatever color you want. */\
+      -webkit-animation-name: fadein;
+      animation-name: fadein;
+      -webkit-animation-duration: .3s;
+      animation-duration: .3s
   }
 
 
 .active-nav a {
-  color: #22222A !important;
+  opacity: 1 !important;
+  line-height: 65px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  -webkit-animation-name: fadein;
+  animation-name: fadein;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s
+}
+
+@keyframes fadeinHalf {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: .6
+  }
+}
+
+.not-active-nav a {
+  line-height: 65px !important;
+  font-size: 12px !important;
+  -webkit-animation-name: fadeinHalf;
+  animation-name: fadeinHalf;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
 }
 
 div.header-content nav a, div.header-content nav span {
@@ -940,7 +969,7 @@ article h3 {
   margin-bottom: 26px;
   color: #22222A;
   line-height: calc(1.125em + 0.5vw);
-  font-size: 1.8em;
+  font-size: 2em;
 }
 
 @media screen and (min-width: 100.000em) {
@@ -1325,7 +1354,12 @@ header {
 }
 
 header.shrinked {
-  height: 80px;
+  height: 65px;
+}
+
+header.shrinked div.header-content nav a, header.shrinked div.header-content nav span {
+  line-height: 80px;
+  transition: 0.3s;
 }
 
 /* Pulsing button */
@@ -1379,4 +1413,19 @@ header.shrinked {
   margin: 0 auto;
   padding-left: 5vw;
   padding-right: 5vw;
+}
+
+#hero h3 {
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+@media screen and (min-width: 100.000em) {
+
+  #hero h3 {
+    letter-spacing: 2.5px;
+
+    font-size: 15px;
+  }
 }
