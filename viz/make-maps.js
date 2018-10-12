@@ -3,69 +3,23 @@
     "use strict";
 
     window.stateAbbData = {};
+    window.districts = {};
+    window.usFeatures = {};
+
+    function makeMap(error, us, distr) {
+        usFeatures = us;
+        districts = distr;
+        makeMap1(error, us, distr);
+        makeMap2(error, us, distr);
+    }
 
     d3.json("viz/data/stateAbb.json", function (data) {
         stateAbbData = data;
     });
 
-    window.districts = {};
-    window.usFeatures = {};
-
-    function makeMap(error, us) {
-        usFeatures = us;
-        makeMap1(error, us, districts);
-        makeMap2(error, us, districts);
-    }
-
-    let jsonString = "";
-    let readInDataAsStringFired = false;
-
-    // recursively load up splitted data files
-    function readInDataAsString(fileNumber) {
-        readInDataAsStringFired = true;
-        if (fileNumber === 19) {
-            /* Load us shape via d3 queue */
-            districts = JSON.parse(jsonString);
-            d3.queue()
-                .defer(d3.json, 'viz/data/us.json')
-                .await(makeMap);
-            return;
-        }
-        fileNumber++;
-        let filePath = '';
-        filePath = 'viz/data/attributed_shape/with_attributes_string' + fileNumber;
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", filePath, true);
-        xhr.onload = function () {
-            jsonString = jsonString.concat(xhr.responseText);
-            readInDataAsString(fileNumber);
-        };
-        xhr.send();
-    }
-
-    function getPosition(element) {
-        let yPosition = 0;
-
-        while (element) {
-            yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-            element = element.offsetParent;
-        }
-
-        return yPosition;
-    }
-
-    let map1_top = getPosition(document.getElementsByClassName("map_containers")[0]);
-
-    function scrolled() {
-        let scrollDistance = window.pageYOffset;
-
-        if (scrollDistance > (map1_top * 0.8) ) {
-            if (readInDataAsStringFired === false) {
-                readInDataAsString(-1);
-            }
-        }
-    }
-
-    window.addEventListener('scroll', scrolled);
+    d3.queue()
+        .defer(d3.json, 'viz/data/us.json')
+        .defer(d3.json, 'viz/data//with_attributes_v8.json')
+        .await(makeMap);
 
 })();
