@@ -178,6 +178,8 @@ h2.largest {
 }
 
 @media (max-width:53.125em) {
+
+
   h2.largest {
     font-size: 22px;
     line-height: 35px
@@ -371,6 +373,20 @@ ul hr {
 
 .onWHOENROLLSWHERE {
   margin-left: 65%;
+}
+
+@media (max-width:53.125em) {
+  .onWHYALGEBRAI {
+    margin-left: 5.4%;
+  }
+  
+  .onWHOHASACCESSWHERE {
+    margin-left: 31%;
+  } 
+  
+  .onWHOENROLLSWHERE {
+    margin-left: 70%;
+  }
 }
 
 .active-nav a {
