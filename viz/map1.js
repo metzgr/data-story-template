@@ -11,25 +11,10 @@
     } 
 
     function getSize(){
-        d3.select('#chart4_content_1').select("svg").remove();
-             d3.select('#chart4_content_1').select("legend_svg").remove();
+        d3.select('#chart4_content_1').selectAll("svg").remove();
 
-        div_width = parseInt(d3.select('#chart4_content_1').style('width'))
-        div_height = $(window).height() - 100 //add padding for top menu 
-
-     var margin = {top: 80, right: 0, bottom: 0, left: 0};
-
-    //this  sets up the appearance of the loading spinner
-    var loader_appearance = {
-        length: 10,
-        radius: 20,
-        color: '#046B99',
-        lines: 10,
-        trail: 50,
-        className: 'loader',
-    };
-
-    var target = document.getElementById('map1_content'); // this <section> element ID is "map2_content" for map2
+        var div_width = parseInt(d3.select('#chart4_content_1').style('width'));
+        var div_height = $(window).height() - 100; //add padding for top menu
 
     //actual map size 
     var width = div_width,
@@ -37,7 +22,7 @@
 
     //resize if view port height is the limiting factor
     if (height >div_height){
-    var width = div_height * 4/3,
+        width = div_height * 4/3;
         height = div_height;
     }
 

@@ -11,35 +11,18 @@
 
 
     function getSize(){
-        d3.select('#chart6_content_1').select("svg").remove();
+        d3.select('#chart6_content_1').selectAll("svg").remove();
 
-        div_width = parseInt(d3.select('#chart6_content_1').style('width'))
-          div_height = $(window).height() - 100 //add padding for top menu 
-
-          var margin = {top: 80, right: 0, bottom: 0, left: 0};
-
-    var loader_appearance = {
-        length: 10,
-        radius: 20,
-        color: '#046B99',
-        lines: 10,
-        trail: 50,
-        className: 'loader',
-    };
-
-
-    // select the correct container
-    var target = document.getElementById('map2_content'); // this <section> element ID is "map1_content" for map1
-
-    //Width and height
+        var div_width = parseInt(d3.select('#chart6_content_1').style('width'));
+        var div_height = $(window).height() - 100; //add padding for top menu 
 
      //actual map size 
     var width = div_width,
         height = div_width * 2/3;
 
     //resize if view port height is the limiting factor
-    if (height >div_height){
-    var width = div_height * 4/3,
+    if (height > div_height){
+        width = div_height * 4/3;
         height = div_height;
     }
 
