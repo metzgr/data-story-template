@@ -186,7 +186,7 @@
                                 [div_width/2-3, 69,"50-75","4"],
                                 [div_width/2-3 , 81,"75-100","5"],
                                 [div_width/2-3 , 103,"All schools offered it","7"],
-                                [div_width/2-3, 118,"Missing","8"]];
+                                [div_width/2-3, 118,"Missing data","8"]];
 
     } else {
     var  legend_data = [[div_width/2 -200, 13,"#C1E7F2","null","1","1"],[div_width/2 -100, 13,"#74cae2","0,25","2","3"],[div_width/2-50, 13,"#2EB4E7","25,50","3","4"], [div_width/2, 13,"#099ACC","50,75","4","5"],
@@ -199,7 +199,7 @@
                                 [div_width/2 +50, 35,"75","5"],
                                 [div_width/2 +100, 35,"<100","6"],
                                 [div_width/2 +150, 35,"All schools offered it","7"],
-                                [div_width/2, 89,"Missing","8"]];
+                                [div_width/2, 89,"Missing data","8"]];
 
     
 
