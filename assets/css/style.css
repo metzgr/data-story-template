@@ -355,48 +355,38 @@ div.header-content nav.main-home {
   margin: 0 0 0 0;
 }
 
-.active-nav:before {
-      content: ""; /* This is necessary for the pseudo element to work. */
-      display: block; /* This will put the pseudo element on its own line. */
-      margin: 0; /* This will center the border. */
-      width: 30px; /* Change this to whatever width you want. */
-      padding-bottom: 0px; /* This creates some space between the element and the border. */
-      border-bottom: 2px solid #7EC255; /* This creates the border. Replace with whatever color you want. */
-      -webkit-animation-name: fadein;
-      animation-name: fadein;
-      -webkit-animation-duration: .3s;
-      animation-duration: .3s
-  }
+/* top nav fx start */
+ul hr {
+  height: 2px;
+  width: 10%;
+  margin: 0;
+  background: #7EC255;
+  border: none;
+  transition: .3s ease-in-out;
+}
 
+.onWHOHASACCESSWHERE {
+  margin-left: 25%;
+} 
+
+.onWHOENROLLSWHERE {
+  margin-left: 65%;
+}
 
 .active-nav a {
   opacity: 1 !important;
   line-height: 65px !important;
   font-size: 12px !important;
   font-weight: 500 !important;
-  -webkit-animation-name: fadein;
-  animation-name: fadein;
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s
-}
-
-@keyframes fadeinHalf {
-  0% {
-    opacity: 0
-  }
-  100% {
-    opacity: .6
-  }
+  transition: .3s ease-in-out;
 }
 
 .not-active-nav a {
   line-height: 65px !important;
   font-size: 12px !important;
-  -webkit-animation-name: fadeinHalf;
-  animation-name: fadeinHalf;
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s;
+  transition: .3s ease-in-out;
 }
+/* top nav fx end */
 
 div.header-content nav a, div.header-content nav span {
   color: #22222a;

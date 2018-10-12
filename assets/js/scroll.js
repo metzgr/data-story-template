@@ -89,7 +89,10 @@
   let eduLinkClone = document.querySelector("div.header-content nav a").cloneNode(true);
   // create the list of nav items with a ul
   let linkList = document.createElement("ul");
+  let hrLine = document.createElement("hr");
   let linkText = ["WHY ALGEBRA I", "WHO HAS ACCESS & WHERE", "WHO ENROLLS & WHERE"];
+
+  linkList.appendChild(hrLine);
 
   linkText.forEach(function (text, index) {
     let listItem = document.createElement("li");
@@ -98,8 +101,7 @@
 
     if (index === 0) {
       listItem.setAttribute('class', 'active-nav');
-    }
-    else {
+    } else {
       listItem.setAttribute('class', 'not-active-nav');
     }
     listLink.style.lineHeight = "0px";
@@ -169,12 +171,26 @@
   }
 
   function spyOnScroll() {
-    var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
     if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
       for (i in sectionTopHeights) {
         if (sectionTopHeights[i] <= scrollPosition) {
+
           document.querySelector('.active-nav').setAttribute('class', 'not-active-nav');
           document.querySelector("a[href='#" + i + "']").parentElement.setAttribute('class', 'active-nav');
+
+          // might improve on this to make it more scalable
+          switch (i) {
+            case "WHOHASACCESSWHERE":
+              hrLine.setAttribute('class', 'onWHOHASACCESSWHERE')
+              break;
+            case "WHOENROLLSWHERE":
+              hrLine.setAttribute('class', 'onWHOENROLLSWHERE');
+              break;
+            default:
+              hrLine.setAttribute('class', 'onWHYALGEBRAI');
+          }
         }
       }
     }
