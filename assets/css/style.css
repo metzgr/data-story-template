@@ -38,6 +38,10 @@ blockquote:after, blockquote:before, q:after, q:before {
   content: none
 }
 
+blockquote a {
+  text-decoration: underline;
+}
+
 .title-card h2:after, div.bigger em:after, div.bigger strong:after, section.company .wrap:after, section.intro:after, section.news .wrap:after {
   content: ""
 }
