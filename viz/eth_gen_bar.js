@@ -8,16 +8,20 @@
         //d3.select('#chart5_content_1').select("svg").remove();
 
     div_width = parseInt(d3.select('#chart5_content_1').style('width'))
-
+    mobile_cutoff = 500; //switch to space efficient version at 500 due to long axis text
     //set the margin attributes
     var margin = {
             top: 30,
             right: 0,
             bottom: 20,
             left: 215
-        },
-        width = div_width- margin.left-margin.right,
-        height = 400 - margin.top - margin.bottom;
+        }
+
+    if (div_width <  mobile_cutoff){ //at lower width the longest entries in the axiss are wrapped
+        margin.left = 133;
+    }
+      var   width = div_width- margin.left-margin.right;
+     var    height = 400 - margin.top - margin.bottom;
 
 
     //set the appropriate bar padding on y axis
@@ -28,7 +32,7 @@
     var offset = 15;
 
     var tooltipColor = d3.scaleOrdinal()
-        .domain(["Male", "Female", "White", "Black", "Hispanic", "Asian", "Pacific Islander",
+        .domain(["Male", "Female", "White", "Black", "Hispanic", "Asian students", "Pacific Islander",
             "American Indian/Alaska Native", "Two or more races"
         ])
         .range(["#CADD72", "#CADD72", "#74CAE2", "#74CAE2", "#74CAE2", "#74CAE2", "#74CAE2", "#74CAE2", "#74CAE2",
@@ -37,9 +41,16 @@
 
 
     //set the domain and range for the x axis
+      if (div_width <  mobile_cutoff){ //dont create bars that go up to 100 on mobile to give extra space
+        var x = d3.scaleLinear()
+        .domain([.4, 0])
+        .range([width, 0]);
+      } else {
     var x = d3.scaleLinear()
         .domain([1, 0])
         .range([width, 0]);
+    }
+
 
     //y axis variable using the scale created above based on selected chart type
     var yAxis = d3.axisLeft()
@@ -102,7 +113,6 @@
             }) //align bar with proper y axis characteristic
             .attr("width", width);
 
-            console.log(width);
 
         //append the bars to the chart
         var bar = svg.selectAll(".bar")
@@ -175,14 +185,28 @@
 
 
         //custom y axis not using y axis class to allow for the custom offset 
-        svg.selectAll("custom_y_axis").data(data)
+        if (div_width <  mobile_cutoff){
+        var custom_y = [["Asian students"],["White"],["Two or more races"],["Pacific Islander"],["Hispanic"],
+    ["American Indian/"],["Alaska Native"],["Black"],["Female"],["Male"]]
+        
+} else {
+         var custom_y = [["Asian students"],["White"],["Two or more races"],["Pacific Islander"],
+         ["Hispanic"], ["American Indian/Alaska Native"],["Black"],["Female"],["Male"]]
+ }
+
+        svg.selectAll("custom_y_axis").data(custom_y)
             .enter().append("text")
             .attr("x", -7)
             .attr("y", function (d) {
-                if (d.characteristic == "Male" | d.characteristic == "Female") {
-                    return y(d.characteristic) + offset + 16;
-                } else {
-                    return y(d.characteristic) + 16;
+                if (d[0] == "Male" | d[0] == "Female") {
+                    return y(d[0]) + offset + 16;
+                } else if (d[0] =="American Indian/") {
+                    return(y("American Indian/Alaska Native")) +8
+                } else if (d[0] =="Alaska Native"){
+                    return(y("American Indian/Alaska Native")) + 24
+                }
+                else {
+                    return y(d[0]) + 16;
                 }
             })
             .attr("text-anchor", "end")
@@ -190,11 +214,21 @@
             .style("font-family", "Chivo")
             .style("fill", "#2e2e2e")
             .text(function (d) {
-                return d.characteristic;
-            });
+                return d[0];
+            }
+            );
 
 
-    
+          if (div_width < mobile_cutoff){
+        var annotation = svg.append("text")
+            .attr("x", x(.4))
+            .attr("y", -15)
+            .attr("text-anchor", "end")
+            .style("font-size", "14px")
+            .style("font-family", "Chivo")
+            .style("fill", "#2e2e2e")
+            .text("24% of 8th graders took Algebra I");
+        } else {
         var annotation = svg.append("text")
             .attr("x", x(totalLineData))
             .attr("y", -15)
@@ -203,6 +237,8 @@
             .style("font-family", "Chivo")
             .style("fill", "#2e2e2e")
             .text("24% of 8th graders took Algebra I");
+
+        }
 
         /* custom y axis lines for two seperate graphs */
         var axisLineData = [{
@@ -253,13 +289,22 @@
         //move tooltip to left of mouse for elements in the right of page
            total_width = parseInt(d3.select('body').style('width'))
         function position_tip(x, y) {
+            if (div_width > mobile_cutoff){
             if (x > (50 + total_width / 2)) {
                 x = d3.max(x - total_width, 140)
             }
             if (y > height / 2) {
                 y = y - 75
             }
-            return ([x, y])
+            return ([x, y]);}
+            else{
+                x = 10
+                if (y > height / 2) {
+                    y = y - 75
+                }
+                return ([x, y]);
+
+            }
 
         }
 

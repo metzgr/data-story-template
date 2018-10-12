@@ -1,16 +1,23 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
 
+    getSize();
 
-  makeChart();
     window.addEventListener("resize",makeChart);
 
     function makeChart() {
+        getSize();
+        makeMap1("",usFeatures,districts);
+    } 
+
+    function getSize(){
         d3.select('#chart4_content_1').select("svg").remove();
 
         div_width = parseInt(d3.select('#chart4_content_1').style('width'))
+        div_height = $(window).height() - 100 //add padding for top menu 
 
-    
+     var margin = {top: 80, right: 0, bottom: 0, left: 0};
+
     //this  sets up the appearance of the loading spinner
     var loader_appearance = {
         length: 10,
@@ -27,10 +34,16 @@
     var width = div_width,
         height = div_width * 2/3;
 
+    //resize if view port height is the limiting factor
+    if (height >div_height){
+    var width = div_height * 4/3,
+        height = div_height;
+    }
+
     //Define map projection
     var projection = albersUsaPr()
-        .scale(1200 * div_width/940)
-        .translate([width / 2, (height) / 2 - 15]);
+        .scale(1200 * width/940)
+        .translate([div_width / 2, (height) / 2 - 15]);
 
     /* color scheme */
     var color = d3.scaleThreshold()
@@ -159,8 +172,104 @@
         // get the corrext container for map1
         var svg = d3.select("#map1")
             .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+            .attr("width", div_width)
+            .attr("height", height + 80) //pad for legend
+            ;
+
+
+
+    //set up legend seperatly for small and large screens
+    if (div_width<485){
+    var  legend_data = [[div_width/2, 15,"#C1E7F2","null","1","1"],[div_width/2, 37,"#74cae2","0,25","2","2"],[div_width/2, 49,"#2EB4E7","25,50","3","3"], [div_width/2, 61,"#099ACC","50,75","4","4"],
+    [div_width/2, 73,"#0883A0","75,99.99","5","5"],[div_width/2, 95,"#046B99","99.99,100","7","7"],[div_width/2 , 110,"#909090","missing","8","8"]];
+
+    var legend_label_data = [[div_width/2-3, 23,"No schools offered it","1"],
+                                [div_width/2-3, 45,"0-25","2"],
+                                [div_width/2-3 , 57,"25-50","3"],
+                                [div_width/2-3, 69,"50-75","4"],
+                                [div_width/2-3 , 81,"75-100","5"],
+                                [div_width/2-3 , 103,"All schools offered it","7"],
+                                [div_width/2-3, 118,"Missing","8"]];
+
+    } else {
+    var  legend_data = [[div_width/2 -200, 13,"#C1E7F2","null","1","1"],[div_width/2 -100, 13,"#74cae2","0,25","2","3"],[div_width/2-50, 13,"#2EB4E7","25,50","3","4"], [div_width/2, 13,"#099ACC","50,75","4","5"],
+    [div_width/2+50, 13,"#0883A0","75,99.99","5","6"],[div_width/2+150, 13,"#046B99","99.99,100","7","7"],[div_width/2 -25, 68,"#909090","missing","8","8"]];
+
+    var legend_label_data = [[div_width/2 -152, 35,"No schools offered it","1"],
+                                [div_width/2 -100, 35,">0","2"],
+                                [div_width/2 -50, 35,"25","3"],
+                                [div_width/2, 35,"50","4"],
+                                [div_width/2 +50, 35,"75","5"],
+                                [div_width/2 +100, 35,"<100","6"],
+                                [div_width/2 +150, 35,"All schools offered it","7"],
+                                [div_width/2, 89,"Missing","8"]];
+
+    
+
+    var triangle = d3.symbol()
+                .type(d3.symbolTriangle)
+                .size(25);
+
+    var triangle = svg.selectAll("map1Leg")
+        .data(legend_data)
+        .enter().append("path")
+                .attr("d", triangle)
+                .attr("stroke", "white")
+                .attr("fill", "white")
+                .attr("class", "triangle")
+                  .attr("id",d=>d[4])
+                // .attr("x",d=>d[0])
+                // .attr("y",10)
+                .attr("transform", function(d) { return "translate(" + (d[0] +24) + "," + (d[1] -8) + ") rotate(-60)"; });
+        ;
+
+     }
+    var legend = svg.selectAll("map1Leg")
+        .data(legend_data)
+        .enter()
+        .append("rect");
+        
+    legend.attr("x", d=>d[0])
+        .attr("y", d=>d[1])
+        .attr("width", 48)
+        .attr("height", 10)
+        .attr("fill", d=>d[2])
+        .attr("data-value",d=>d[3])
+        .attr("class", "legendButton")
+        .attr("id",d=>d[4])
+        .attr("idtwo",d=>d[5])
+        ;
+
+ 
+    var legend_text = svg.selectAll("map1Leg")
+        .data(legend_label_data)
+        .enter()
+        .append("text");
+        
+    legend_text.attr("x", d=>d[0])
+        .attr("y", d=>d[1])
+         .style("fill", "white")
+        .text(d=>d[2])
+        .style("text-anchor",function(d) {
+        if (div_width>485){
+            if (d[2]=="All schools offered it" | d[2]=="<100"){
+                return "start" ;
+            } else if (d[2]=="No schools offered it"){
+                return "end";
+            } else {
+             return "middle";
+            };
+        } else{
+            return "end"
+        }
+        })
+         .style("font-size", "12px")
+        .style("font-family", "Chivo")
+        .attr("class", "legendButtonText")
+                .attr("id",d=>d[3])
+                .attr("idtwo",d=>d[3])
+                ;
+
 
         var zoom = d3.zoom()
             .scaleExtent([1 / 2, 4])
@@ -169,7 +278,7 @@
 
         function zoomed() {
             map.attr('transform',
-                'translate(' + d3.event.transform.x + ',' + d3.event.transform.y + ') scale(' + d3.event.transform.k + ')');
+                'translate(' + d3.event.transform.x + ',' + d3.event.transform.y +') scale(' + d3.event.transform.k + ')');
             mapOverlay.attr('transform',
                 'translate(' + d3.event.transform.x + ',' + d3.event.transform.y + ') scale(' + d3.event.transform.k + ')');
         };
@@ -182,11 +291,13 @@
         }
 
         //Create a container in which all zoom-able elements exist
-        var map = svg.append("g")
-            .attr("id", "map");
+        var map_base = svg.append("g")
+            .attr("id", "map")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            ;
 
         //Bind data and create one path per GeoJSON feature
-        map = map.selectAll("path")
+        map = map_base.selectAll("path")
             .data(districts.features)
             .enter()
             .append("path")
@@ -203,8 +314,9 @@
         /*Buttons in legend - capture click on radio, then based on selection, filters data to display fills*/
         // get the correct elements for map1
         var legendButtons = $('#map1 .legendButton');
+        var legendButtonsText = $('#map1 .legendButtonText');
         var nolegendButtons = $('#map1 .nolegendButton');
-        var triangles = $('#map1 div.triangle')
+        var triangles = $('#map1 .triangle')
 
         /* Design of the legend iteractivity was based off the implementaiton by WeStat available at: 
         https://github.com/Westat-Transportation/Westat-Transportation.github.io/blob/9293c1c382757e8a08eed80852812c2f7eee99b2/EnglishLearners/demo/index.html */
@@ -213,14 +325,33 @@
                 $(this).removeClass("highlightButton");
             })
 
+            legendButtonsText.each(function () {
+                $(this).removeClass("highlightButton");
+            })
+
+                triangles.each(function () {
+                $(this).removeClass("highlightButton");
+            })
+
+               legendButtonsText.each(function () {
+                $(this).addClass("hasSelector");
+            });
+
+
             legendButtons.each(function () {
                 $(this).addClass("hasSelector");
             });
-            nolegendButtons.each(function () {
+
+            triangles.each(function () {
                 $(this).addClass("hasSelector");
             });
+
+
             if ($(this).hasClass("highlightButton")) {
                 legendButtons.each(function () {
+                    $(this).removeClass("highlightButton").removeClass("hasSelector");
+                });
+                legendButtonsText.each(function () {
                     $(this).removeClass("highlightButton").removeClass("hasSelector");
                 });
                 nolegendButtons.each(function () {
@@ -235,9 +366,17 @@
                 });
 
 
-                var selector = '#map1 div.triangle#' + $(this).attr("id");
+                var selector = '#map1 .triangle#' + $(this).attr("id");
                 var selectorTriangle = $(selector);
                 selectorTriangle.addClass("highlightButton");
+
+                var textSelector = '#map1 .legendButtonText#' + $(this).attr("id");
+                var textSelectorText = $(textSelector);
+                textSelectorText.addClass("highlightButton");
+
+                var textSelectortwo = '#map1 .legendButtonText#' + $(this).attr("idtwo");
+                var textSelectorTexttwo = $(textSelectortwo);
+                textSelectorTexttwo.addClass("highlightButton");
 
 
                 $(this).addClass("highlightButton");
@@ -278,18 +417,20 @@
             }
         });
 
+
         /* STATE BORDERS - state mesh added onto the district */
         var mapOverlay = svg.append("g")
-            .attr("id", "map");
+            .attr("id", "map")
+                      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            ;
 
-        mapOverlay.append("g")
-            .attr("id", "states")
+        map_base.attr("id", "states")
             .selectAll("path")
             .data(topojson.feature(us, us.objects.states).features)
             .enter().append("path")
             .attr("d", path);
 
-        mapOverlay.append("path")
+        map_base.append("path")
             .datum(topojson.mesh(us, us.objects.states, function (a, b) {
                 return a !== b;
             }))
