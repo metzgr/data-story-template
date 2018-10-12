@@ -9,6 +9,7 @@
         makeMap2(null, usFeatures, districts);
     }
 
+
     function getSize() {
         d3.select('#chart6_content_1').selectAll("svg").remove();
 
@@ -107,33 +108,33 @@
 
 
 
-        function hoverText(d) {
-            if (d.properties.tbl4pct_alg == null) {
-                return "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
-                    .NAME + "</span>" +
-                    "<span style='line-height: 2;float:right; font-family: 'Chivo', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
-                        d.properties.STATEFP) +
-                    "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  color: white;'>Not Reported</span>";
-            } else if (d.properties.tbl4pct_alg == "?") {
-                return "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
-                    .NAME + "</span>" +
-                    "<span style='line-height: 2;float:right; font-family: 'Chivo', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
-                        d.properties.STATEFP) +
-                    "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  color: white;'>Not Applicable</span><br>" +
-                    "<span style='font-family: 'Chivo', sans-serif; font-weight: 400; '>0 out of 0 students</span>";
-            } else {
-                return "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
-                    .NAME + "</span>" +
-                    "<span style='line-height: 2;float:right; font-family: 'Chivo', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
-                        d.properties.STATEFP) +
-                    "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  color: white;'>" + reportable_p(d.properties.tbl4pct_alg) +
-                    " took Algebra I in 8th grade" + "</span><br>" +
-                    "<span style='font-family: 'Chivo', sans-serif; font-weight: 400; '>" + reportable(d.properties.tbl4n_stu_alg) + " out of " +
-                    reportable_s(d.properties.tbl4n_students) + "</span>";
-            }
+
+    function hoverText(d) {
+        if (d.properties.tbl4pct_alg == null) {
+            return "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
+                .NAME + "</span>" +
+                "<span style='line-height: 2;float:right; font-family: 'Roboto', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
+                    d.properties.STATEFP) +
+                "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
+                "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  color: white;'>Not Reported</span>";
+        } else if (d.properties.tbl4pct_alg == "?") {
+            return "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
+                .NAME + "</span>" +
+                "<span style='line-height: 2;float:right; font-family: 'Roboto', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
+                    d.properties.STATEFP) +
+                "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
+                "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  color: white;'>Not Applicable</span><br>" +
+                "<span style='font-family: 'Roboto', sans-serif; font-weight: 400; '>0 out of 0 students</span>";
+        } else {
+            return "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
+                .NAME + "</span>" +
+                "<span style='line-height: 2;float:right; font-family: 'Roboto', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
+                    d.properties.STATEFP) +
+                "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
+                "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  color: white;'>" + reportable_p(d.properties.tbl4pct_alg) +
+                " took Algebra I in 8th grade" + "</span><br>" +
+                "<span style='font-family: 'Roboto', sans-serif; font-weight: 400; '>" + reportable(d.properties.tbl4n_stu_alg) + " out of " +
+                reportable_s(d.properties.tbl4n_students) + "</span>";
         }
 
 
@@ -142,92 +143,175 @@
             d3.select(this).style('stroke', 'grey').style('stroke-width', ".15px");
         }
 
-        /* Function to generate maps via json arguments */
-        window.makeMap2 = function (error, us, districts) {
-            //Define path generator
-            var path = d3.geoPath()
-                .projection(projection);
-            //Create SVG element
-            // select the correnct container
-            var svg_legend = d3.select("#map2")
-                .append("svg")
-                .attr("width", div_width)
-                .attr("height", function (x) {
-                    if (div_width < 485) {
-                        return 120;
-                    } else {
-                        return 95;
-                    }
-                }) //pad for legend
+    /* Function to generate maps via json arguments */
+    window.makeMap2 = function (error, us, districts) {
+        //Define path generator
+        var path = d3.geoPath()
+            .projection(projection);
+        //Create SVG element
+        // select the correnct container
+    var svg_legend = d3.select("#map2")
+            .append("svg")
+            .attr("width", div_width)
+             .attr("height", function(x){
+            if (div_width < 500){
+                return 120;
+            } else{
+                return 95;
+            }
+            })  //pad for legend
             ;
 
-            var svg = d3.select("#map2")
-                .append("svg")
-                .attr("width", div_width)
-                .attr("height", height)
 
+  
 
-            //set up legend seperatly for small and large screens
-            if (div_width < 485) {
-                var legend_data = [
-                    [div_width / 2, 15, "#C1E7F2", "null", "1", "1"],
-                    [div_width / 2, 37, "#74cae2", "0,25", "2", "2"],
-                    [div_width / 2, 49, "#2EB4E7", "25,50", "3", "3"],
-                    [div_width / 2, 61, "#099ACC", "50,75", "4", "4"],
-                    [div_width / 2, 73, "#0883A0", "75,99.99", "5", "5"],
-                    [div_width / 2, 95, "#046B99", "99.99,100", "7", "7"],
-                    [div_width / 2, 110, "#909090", "missing", "8", "8"]
-                ];
+ //set up legend seperatly for small and large screens
+    if (div_width<500){
+    var  legend_data = [[div_width/2, 15,"#C1E7F2","null","1","1"],[div_width/2, 37,"#74cae2","0,25","2","2"],[div_width/2, 49,"#2EB4E7","25,50","3","3"], [div_width/2, 61,"#099ACC","50,75","4","4"],
+    [div_width/2, 73,"#0883A0","75,99.99","5","5"],[div_width/2, 95,"#046B99","99.99,100","7","7"],[div_width/2 , 110,"#909090","missing","8","8"]];
 
-                var legend_label_data = [
-                    [div_width / 2 - 3, 23, "No schools offered it", "1"],
-                    [div_width / 2 - 3, 45, "0-25", "2"],
-                    [div_width / 2 - 3, 57, "25-50", "3"],
-                    [div_width / 2 - 3, 69, "50-75", "4"],
-                    [div_width / 2 - 3, 81, "75-100", "5"],
-                    [div_width / 2 - 3, 103, "All schools offered it", "7"],
-                    [div_width / 2 - 3, 118, "Missing data", "8"]
-                ];
+    var legend_label_data = [[div_width/2-3, 23,"No schools offered it","1"],
+                                [div_width/2-3, 45,"0-25","2"],
+                                [div_width/2-3 , 57,"25-50","3"],
+                                [div_width/2-3, 69,"50-75","4"],
+                                [div_width/2-3 , 81,"75-100","5"],
+                                [div_width/2-3 , 103,"All schools offered it","7"],
+                                [div_width/2-3, 118,"Missing data","8"]];
 
+    } else {
+    var  legend_data = [[div_width/2 -200, 13,"#C1E7F2","null","1","1"],[div_width/2 -100, 13,"#74cae2","0,25","2","3"],[div_width/2-50, 13,"#2EB4E7","25,50","3","4"], [div_width/2, 13,"#099ACC","50,75","4","5"],
+    [div_width/2+50, 13,"#0883A0","75,99.99","5","6"],[div_width/2+150, 13,"#046B99","99.99,100","7","7"],[div_width/2 -25, 68,"#909090","missing","8","8"]];
+
+    var legend_label_data = [[div_width/2 -152, 35,"No schools offered it","1"],
+                                [div_width/2 -100, 35,">0","2"],
+                                [div_width/2 -50, 35,"25","3"],
+                                [div_width/2, 35,"50","4"],
+                                [div_width/2 +50, 35,"75","5"],
+                                [div_width/2 +100, 35,"<100","6"],
+                                [div_width/2 +150, 35,"All schools offered it","7"],
+                                [div_width/2, 89,"Missing data","8"]];
+
+    
+
+    var triangle = d3.symbol()
+                .type(d3.symbolTriangle)
+                .size(25);
+
+    var triangle = svg_legend.selectAll("map2Leg")
+        .data(legend_data)
+        .enter().append("path")
+                .attr("d", triangle)
+                .attr("stroke", "white")
+                .attr("fill", "white")
+                .attr("class", "triangle")
+                  .attr("id",d=>d[4])
+                .attr("transform", function(d) { return "translate(" + (d[0] +24) + "," + (d[1] -8) + ") rotate(-60)"; });
+        ;
+
+     }
+    var legend = svg_legend.selectAll("map2Leg")
+        .data(legend_data)
+        .enter()
+        .append("rect");
+        
+    legend.attr("x", d=>d[0])
+        .attr("y", d=>d[1])
+        .attr("width", 48)
+        .attr("height", 10)
+        .attr("fill", d=>d[2])
+        .attr("data-value",d=>d[3])
+        .attr("class", "legendButton")
+        .attr("id",d=>d[4])
+        .attr("idtwo",d=>d[5])
+        ;
+
+ 
+    var legend_text = svg_legend.selectAll("map2Leg")
+        .data(legend_label_data)
+        .enter()
+        .append("text");
+        
+    legend_text.attr("x", d=>d[0])
+        .attr("y", d=>d[1])
+         .style("fill", "white")
+        .text(d=>d[2])
+        .style("text-anchor",function(d) {
+        if (div_width>500){
+            if (d[2]=="All schools offered it" | d[2]=="<100"){
+                return "start" ;
+            } else if (d[2]=="No schools offered it" | d[2]==">0"){
+                return "end";
             } else {
-                var legend_data = [
-                    [div_width / 2 - 200, 13, "#C1E7F2", "null", "1", "1"],
-                    [div_width / 2 - 100, 13, "#74cae2", "0,25", "2", "3"],
-                    [div_width / 2 - 50, 13, "#2EB4E7", "25,50", "3", "4"],
-                    [div_width / 2, 13, "#099ACC", "50,75", "4", "5"],
-                    [div_width / 2 + 50, 13, "#0883A0", "75,99.99", "5", "6"],
-                    [div_width / 2 + 150, 13, "#046B99", "99.99,100", "7", "7"],
-                    [div_width / 2 - 25, 68, "#909090", "missing", "8", "8"]
-                ];
+             return "middle";
+            };
+        } else{
+            return "end"
+        }
+        })
+         .style("font-size", "12px")
+        .style("font-family", "Roboto")
+        .attr("class", "legendButtonText")
+                .attr("id",d=>d[3])
+                .attr("idtwo",d=>d[3])
+                ;
 
-                var legend_label_data = [
-                    [div_width / 2 - 152, 35, "No schools offered it", "1"],
-                    [div_width / 2 - 100, 35, ">0", "2"],
-                    [div_width / 2 - 50, 35, "25", "3"],
-                    [div_width / 2, 35, "50", "4"],
-                    [div_width / 2 + 50, 35, "75", "5"],
-                    [div_width / 2 + 100, 35, "<100", "6"],
-                    [div_width / 2 + 150, 35, "All schools offered it", "7"],
-                    [div_width / 2, 89, "Missing data", "8"]
-                ];
+            var svg = d3.select("#map2")
+            .append("svg")
+            .attr("width", div_width)
+             .attr("height", height)
 
 
+        var zoom = d3.zoom()
+            .scaleExtent([1 / 2, 4])
+            .on("zoom", zoomed);
+        svg.call(zoom).on("wheel.zoom", null);
 
-                var triangle = d3.symbol()
-                    .type(d3.symbolTriangle)
-                    .size(25);
+        function zoomed() {
+            map_base.attr('transform',
+                'translate(' + d3.event.transform.x + ',' + (d3.event.transform.y +80) + ') scale(' + d3.event.transform.k + ')');
+            //
+                  };
 
-                var triangle = svg_legend.selectAll("map2Leg")
-                    .data(legend_data)
-                    .enter().append("path")
-                    .attr("d", triangle)
-                    .attr("stroke", "white")
-                    .attr("fill", "white")
-                    .attr("class", "triangle")
-                    .attr("id", d => d[4])
-                    .attr("transform", function (d) {
-                        return "translate(" + (d[0] + 24) + "," + (d[1] - 8) + ") rotate(-60)";
-                    });;
+        function transition(zoomLevel) {
+            svg.transition()
+                .delay(50)
+                .duration(500)
+                .call(zoom.scaleBy, zoomLevel);
+        }
+        //Create a container in which all zoom-able elements exist
+        var map_base = svg.append("g")
+            .attr("id", "map")
+            ;
+        //Bind data and create one path per GeoJSON feature
+        var map = map_base.selectAll("path")
+            .data(districts.features)
+            .enter()
+            .append("path")
+            .style('stroke', "white")
+            .style('stroke-width', ".15px")
+            .attr("d", path)
+            .attr("fill", get_fill)
+            .on("mouseover", mouseover)
+            .on("mouseout", mouseout);
+
+        //now data is loaded and path is appended so we are ready to stop the loading icon
+        loader.stop();
+
+        /*Buttons in legend - capture click on radio, then based on selection filters data to display fills*/
+        // get the correct elements
+   var legendButtons = $('#map2 .legendButton');
+        var legendButtonsText = $('#map2 .legendButtonText');
+        var nolegendButtons = $('#map2 .nolegendButton');
+        var triangles = $('#map2 .triangle')
+
+
+        /* Design of the legend iteractivity was based off the implementaiton by WeStat available at: 
+        https://github.com/Westat-Transportation/Westat-Transportation.github.io/blob/9293c1c382757e8a08eed80852812c2f7eee99b2/EnglishLearners/demo/index.html */
+        legendButtons.on("click", function () {
+                triangles.each(function () {
+                $(this).removeClass("highlightButton");
+            })
+        
 
             }
             var legend = svg_legend.selectAll("map2Leg")

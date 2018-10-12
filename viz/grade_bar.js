@@ -151,9 +151,9 @@
                 .style("font-weight", 600)
                 .style("font-family", function (d) {
                     if (d.characteristic == "8th grade") {
-                        return "Chivo";
+                        return "Roboto";
                     } else {
-                        return "Chivo";
+                        return "Roboto";
                     }
                 })
                 .style("fill", function (d) {
@@ -180,7 +180,7 @@
                 .attr("dx", ".2em")
                 .attr("dy", "-1.5em")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .style("fill", "#2e2e2e")
 
             //append the custom annotations
@@ -189,7 +189,7 @@
                 .attr("y", 25)
                 .attr("text-anchor", "start")
                 .style("font-size", "15px")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .style("fill", "#2e2e2e")
                 .style("font-weight", 700)
                 .text("% of schools offering Algebra I in...");
@@ -326,8 +326,8 @@
 
             function position_tip(x, y) {
                 if (div_width>400){
-                if (x > (50 + total_width / 2)) {
-                    x = d3.max(x - total_width, 140) //move tooltip to left of mouse for elements in the right of page
+                if (x > ( div_width / 2) ) {
+                    x = d3.max([x - 140, 140]) //move tooltip to left of mouse for elements in the right of page
                 }
                 if (y > height / 2) {
                     y = y - 75
@@ -356,12 +356,12 @@
                 .style("display","inline-block")
                     .style("opacity", .9);
 
-                div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+                div.html("<span style='font-family: Roboto; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                         "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                        "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                        "<span style='font-family: Roboto; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                         d3.format(",.0f")(d.percentageEnrolledInAlgebra * 100) +
                         "% of schools offered Algebra I</span><br/>" +
-                        "<span style='font-family: Chivo; line-height: 15px;'>" +
+                        "<span style='font-family: Roboto; line-height: 15px;'>" +
                         d3.format(",.0f")(d.n_sch_w_alg) + " out of " + d3.format(",.0f")(d.total) + " schools</span>")
             .style("left",  (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
                 .style("top",  (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");

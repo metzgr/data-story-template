@@ -593,12 +593,27 @@ div.map2_tooltip {
     border: 1px solid #CCC;
 }
 
+#map2 .legendButton.hasSelector.highlightButton{
+    opacity: 1;
+}
+
+#map2 .legendButton.hasSelector{
+    opacity: .1;
+}
+
+#map2 .legendButtonText{
+    opacity: 1;
+}
+
+
 #map2 .legendButtonText.hasSelector{
     opacity: .1;
 }
 #map2 .legendButtonText.highlightButton{
     opacity: 1;
 }
+
+
 
 
 /*Set up the triangle that is used to indicate which legend item is selected */
@@ -637,8 +652,4 @@ div.map2_tooltip {
     color: white;
 }
 
-#map2 svg {
-    overflow: hidden;
-    padding: 0px 10px 40px 0px;
 
-}

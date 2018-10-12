@@ -133,7 +133,7 @@
                 })
                 .attr("text-anchor", "right")
                 .style("font-size", "13px")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .attr("font-weight", function(d){
                 if (d.characteristic == "Magnet schools")
                             return 700;
@@ -154,7 +154,7 @@
                 .attr("dx", "-.5em")
                 .attr("dy", ".4em")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .style("fill", "#474747");
 
             var new_axis = svg_st.append("line")
@@ -192,7 +192,7 @@
                     return "end";}
                 })
                 .style("font-size", "14px")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .style("fill", "#2e2e2e")
                 .style("font-weight", 700)
                 .text("% of 8th graders who could take Algebra I at...");
@@ -205,7 +205,7 @@
                 .attr("y", 255)
                 .attr("text-anchor", "end")
                 .style("font-size", "14px")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .style("fill", "#2e2e2e")
                 .style("font-weight", 600)
                 .text("Overall 80% of 8th graders could take Algebra 1");
@@ -242,12 +242,12 @@
             function mouseover(d) {
                 div.transition().duration(100).style("display","inline-block")
                     .style("opacity", .9);
-                div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+                div.html("<span style='font-family: Roboto; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                         "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                        "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                        "<span style='font-family: Roboto; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                         d3.format(",.0f")(d.percentageEnrolledInAlgebra * 100) +
                         "% could take Algebra I in 8th grade</span><br/>" +
-                        "<span style='font-family: Chivo; line-height: 16px;'>" +
+                        "<span style='font-family: Roboto; line-height: 16px;'>" +
                         d3.format(",.0f")(d.n_sch_w_alg) + " out of " + d3.format(",.0f")(d.total) + " students</span>")
             .style("left",  (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
                 .style("top",  (position_tip(d3.event.pageX, d3.event.pageY)[1]) + "px");

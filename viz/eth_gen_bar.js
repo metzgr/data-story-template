@@ -8,6 +8,7 @@
         //d3.select('#chart5_content_1').select("svg").remove();
 
     div_width = parseInt(d3.select('#chart5_content_1').style('width'))
+
     mobile_cutoff = 500; //switch to space efficient version at 500 due to long axis text
     //set the margin attributes
     var margin = {
@@ -20,7 +21,8 @@
     if (div_width <  mobile_cutoff){ //at lower width the longest entries in the axiss are wrapped
         margin.left = 133;
     }
-      var   width = div_width- margin.left-margin.right;
+
+    var   width = div_width- margin.left-margin.right;
      var    height = 400 - margin.top - margin.bottom;
 
 
@@ -180,7 +182,7 @@
             })
             .attr("text-anchor", "right")
             .style("font-size", "11px")
-            .style("font-family", "Chivo")
+            .style("font-family", "Roboto")
             .style("fill", "#616161");
 
 
@@ -192,6 +194,7 @@
 } else {
          var custom_y = [["Asian students"],["White"],["Two or more races"],["Pacific Islander"],
          ["Hispanic"], ["American Indian/Alaska Native"],["Black"],["Female"],["Male"]]
+
  }
 
         svg.selectAll("custom_y_axis").data(custom_y)
@@ -211,7 +214,7 @@
             })
             .attr("text-anchor", "end")
             .style("font-size", "14px")
-            .style("font-family", "Chivo")
+            .style("font-family", "Roboto")
             .style("fill", "#2e2e2e")
             .text(function (d) {
                 return d[0];
@@ -225,7 +228,7 @@
             .attr("y", -15)
             .attr("text-anchor", "end")
             .style("font-size", "14px")
-            .style("font-family", "Chivo")
+            .style("font-family", "Roboto")
             .style("fill", "#2e2e2e")
             .text("24% of 8th graders took Algebra I");
         } else {
@@ -234,7 +237,8 @@
             .attr("y", -15)
             .attr("text-anchor", "middle")
             .style("font-size", "14px")
-            .style("font-family", "Chivo")
+            .style("font-family", "Roboto")
+            .style("font-weight",500)
             .style("fill", "#2e2e2e")
             .text("24% of 8th graders took Algebra I");
 
@@ -324,12 +328,12 @@
 
             div.transition().duration(100).style("display","inline-block")
                 .style("opacity", .9);
-            div.html("<span style='font-family: Chivo; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+            div.html("<span style='font-family: Roboto; font-size: 14px; color: #ffffff;'>" + d.characteristic +
                     "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                    "<span style='font-family: Chivo; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
+                    "<span style='font-family: Roboto; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                     d3.format(",.0f")(d.percentageEnrolledInAlgebra_orig) +
                     "% took Algebra I in 8th grade</span><br/>" +
-                    "<span style='font-family: Chivo; line-height: 15px;'>" +
+                    "<span style='font-family: Roboto; line-height: 15px;'>" +
                     d3.format(",.0f")(d.total * d.percentageEnrolledInAlgebra) + " out of " + d3.format(",.0f")(d.total) +
                     " students</span>")
                 .style("left", (position_tip(d3.event.pageX, d3.event.pageY)[0]) + "px")
