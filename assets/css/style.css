@@ -1117,42 +1117,35 @@ article sup a {
   font-size: 12px;
 }
 
-.tab-menu li:nth-child(2) {
-  margin-right: 3px;
+.tab-menu li {
+  margin-left: 3px;
   font-size: 1.063em;
   color: #22222A;
 }
 
-.map-area .tab-menu li:nth-child(2) {
-  color: #fff;
+.tab li:not(:first-child) {
+  cursor: pointer;
 }
 
-
-.map-area .tab-menu li:nth-child(3) {
-    color: #fff;
-    opacity: .6;
-}
-
-.map-area .tab-menu li:last-child {
-  color: #fff;
+.tab-menu a {
   opacity: .6;
 }
 
-.tab-menu li:hover {
+.tab-menu a.active {
   opacity: 1;
 }
 
-.tab-menu li:nth-child(3) {
-  margin-right: 3px;
-  font-size: 1.063em;
-    color: #22222A;
-    opacity: .6;
+.map-area .tab-menu li {
+  color: #fff;
 }
 
-.tab-menu li:last-child {
-  font-size: 1.063em;
-  color: #22222A;
-  opacity: .6;
+.map-transition .tab-menu li {
+  color: #fff;
+}
+
+.tab-menu a:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .tab-menu a {
