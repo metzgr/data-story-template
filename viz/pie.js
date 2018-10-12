@@ -35,6 +35,13 @@
         .domain([0, 1])
         .range(["#F2F2F2", "#2EB4E7"]);
 
+
+    var color_rural = d3.scaleOrdinal()
+        .domain([0, 1])
+        .range(["#22222a", "#22222a"]);
+
+    
+
     var arc = d3.arc()
         .padRadius(5);
 
@@ -129,16 +136,30 @@
                 })
                 .enter().append("path")
                 .attr("class", "arc")
-                .attr("stroke", "#2EB4E7")
+                .attr("stroke",
+                function (d) {
+                    if( d.value == 75 | d.value == 25 ){ //selecting only the section of the rural graph
+                      return  "#22222a";
+                    } else {
+                    return  "#2EB4E7";
+                }
+                
+                } )
                 .attr("d", arc.outerRadius(r).innerRadius(0))
                 .style("fill", function (d) {
-                    return color(d.data.portion);
+                    if( d.value == 75 ){ //selecting only the bigger section of the rural graph
+                      return  color_rural(d.data.portion);
+                    } else {
+                    return  color(d.data.portion);
+                }
+                
                 });
 
             pie_svg.append("text")
                 .attr("class", "pieTextTitle")
                 .attr("color", "white")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
+                .style("font-family",500)
                 .attr("x", 0)
                 .attr("text-anchor", "middle")
                 .attr("fill", "#474747")
@@ -155,17 +176,19 @@
                 .attr("x", 0)
                 .attr("y", r + 25)
                 .attr("text-anchor", "middle")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
+                .style("font-weight",700)
                 .text(function (d) {
                     return d3.format(",")(Math.round(d.portions[1].piePortion)) + "%";
                 })
                 .append("tspan")
                 .text(" of ")
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
+                .style("font-weight",400)
                 .append("tspan").
             text(function (d) {
                 return rounding(d);
-            }).style("font-family", "Chivo");
+            }).style("font-family", "Roboto").style("font-weight",700);
 
             pie_svg.append("text")
                 .attr("class", "pieText")
@@ -173,7 +196,7 @@
                 .attr("dy", function (d) {
                     return r + 44
                 })
-                .style("font-family", "Chivo")
+                .style("font-family", "Roboto")
                 .attr("text-anchor", "middle")
                 .text(function (d) {
                     if (d.characteristic == "At suburban schools") {
@@ -197,7 +220,7 @@
                         return "";
                     }
                 })
-                .style("font-family", "Chivo");
+                .style("font-family", "Roboto");
         }
     });
 }

@@ -16,6 +16,8 @@
         div_width = parseInt(d3.select('#chart6_content_1').style('width'))
           div_height = $(window).height() - 100 //add padding for top menu 
 
+          var margin = {top: 80, right: 0, bottom: 0, left: 0};
+
     var loader_appearance = {
         length: 10,
         radius: 20,
@@ -25,7 +27,6 @@
         className: 'loader',
     };
 
-    var margin = {top: 80, right: 0, bottom: 0, left: 0};
 
     // select the correct container
     var target = document.getElementById('map2_content'); // this <section> element ID is "map1_content" for map1
@@ -127,29 +128,29 @@
 
     function hoverText(d) {
         if (d.properties.tbl4pct_alg == null) {
-            return "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
+            return "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
                 .NAME + "</span>" +
-                "<span style='line-height: 2;float:right; font-family: 'Chivo', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
+                "<span style='line-height: 2;float:right; font-family: 'Roboto', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
                     d.properties.STATEFP) +
                 "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  color: white;'>Not Reported</span>";
+                "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  color: white;'>Not Reported</span>";
         } else if (d.properties.tbl4pct_alg == "?") {
-            return "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
+            return "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
                 .NAME + "</span>" +
-                "<span style='line-height: 2;float:right; font-family: 'Chivo', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
+                "<span style='line-height: 2;float:right; font-family: 'Roboto', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
                     d.properties.STATEFP) +
                 "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  color: white;'>Not Applicable</span><br>" +
-                "<span style='font-family: 'Chivo', sans-serif; font-weight: 400; '>0 out of 0 students</span>";
+                "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  color: white;'>Not Applicable</span><br>" +
+                "<span style='font-family: 'Roboto', sans-serif; font-weight: 400; '>0 out of 0 students</span>";
         } else {
-            return "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
+            return "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  font-size: 15px; color: white;'>" + d.properties
                 .NAME + "</span>" +
-                "<span style='line-height: 2;float:right; font-family: 'Chivo', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
+                "<span style='line-height: 2;float:right; font-family: 'Roboto', sans-serif; font-weight: 700;  font-size: 15px;'>" + stateAbb(
                     d.properties.STATEFP) +
                 "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
-                "<span style='line-height: 2;font-family: 'Chivo', sans-serif; font-weight: 400;  color: white;'>" + reportable_p(d.properties.tbl4pct_alg) +
+                "<span style='line-height: 2;font-family: 'Roboto', sans-serif; font-weight: 400;  color: white;'>" + reportable_p(d.properties.tbl4pct_alg) +
                 " took Algebra I in 8th grade" + "</span><br>" +
-                "<span style='font-family: 'Chivo', sans-serif; font-weight: 400; '>" + reportable(d.properties.tbl4n_stu_alg) + " out of " +
+                "<span style='font-family: 'Roboto', sans-serif; font-weight: 400; '>" + reportable(d.properties.tbl4n_stu_alg) + " out of " +
                 reportable_s(d.properties.tbl4n_students) + "</span>";
         }
     }
@@ -174,7 +175,7 @@
             .append("svg")
             .attr("width", div_width)
              .attr("height", function(x){
-            if (div_width < 485){
+            if (div_width < 500){
                 return 120;
             } else{
                 return 95;
@@ -182,14 +183,11 @@
             })  //pad for legend
             ;
 
-        var svg = d3.select("#map2")
-            .append("svg")
-            .attr("width", div_width)
-             .attr("height", height)
+
   
 
  //set up legend seperatly for small and large screens
-    if (div_width<485){
+    if (div_width<500){
     var  legend_data = [[div_width/2, 15,"#C1E7F2","null","1","1"],[div_width/2, 37,"#74cae2","0,25","2","2"],[div_width/2, 49,"#2EB4E7","25,50","3","3"], [div_width/2, 61,"#099ACC","50,75","4","4"],
     [div_width/2, 73,"#0883A0","75,99.99","5","5"],[div_width/2, 95,"#046B99","99.99,100","7","7"],[div_width/2 , 110,"#909090","missing","8","8"]];
 
@@ -259,10 +257,10 @@
          .style("fill", "white")
         .text(d=>d[2])
         .style("text-anchor",function(d) {
-        if (div_width>485){
+        if (div_width>500){
             if (d[2]=="All schools offered it" | d[2]=="<100"){
                 return "start" ;
-            } else if (d[2]=="No schools offered it"){
+            } else if (d[2]=="No schools offered it" | d[2]==">0"){
                 return "end";
             } else {
              return "middle";
@@ -272,11 +270,16 @@
         }
         })
          .style("font-size", "12px")
-        .style("font-family", "Chivo")
+        .style("font-family", "Roboto")
         .attr("class", "legendButtonText")
                 .attr("id",d=>d[3])
                 .attr("idtwo",d=>d[3])
                 ;
+
+            var svg = d3.select("#map2")
+            .append("svg")
+            .attr("width", div_width)
+             .attr("height", height)
 
 
         var zoom = d3.zoom()
