@@ -45,7 +45,7 @@
     //Define map projection
     var projection = albersUsaPr()
         .scale(1200 * width/940)
-        .translate([div_width / 2, (height) / 2 - 15]);
+        .translate([div_width / 2, (height) / 2.2]);
     /* color scheme */
     var color = d3.scaleThreshold()
         .domain([0.01, 25, 50, 75, 99.99])
@@ -170,10 +170,23 @@
             .projection(projection);
         //Create SVG element
         // select the correnct container
+    var svg_legend = d3.select("#map2")
+            .append("svg")
+            .attr("width", div_width)
+             .attr("height", function(x){
+            if (div_width < 485){
+                return 120;
+            } else{
+                return 95;
+            }
+            })  //pad for legend
+            ;
+
         var svg = d3.select("#map2")
             .append("svg")
             .attr("width", div_width)
-            .attr("height", height + 80); //pad for legend
+             .attr("height", height)
+  
 
  //set up legend seperatly for small and large screens
     if (div_width<485){
@@ -207,7 +220,7 @@
                 .type(d3.symbolTriangle)
                 .size(25);
 
-    var triangle = svg.selectAll("map1Leg")
+    var triangle = svg_legend.selectAll("map2Leg")
         .data(legend_data)
         .enter().append("path")
                 .attr("d", triangle)
@@ -215,13 +228,11 @@
                 .attr("fill", "white")
                 .attr("class", "triangle")
                   .attr("id",d=>d[4])
-                // .attr("x",d=>d[0])
-                // .attr("y",10)
                 .attr("transform", function(d) { return "translate(" + (d[0] +24) + "," + (d[1] -8) + ") rotate(-60)"; });
         ;
 
      }
-    var legend = svg.selectAll("map1Leg")
+    var legend = svg_legend.selectAll("map2Leg")
         .data(legend_data)
         .enter()
         .append("rect");
@@ -238,7 +249,7 @@
         ;
 
  
-    var legend_text = svg.selectAll("map1Leg")
+    var legend_text = svg_legend.selectAll("map2Leg")
         .data(legend_label_data)
         .enter()
         .append("text");
@@ -288,7 +299,6 @@
         //Create a container in which all zoom-able elements exist
         var map_base = svg.append("g")
             .attr("id", "map")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             ;
         //Bind data and create one path per GeoJSON feature
         var map = map_base.selectAll("path")
@@ -416,7 +426,6 @@
         /* STATE BORDERS - state mesh added onto the district */
         var mapOverlay = svg.append("g")
             .attr("id", "map")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             ;
         map_base.append("g")
             .attr("id", "states")
