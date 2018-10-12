@@ -348,7 +348,7 @@
    
 
             //set up interactive funcaitonality 
-            var div = d3.select("body").append("div").attr("class", "grade_tooltip");
+            var div = d3.select("body").append("div").attr("class", "grade_tooltip").style("display","none");
           
 
             function mouseover(d) {

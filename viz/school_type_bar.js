@@ -237,7 +237,7 @@
 
             //set up interactive funcaitonality 
             var div= d3.select("body").append("div")
-            .attr("class", "grade_tooltip").style("display","inline-block");
+            .attr("class", "grade_tooltip").style("display","none");
 
             function mouseover(d) {
                 div.transition().duration(100).style("display","inline-block")

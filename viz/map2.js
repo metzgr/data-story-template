@@ -95,7 +95,7 @@
    //set up interactive functionality for tooltip
     // get the correct container for map1
     var div2 = d3.select("body").append("div")
-        .attr("class", "map2_tooltip").style("opacity", .9);
+        .attr("class", "map2_tooltip").style("opacity", .9).style("display","none");
 
     function mouseover(d) {
         //highlight selected school district 

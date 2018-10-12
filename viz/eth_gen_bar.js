@@ -315,7 +315,7 @@
         //set up interactive funcaitonality 
         var div = d3.select("body").append("div")
             .attr("class", "eth_gen_tooltip")
-               .style("display","inline-block");
+               .style("display","none");
 
         function mouseover(d) {
             //highlight selected school types
