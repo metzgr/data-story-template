@@ -129,7 +129,7 @@ body, h2 {
 }
 
 body {
-  font-family: "Chivo", Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 1.063em;
   letter-spacing: .05em;
   color: #656569;
@@ -739,6 +739,7 @@ section.title-card .wrap {
   display: block;
   position: relative;
   height: calc(100vh);
+  max-height: 900px;
   background-image: url("../img/student-hero.jpg");
   background-size: cover;
   background-position: auto;
@@ -904,6 +905,10 @@ article {
   background-color: #F9FAFB;
 }
 
+article .wrap {
+  max-width: 100%;
+}
+
 /* */
 
 @media (max-width:53.125em) {
@@ -915,16 +920,13 @@ article {
 }
 
 article p {
-  font-family: 'Chivo', sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.7;
   letter-spacing: .01em;
 }
 
 @media (max-width:53.125em) {
   /* Up to 850px */
-  article p {
-    letter-spacing: .05em;
-  }
 }
 
 .opener p:first-child {
@@ -997,10 +999,10 @@ section.intro h3 {
 }
 
 article h4 {
-  font-family: 'Chivo', sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.7;
-  letter-spacing: none;
-  font-weight: bold;
+  letter-spacing: .01em;
+  font-weight: 600;
   color: #22222A;
   margin-bottom: 1.625em;
 }
@@ -1076,7 +1078,7 @@ article sup a {
 
 .tab-menu li:first-child {
   float: left;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 12px;
 }
 
@@ -1318,9 +1320,63 @@ article sup a {
 
 header {
   height: 120px;
-  transition: 0.3s;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 header.shrinked {
   height: 80px;
+}
+
+/* Pulsing button */
+
+.pulse-wave {
+  margin:0 14px 0 0;
+  display: inline-flex;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(255,255,255, 0.4);
+  animation: pulse-wave 2s infinite;
+}
+
+@-webkit-keyframes pulse-wave {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
+@keyframes pulse-wave {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+      box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+      box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
+
+.pulse-wave .fa-arrow-down {
+  margin: 0 auto;
+  color: #fff;
+  padding-left: 2px;
+}
+
+.narrative-wrap {
+  margin: 0 auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
