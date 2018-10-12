@@ -7,8 +7,8 @@
     function makeChart() {
         //remove old chart 
         d3.select('#chart1_content_1').select("svg").remove();
-         div_width = parseInt(d3.select('#chart1_content_1').style('width'))
-
+        div_width = parseInt(d3.select('#chart1_content_1').style('width'))
+       
         //temporary x for margin calc
         var temp_x = d3.scaleLinear()
             .domain([1.0, 0])
@@ -21,12 +21,20 @@
          } else {
          margin_right = 80
         }
+        var margin_bottom= 0;
+
+        //reset margin for mobile version 
+        if (div_width < 380) {
+            margin_right = 0;
+            margin_bottom: 15;
+        }
+
 
         //set the margin attributes
         var margin = {
                 top: -10,
                 right: margin_right,
-                bottom: -35,
+                bottom: margin_bottom,
                 left: 0
             },
             width = div_width- margin.left - margin.right,
@@ -188,7 +196,67 @@
 
             const type = d3.annotationLabel
 
-            const annotations = [{
+            //annotation are above text 
+
+            if (div_width < 380) {
+
+            var annotations = [{
+                    connector: {
+                        type: "curve",
+                        points: [
+                            [x(.1), -5]
+                        ]
+                    },
+                    className: "showAnnotation",
+                    x: x(.65),
+                    y: 60,
+                    dx: x(.1),
+                    dy: -10
+                },
+                {
+                    note: {
+                        label: "Early access to algebra is not commonplace",
+                        wrap: 135,
+                        bgPadding: 0,
+                        align: "left",
+                        lineType: "none"
+                    },
+                    className: "showAnnotation",
+                    x: div_width-185,
+                    y: 18,
+                },
+                {
+                    note: {
+                        label: "Juniors and seniors have limited access, but Algebra I is often required to graduate",
+                        wrap: 180,
+                        bgPadding: 0,
+                        align: "left",
+                        lineType: "none"
+                    },
+                    className: "showAnnotation2",
+                    x: div_width -205,
+                    y: 205,
+                },
+                {
+                    connector: {
+                        type: "curve",
+                        points: [
+                            [x(.1), 0]
+                        ]
+                    },
+                    className: "showAnnotation",
+                    x: x(.7),
+                    y: 195,
+                    dx: 30,
+                    dy: 15
+                }
+            ].map(function (d) {
+                d.color = "#2e2e2e";
+                return d
+            });
+              } else {
+
+            var annotations = [{
                     connector: {
                         type: "curve",
                         points: [
@@ -241,7 +309,9 @@
             ].map(function (d) {
                 d.color = "#2e2e2e";
                 return d
-            })
+            });
+
+        }
 
             const makeAnnotations = d3.annotation()
                 .type(type)
@@ -255,13 +325,22 @@
             total_width = parseInt(d3.select('body').style('width'))
 
             function position_tip(x, y) {
+                if (div_width>400){
                 if (x > (50 + total_width / 2)) {
                     x = d3.max(x - total_width, 140) //move tooltip to left of mouse for elements in the right of page
                 }
                 if (y > height / 2) {
                     y = y - 75
                 }
-                return ([x, y])
+                return ([x, y]);
+            } else{
+                x = 10
+                if (y > height / 2) {
+                    y = y - 75
+                }
+                return ([x, y]);
+
+            }
 
             }
 
@@ -303,7 +382,7 @@
             d.percentageEnrolledInAlgebra = +d.percentageEnrolledInAlgebra;
             return d;
         }
-    }
+    };
 
 })();
 

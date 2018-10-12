@@ -304,20 +304,34 @@ div.map1_tooltip {
     border: 1px solid #CCC;
 }
 
-/*Set up the triangle that is used to indicate which legend item is selected */
-#map1 div.triangle {
-    width: 48px;
-    height: 10px;
-    transform: translate(255px, 0px);
-    color: transparent;
-    text-shadow: 0 0 0 #22222a;
-    text-align: center;
-    display: inline-block;
-    font-size: 8pt;
+#map1 .legendButton.hasSelector.highlightButton{
+    opacity: 1;
 }
 
-#map1 div.triangle.highlightButton {
-    text-shadow: 0 0 0 white;
+#map1 .legendButton.hasSelector{
+    opacity: .1;
+}
+
+#map1 .legendButtonText{
+    opacity: 1;
+}
+
+
+#map1 .legendButtonText.hasSelector{
+    opacity: .1;
+}
+#map1 .legendButtonText.highlightButton{
+    opacity: 1;
+}
+
+
+/*Set up the triangle that is used to indicate which legend item is selected */
+#map1 .triangle {
+   display: none;
+}
+
+#map1 .triangle.highlightButton {
+    display: inline-block;
 }
 
 #map1 .background {
@@ -384,7 +398,7 @@ div.map1_tooltip {
 div.eth_gen_tooltip {
     position: absolute;
     text-align: left;
-    width: 250px;
+    width: 270px;
     height: 100px;
     padding: 2px;
     margin-left: 20px;
@@ -579,20 +593,23 @@ div.map2_tooltip {
     border: 1px solid #CCC;
 }
 
-#map2 div.triangle {
-    width: 48px;
-    height: 10px;
-    transform: translate(255px, 0px);
-    color: transparent;
-    text-shadow: 0 0 0 #22222a;
-    text-align: center;
-    display: inline-block;
-    font-size: 8pt;
+#map2 .legendButtonText.hasSelector{
+    opacity: .1;
+}
+#map2 .legendButtonText.highlightButton{
+    opacity: 1;
 }
 
-#map2 div.triangle.highlightButton {
-    text-shadow: 0 0 0 white;
+
+/*Set up the triangle that is used to indicate which legend item is selected */
+#map2 .triangle {
+   display: none;
 }
+
+#map2 .triangle.highlightButton {
+    display: inline-block;
+}
+
 
 #map2 .background {
     fill: none;

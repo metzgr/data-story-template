@@ -3,13 +3,16 @@
     "use strict";
 
     window.stateAbbData = {};
+
     d3.json("viz/data/stateAbb.json", function (data) {
         stateAbbData = data;
     });
 
-    let districts;
+    window.districts = {};
+    window.usFeatures = {};
 
     function makeMap(error, us) {
+        usFeatures = us;
         makeMap1(error, us, districts);
         makeMap2(error, us, districts);
     }

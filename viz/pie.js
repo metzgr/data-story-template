@@ -7,14 +7,24 @@
         d3.select('#chart3_content_1').select("pie_chart").remove();
 
         div_width = parseInt(d3.select('#chart3_content_1').style('width'))
-
+     
     /* Set up basic graph appearance parameters*/
     var formatSum = d3.format(".1s");
 
-    var max_r = (div_width-40)/8;
+    //charts need atleast 50 radius and some padding for horizonal presentation, otherwise trigger vertical
+        var vertical = false;
 
-    //charts need atleast 50 radius for horizonal presentation, otherwise trigger vertical
-    
+        if (div_width/4 <110){ //do 4 of graphs fit horizontally or not? 
+        vertical = true;
+        } 
+
+
+         var max_r = (div_width-40)/8;
+
+         if (vertical){
+            max_r = 100;
+         }
+
     var padding = 10;
 
     var radius = d3.scaleSqrt()
@@ -76,14 +86,42 @@
             .each(multiple)
             .select("g");
 
+
+     
         /* funciton that iterate through each school type pie chart adding chart and labels */
         function multiple(d) {
             var r = radius(+d.number);
             var pie_svg = d3.select(this)
-                .attr("width", r * 2.2 + 30)
-                .attr("height",max_r*2 + 85 )
+                .attr("width", function(d){
+                    if (!vertical){
+                   return r * 2.2 + 30;
+               }
+                   else {
+                    return div_width;
+                   }
+                }
+                    )
+                .attr("height",function(d){
+                    if (!vertical){
+                   return max_r*2 + 85 ;
+               }
+                   else {
+                    return r*2 + 105 ; //extra padding to create some vertical seperation
+                   }
+                }
+                    )
                 .append("g")
-                .attr("transform", "translate(" + (1.1 * r + 15) + "," + ((max_r)*2 +20- r) + ")");
+                .attr("transform", function(d){
+                    if (!vertical){
+                        return "translate(" + (1.1 * r + 15) + "," + ((max_r)*2 +20- r) + ")";
+                    } 
+                    else {
+                    return "translate(" + (div_width/4) + "," + ((r)*2 +20- r) + ")";
+
+                    }
+                    }
+
+                    );
 
             pie_svg.selectAll(".arc")
                 .data(function (d) {

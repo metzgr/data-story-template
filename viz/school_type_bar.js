@@ -8,7 +8,7 @@
         d3.select('#chart2_content_1').select("svg").remove();
 
         div_width = parseInt(d3.select('#chart2_content_1').style('width'))
-        
+        mobile_cutoff = 400;
         //set the margin attributes
         var margin = {
                 top: 35,
@@ -120,10 +120,16 @@
                     }
                 })
                 .attr("x", function (d) {
+                    if (div_width>mobile_cutoff){
                     return x(d.percentageEnrolledInAlgebra) + 5;
+                } else { //reduce spacing on mobile
+                    return x(d.percentageEnrolledInAlgebra) + 2;
+                }
                 }) //coordinates start at 0
                 .attr("y", function (d) {
+                    
                     return y(d.characteristic) + 18;
+
                 })
                 .attr("text-anchor", "right")
                 .style("font-size", "13px")
@@ -171,14 +177,28 @@
 
 
             var annotation = svg_st.append("text")
-                .attr("x", x(0))
+                .attr("x", function(d){
+                    if (width >mobile_cutoff){
+
+                        return x(0);
+                    } else {
+                    return x(1);}
+                })
                 .attr("y", -20)
-                .attr("text-anchor", "start")
+                .attr("text-anchor", function(d){
+                    if (width >mobile_cutoff){
+                        return "start";
+                    } else {
+                    return "end";}
+                })
                 .style("font-size", "14px")
                 .style("font-family", "Chivo")
                 .style("fill", "#2e2e2e")
                 .style("font-weight", 700)
                 .text("% of 8th graders who could take Algebra I at...");
+                    
+
+            
 
             var annotation = svg_st.append("text")
                 .attr("x", x(.75) + 60)
@@ -196,14 +216,24 @@
              total_width = parseInt(d3.select('body').style('width'))
 
             function position_tip(x, y) {
+                if (div_width >mobile_cutoff){
                 if (x > (50 + total_width / 2)) {
                     x = d3.max(x - total_width, 140) //move tooltip to left of mouse for elements in the right of page
                 }
                 if (y > height / 2) {
                     y = y - 125
                 }
-                return ([x, y])
+                return ([x, y]);
+            }   else {
+                x = 10
+                if (y > height / 2) {
+                    y = y - 75
+                }
+                return ([x, y]);
+
             }
+            }
+            
 
             //set up interactive funcaitonality 
             var div= d3.select("body").append("div")
