@@ -98,6 +98,9 @@
     if (index === 0) {
       listItem.setAttribute('class', 'active-nav');
     }
+    else {
+      listItem.setAttribute('class', 'not-active-nav');
+    }
     let listLink = document.createElement("a");
     listLink.style.lineHeight = "0px";
     listLink.setAttribute('href', "#" + text.replace(/\s/g, '').replace(/&/g, ""));
@@ -118,7 +121,7 @@
     if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
       socialLinks.forEach(function (elm) {
         // shrink the header (dictated by social links height)
-        elm.style.lineHeight = "80px";
+        elm.style.lineHeight = "65px";
       });
       header.setAttribute("class", "shrinked");
 
@@ -175,6 +178,10 @@
           document.querySelector("a[href='#" + i + "']").parentElement.setAttribute('class', 'active-nav');
         }
       }
+    }
+    else {
+      document.querySelector('.not-active-nav').setAttribute('class', ' ');
+      document.querySelector("a[href='#" + i + "']").parentElement.setAttribute('class', 'not-active-nav');
     }
   };
 
