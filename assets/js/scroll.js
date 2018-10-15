@@ -173,12 +173,12 @@
   function spyOnScroll() {
     let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
       for (i in sectionTopHeights) {
         if (sectionTopHeights[i] <= scrollPosition) {
 
-          document.querySelector('.active-nav').setAttribute('class', 'not-active-nav');
-          document.querySelector("a[href='#" + i + "']").parentElement.setAttribute('class', 'active-nav');
+          document.querySelector('.active-nav') ? document.querySelector('.active-nav').setAttribute('class', 'not-active-nav') : () => { return null };
+          document.querySelector("a[href='#" + i + "']") ? document.querySelector("a[href='#" + i + "']").parentElement.setAttribute('class', 'active-nav') : () => { return null };
 
           // might improve on this to make it more scalable
           switch (i) {

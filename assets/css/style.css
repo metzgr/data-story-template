@@ -42,6 +42,14 @@ blockquote a {
   text-decoration: underline;
 }
 
+.md-content a {
+  text-decoration: underline;
+}
+
+.md-content a:hover {
+  cursor: pointer;
+}
+
 .title-card h2:after, div.bigger em:after, div.bigger strong:after, section.company .wrap:after, section.intro:after, section.news .wrap:after {
   content: ""
 }
@@ -67,6 +75,10 @@ input, select, textarea {
 
 body, h2 {
   line-height: 35px
+}
+
+em {
+  font-style: italic;
 }
 
 * {
