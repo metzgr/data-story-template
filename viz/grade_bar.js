@@ -5,10 +5,10 @@
     window.addEventListener("resize", makeChart);
 
     function makeChart() {
-        //remove old chart 
+        //remove old chart
         d3.select('#chart1_content_1').select("svg").remove();
         div_width = parseInt(d3.select('#chart1_content_1').style('width'))
-       
+
         //temporary x for margin calc
         var temp_x = d3.scaleLinear()
             .domain([1.0, 0])
@@ -23,7 +23,7 @@
         }
         var margin_bottom= 0;
 
-        //reset margin for mobile version 
+        //reset margin for mobile version
         if (div_width < 380) {
             margin_right = 0;
             margin_bottom: 15;
@@ -71,7 +71,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-         
+
 
         var dataFile = "viz/data/grade.txt";
 
@@ -89,7 +89,7 @@
                 .enter().append("rect")
                 .attr("class", "barBackground")
                 .attr("fill", function (d) {
-                    return "#f1f1f1"
+                    return "#F5F5F5"
                 })
                 .attr("x", function (d) {
                     return x(0);
@@ -196,7 +196,7 @@
 
             const type = d3.annotationLabel
 
-            //annotation are above text 
+            //annotation are above text
 
             if (div_width < 380) {
 
@@ -345,11 +345,11 @@
             }
 
 
-   
 
-            //set up interactive funcaitonality 
+
+            //set up interactive funcaitonality
             var div = d3.select("body").append("div").attr("class", "grade_tooltip").style("display","none");
-          
+
 
             function mouseover(d) {
                 div.transition().duration(100)
@@ -385,5 +385,3 @@
     };
 
 })();
-
-

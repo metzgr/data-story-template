@@ -7,16 +7,16 @@
         d3.select('#chart3_content_1').select("pie_chart").remove();
 
         div_width = parseInt(d3.select('#chart3_content_1').style('width'))
-     
+
     /* Set up basic graph appearance parameters*/
     var formatSum = d3.format(".1s");
 
     //charts need atleast 50 radius and some padding for horizonal presentation, otherwise trigger vertical
         var vertical = false;
 
-        if (div_width/4 <110){ //do 4 of graphs fit horizontally or not? 
+        if (div_width/4 <110){ //do 4 of graphs fit horizontally or not?
         vertical = true;
-        } 
+        }
 
 
          var max_r = (div_width-40)/8;
@@ -29,18 +29,18 @@
 
     var radius = d3.scaleSqrt()
         .range([0, max_r]);
-   
+
 
     var color = d3.scaleOrdinal()
         .domain([0, 1])
-        .range(["#F2F2F2", "#2EB4E7"]);
+        .range(["#F5F5F5", "#2EB4E7"]);
 
 
     var color_rural = d3.scaleOrdinal()
         .domain([0, 1])
         .range(["#22222a", "#22222a"]);
 
-    
+
 
     var arc = d3.arc()
         .padRadius(5);
@@ -94,7 +94,7 @@
             .select("g");
 
 
-     
+
         /* funciton that iterate through each school type pie chart adding chart and labels */
         function multiple(d) {
             var r = radius(+d.number);
@@ -121,7 +121,7 @@
                 .attr("transform", function(d){
                     if (!vertical){
                         return "translate(" + (1.1 * r + 15) + "," + ((max_r)*2 +20- r) + ")";
-                    } 
+                    }
                     else {
                     return "translate(" + (div_width/4) + "," + ((r)*2 +20- r) + ")";
 
@@ -143,7 +143,7 @@
                     } else {
                     return  "#2EB4E7";
                 }
-                
+
                 } )
                 .attr("d", arc.outerRadius(r).innerRadius(0))
                 .style("fill", function (d) {
@@ -152,7 +152,7 @@
                     } else {
                     return  color(d.data.portion);
                 }
-                
+
                 });
 
             pie_svg.append("text")

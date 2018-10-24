@@ -1,6 +1,6 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
-  
+
     makeChart();
     //window.addEventListener("resize",makeChart);
 
@@ -80,7 +80,7 @@
             }
         });
 
-        //set up the value for the dashed line showing overall enrollment 
+        //set up the value for the dashed line showing overall enrollment
         var totalLineData = +dataTotal[0].percentageEnrolledInAlgebra
 
         var data = data.filter(function (d) {
@@ -99,7 +99,7 @@
             .data(data)
             .enter().append("rect")
             .attr("class", "barBackground")
-            .attr("fill", "#f1f1f1")
+            .attr("fill", "#F5F5F5")
             .attr("x", function (d) {
                 return x(0);
             }) //coordinates start at 0
@@ -151,7 +151,7 @@
             .on('mouseover', mouseover) //show / hide the tip based on where the mouse is
             .on('mouseout', mouseout);
 
-        //append the text to end of chart 
+        //append the text to end of chart
         svg.selectAll("text")
             .data(data)
             .enter().append("text")
@@ -181,16 +181,16 @@
                 }
             })
             .attr("text-anchor", "right")
-            .style("font-size", "11px")
+            .style("font-size", "14px")
             .style("font-family", "Roboto")
             .style("fill", "#616161");
 
 
-        //custom y axis not using y axis class to allow for the custom offset 
+        //custom y axis not using y axis class to allow for the custom offset
         if (div_width <  mobile_cutoff){
         var custom_y = [["Asian students"],["White"],["Two or more races"],["Pacific Islander"],["Hispanic"],
     ["American Indian/"],["Alaska Native"],["Black"],["Female"],["Male"]]
-        
+
 } else {
          var custom_y = [["Asian students"],["White"],["Two or more races"],["Pacific Islander"],
          ["Hispanic"], ["American Indian/Alaska Native"],["Black"],["Female"],["Male"]]
@@ -229,6 +229,7 @@
             .attr("text-anchor", "end")
             .style("font-size", "14px")
             .style("font-family", "Roboto")
+            .style("font-weight",600)
             .style("fill", "#2e2e2e")
             .text("24% of 8th graders took Algebra I");
         } else {
@@ -236,9 +237,9 @@
             .attr("x", x(totalLineData))
             .attr("y", -15)
             .attr("text-anchor", "middle")
-            .style("font-size", "14px")
+            .style("font-size", "15px")
             .style("font-family", "Roboto")
-            .style("font-weight",500)
+            .style("font-weight",600)
             .style("fill", "#2e2e2e")
             .text("24% of 8th graders took Algebra I");
 
@@ -312,7 +313,7 @@
 
         }
 
-        //set up interactive funcaitonality 
+        //set up interactive funcaitonality
         var div = d3.select("body").append("div")
             .attr("class", "eth_gen_tooltip")
                .style("display","none");
@@ -328,7 +329,7 @@
 
             div.transition().duration(100).style("display","inline-block")
                 .style("opacity", .9);
-            div.html("<span style='font-family: Roboto; font-size: 14px; color: #ffffff;'>" + d.characteristic +
+            div.html("<span style='font-family: Roboto; font-size: 13px; color: #ffffff;'>" + d.characteristic +
                     "</span><br/><hr style='opacity: 0.2;border: 1px solid #CDCCCC;'>" +
                     "<span style='font-family: Roboto; font-size: 13px; color: #FFFFFF; line-height: 16px;'>" +
                     d3.format(",.0f")(d.percentageEnrolledInAlgebra_orig) +

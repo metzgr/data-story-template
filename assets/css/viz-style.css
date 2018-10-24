@@ -142,7 +142,7 @@ div.type_tooltip {
 #pie_chart .pieTextTitle {
     font-family: 'Roboto', sans-serif;
     /* 700 for bold */
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     color: #474747;
     text-anchor: middle;
@@ -154,9 +154,9 @@ div.type_tooltip {
     font-family: 'Roboto', sans-serif;
     /* 400 for regular */
     font-weight: 400;
-    font-size: 12px;
+    font-size: 13px;
     color: #474747;
-    line-height: 15px;
+    line-height: normal;
     text-anchor: middle;
     position: absolute;
     text-align: left;

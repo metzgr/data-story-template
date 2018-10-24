@@ -68,7 +68,7 @@
                 .enter().append("rect")
                 .attr("class", "barBackground")
                 .attr("fill", function (d) {
-                    return "#f1f1f1"
+                    return "#F5F5F5"
                 })
                 .attr("x", function (d) {
                     return x(0);
