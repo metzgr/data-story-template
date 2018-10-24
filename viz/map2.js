@@ -7,16 +7,16 @@
     function makeChart() {
         getSize();
         makeMap2("",usFeatures,districts);
-    }
+    } 
 
 
     function getSize(){
         d3.select('#chart6_content_1').selectAll("svg").remove();
 
         var div_width = parseInt(d3.select('#chart6_content_1').style('width'));
-        var div_height = $(window).height() - 100; //add padding for top menu
+        var div_height = $(window).height() - 100; //add padding for top menu 
 
-     //actual map size
+     //actual map size 
     var width = div_width,
         height = div_width * 2/3;
 
@@ -33,7 +33,7 @@
     /* color scheme */
     var color = d3.scaleThreshold()
         .domain([0.01, 25, 50, 75, 99.99])
-        .range(["#edf8e9", "#c7e9c0", "#a1d99b", "#74c476", "#31a354", "#006d2c"]);
+        .range(["#C1E7F2", "#74CAE2", "#2EB4E7", "#099ACC", "#0883A0", "#046B99"]);
 
 
 
@@ -42,7 +42,7 @@
     /* ```````````````````` CONVIENIENCE FUNCTIONS ```````````````````` */
     function get_fill(d) {
         if (d.properties.tbl4pct_alg === null || d.properties.tbl4pct_alg == "?") {
-            return "#64646A";
+            return "#909090";
 
         } else {
             return color(+d.properties.tbl4pct_alg);
@@ -98,8 +98,8 @@
         .attr("class", "map2_tooltip").style("opacity", .9).style("display","none");
 
     function mouseover(d) {
-        //highlight selected school district
-        d3.select(this).style('stroke', '#22222a').style('stroke-width', '1px');
+        //highlight selected school district 
+        d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
         div2.transition().duration(100)
             .style("display", "inline-block");
         div2.html(hoverText(d))
@@ -165,12 +165,12 @@
             ;
 
 
-
+  
 
  //set up legend seperatly for small and large screens
     if (div_width<500){
-    var  legend_data = [[div_width/2, 15,"#edf8e9","null","1","1"],[div_width/2, 37,"#c7e9c0","0,25","2","2"],[div_width/2, 49,"#a1d99b","25,50","3","3"], [div_width/2, 61,"#74c476","50,75","4","4"],
-    [div_width/2, 73,"#31a354","75,99.99","5","5"],[div_width/2, 95,"#006d2c","99.99,100","7","7"],[div_width/2 , 110,"#64646A","missing","8","8"]];
+    var  legend_data = [[div_width/2, 15,"#C1E7F2","null","1","1"],[div_width/2, 37,"#74cae2","0,25","2","2"],[div_width/2, 49,"#2EB4E7","25,50","3","3"], [div_width/2, 61,"#099ACC","50,75","4","4"],
+    [div_width/2, 73,"#0883A0","75,99.99","5","5"],[div_width/2, 95,"#046B99","99.99,100","7","7"],[div_width/2 , 110,"#909090","missing","8","8"]];
 
     var legend_label_data = [[div_width/2-3, 23,"No schools offered it","1"],
                                 [div_width/2-3, 45,"0-25","2"],
@@ -181,8 +181,8 @@
                                 [div_width/2-3, 118,"Missing data","8"]];
 
     } else {
-    var  legend_data = [[div_width/2 -200, 13,"#edf8e9","null","1","1"],[div_width/2 -100, 13,"#c7e9c0","0,25","2","3"],[div_width/2-50, 13,"#a1d99b","25,50","3","4"], [div_width/2, 13,"#74c476","50,75","4","5"],
-    [div_width/2+50, 13,"#31a354","75,99.99","5","6"],[div_width/2+150, 13,"#006d2c","99.99,100","7","7"],[div_width/2 -25, 68,"#64646A","missing","8","8"]];
+    var  legend_data = [[div_width/2 -200, 13,"#C1E7F2","null","1","1"],[div_width/2 -100, 13,"#74cae2","0,25","2","3"],[div_width/2-50, 13,"#2EB4E7","25,50","3","4"], [div_width/2, 13,"#099ACC","50,75","4","5"],
+    [div_width/2+50, 13,"#0883A0","75,99.99","5","6"],[div_width/2+150, 13,"#046B99","99.99,100","7","7"],[div_width/2 -25, 68,"#909090","missing","8","8"]];
 
     var legend_label_data = [[div_width/2 -152, 35,"No schools offered it","1"],
                                 [div_width/2 -100, 35,">0","2"],
@@ -193,7 +193,7 @@
                                 [div_width/2 +150, 35,"All schools offered it","7"],
                                 [div_width/2, 89,"Missing data","8"]];
 
-
+    
 
     var triangle = d3.symbol()
                 .type(d3.symbolTriangle)
@@ -215,7 +215,7 @@
         .data(legend_data)
         .enter()
         .append("rect");
-
+        
     legend.attr("x", d=>d[0])
         .attr("y", d=>d[1])
         .attr("width", 48)
@@ -227,12 +227,12 @@
         .attr("idtwo",d=>d[5])
         ;
 
-
+ 
     var legend_text = svg_legend.selectAll("map2Leg")
         .data(legend_label_data)
         .enter()
         .append("text");
-
+        
     legend_text.attr("x", d=>d[0])
         .attr("y", d=>d[1])
          .style("fill", "white")
@@ -305,7 +305,7 @@
         var triangles = $('#map2 .triangle')
 
 
-        /* Design of the legend iteractivity was based off the implementaiton by WeStat available at:
+        /* Design of the legend iteractivity was based off the implementaiton by WeStat available at: 
         https://github.com/Westat-Transportation/Westat-Transportation.github.io/blob/9293c1c382757e8a08eed80852812c2f7eee99b2/EnglishLearners/demo/index.html */
         legendButtons.on("click", function () {
                 triangles.each(function () {
@@ -378,27 +378,27 @@
                         if (+d.properties.tbl4pct_alg > buttonValue0) {
                             return color(+d.properties.tbl4pct_alg);
                         } else {
-                            return "#2e2e36";
+                            return "white";
                         }
                     } else if (buttonValue == "missing") {
 
                         if (d.properties.tbl4pct_alg === null || d.properties.tbl4pct_alg == "?") {
-                            return "#64646A";
+                            return "#909090";
                         } else {
-                            return "#2e2e36";
+                            return "white";
                         }
 
                     } else if (buttonValueSplit[0] === "null") {
                         if (d.properties.tbl4pct_alg < 0.01 && d.properties.tbl4pct_alg !== null) {
                             return color(0);
                         } else {
-                            return "#2e2e36";
+                            return "white";
                         }
                     } else if (buttonValue0 >= 0) {
                         if (d.properties.tbl4pct_alg > buttonValue0 && d.properties.tbl4pct_alg < buttonValue1) {
                             return color(+d.properties.tbl4pct_alg);
                         } else {
-                            return "#2e2e36";
+                            return "white";
                         }
                     }
                 });
