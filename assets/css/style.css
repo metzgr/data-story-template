@@ -815,6 +815,8 @@ section.title-card .wrap {
   background-position: auto;
 }
 
+
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   section.title-card .wrap {
     background-image: url("../img/student-hero_2x.jpg");"
@@ -828,7 +830,6 @@ section .title-card {
   bottom: 0;
   right: 0;
   width: 46%;
-  max-width: 35.625em;
   background: #fff;
   z-index: 2;
   padding: 50px 50px 50px 50px;
@@ -852,6 +853,9 @@ section .title-card {
     width: auto;
     padding: 30px
   }
+  section.title-card .wrap {
+    background-image: none;
+  }
 }
 
 section.title-card .title-card h2 {
@@ -870,7 +874,13 @@ section.title-card .title-card h2 {
   section.title-card .title-card h2 {
     margin-bottom: 1.875em;
     /* 30 px */
+    max-width: none;
   }
+
+  section.title-card .wrap {
+    height: auto;
+  }
+
 }
 
 section.title-card .title-card h3 {
@@ -1392,6 +1402,13 @@ header.shrinked {
 header.shrinked div.header-content nav a, header.shrinked div.header-content nav span {
   line-height: 80px;
   transition: 0.3s;
+}
+
+@media (max-width:53.125em) {
+  /* Up to 850px */
+  header {
+    height: 65px;
+  }
 }
 
 /* Pulsing button */
