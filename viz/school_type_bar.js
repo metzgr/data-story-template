@@ -127,18 +127,18 @@
                 }
                 }) //coordinates start at 0
                 .attr("y", function (d) {
-                    
+
                     return y(d.characteristic) + 18;
 
                 })
                 .attr("text-anchor", "right")
-                .style("font-size", "13px")
+                .style("font-size", "14px")
                 .style("font-family", "Roboto")
                 .attr("font-weight", function(d){
                 if (d.characteristic == "Magnet schools")
-                            return 700;
-                        else {
                             return 600;
+                        else {
+                            return 500;
                         };
                     }
                     )
@@ -171,7 +171,7 @@
                 .attr("x2", x(.79588))
                 .attr("y2", 240)
                 .attr("stroke-width", 1)
-                .attr("stroke-dasharray", 3)
+                .attr("stroke-dasharray", 1)
                 .attr("stroke", "#2E2E2E");
 
 
@@ -191,14 +191,14 @@
                     } else {
                     return "end";}
                 })
-                .style("font-size", "14px")
+                .style("font-size", "15px")
                 .style("font-family", "Roboto")
                 .style("fill", "#2e2e2e")
-                .style("font-weight", 700)
+                .style("font-weight", 600)
                 .text("% of 8th graders who could take Algebra I at...");
-                    
 
-            
+
+
 
             var annotation = svg_st.append("text")
                 .attr("x", x(.75) + 60)
@@ -207,8 +207,8 @@
                 .style("font-size", "14px")
                 .style("font-family", "Roboto")
                 .style("fill", "#2e2e2e")
-                .style("font-weight", 600)
-                .text("Overall 80% of 8th graders could take Algebra 1");
+                .style("font-weight", 500)
+                .text("Overall, 80% of 8th graders could take Algebra 1");
 
 
 
@@ -233,9 +233,9 @@
 
             }
             }
-            
 
-            //set up interactive funcaitonality 
+
+            //set up interactive funcaitonality
             var div= d3.select("body").append("div")
             .attr("class", "grade_tooltip").style("display","none");
 
@@ -261,7 +261,7 @@
 
         });
 
-        //Set data type of percentage to numeric 
+        //Set data type of percentage to numeric
         function type(d) {
             d.percentageEnrolledInAlgebra = +d.percentageEnrolledInAlgebra;
             return d;
