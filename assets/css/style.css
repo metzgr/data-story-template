@@ -422,7 +422,7 @@ ul hr {
 
 div.header-content nav a, div.header-content nav span {
   color: #22222a;
-  opacity: .6;
+  opacity: .7;
   transition: opacity .2s;
   margin: 0 30px 0 0;
   display: inline-block
@@ -524,7 +524,26 @@ div.header-content .close a, div.header-content nav a, div.header-content nav sp
 }
 
 footer {
-  padding: 90px 0 0
+  padding: 90px 0 0;
+  color: #fff;
+}
+
+footer img {
+  width: 80%;
+}
+
+@media (max-width:46.875em) {
+  footer img {
+    width: 30%;
+  }
+}
+
+footer p {
+  opacity: .7;
+}
+
+footer p:first-child {
+  opacity: 1;
 }
 
 @media (max-width:53.125em) {
@@ -733,7 +752,7 @@ section.intro .screen .screen-holder {
   animation-duration: .6s;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
-  background-image: url("../img/dummy.jpg");
+  background-image: url("../img/hero-1.jpg");
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   background-size: cover;
   background-position: auto;
@@ -742,7 +761,7 @@ section.intro .screen .screen-holder {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   section.intro .screen .screen-holder {
-    background-image: url("../img/dummy_2x.jpg");
+    background-image: url("../img/hero-1_2x.jpg");
   }
 }
 
@@ -1142,7 +1161,7 @@ article sup a {
 }
 
 .tab-menu a {
-  opacity: .6;
+  opacity: .7;
 }
 
 .tab-menu a.active {
@@ -1195,13 +1214,13 @@ article sup a {
 }
 
 #story-notes hr {
-  opacity: .6;
+  opacity: .7;
 }
 
 #story-notes :not(sup) {
   font-size: 13px;
 
-    color: rgba(34, 34, 42, .6);
+    color: rgba(34, 34, 42, .7);
 }
 
 #story-notes p {
@@ -1216,7 +1235,7 @@ article sup a {
   margin-top: 30px;
   font-size: 13px;
 
-    color: rgba(34, 34, 42, .6);
+    color: rgba(34, 34, 42, .7);
 }
 
 /* Preloader */
