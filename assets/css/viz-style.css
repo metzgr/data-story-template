@@ -37,27 +37,27 @@ div.grade_tooltip {
     border: 0px;
     border-radius: 2px;
     pointer-events: none;
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     opacity: .9;
 }
 
-/*creates a class to use for Chivo font*/
+/*creates a class to use for Roboto font*/
 #grade_bar option.LibreFranklin {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #2e2e2e;
     font-weight: 500;
 }
 
 #grade_bar g.annotation.label.showAnnotation {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 500;
 }
 
 #grade_bar g.annotation.label.showAnnotation2 {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 500;
 }
@@ -106,15 +106,15 @@ div.type_tooltip {
 }
 
 /*creates a class to use for LibreFranklin font*/
-#school_type_bar option.ChivoRegular {
-    font-family: 'Chivo', sans-serif;
+#school_type_bar option.RobotoRegular {
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #2e2e2e;
 }
 
 #school_type_bar g.annotation #showAnnotation2 {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
 
@@ -140,7 +140,7 @@ div.type_tooltip {
 
 
 #pie_chart .pieTextTitle {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     /* 700 for bold */
     font-weight: 700;
     font-size: 14px;
@@ -151,7 +151,7 @@ div.type_tooltip {
 }
 
 #pie_chart .pieText {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     /* 400 for regular */
     font-weight: 400;
     font-size: 12px;
@@ -189,14 +189,14 @@ div.map1_tooltip {
 }
 
 #map1 p.title {
-    font-family: 'Chivo', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
     line-height: 20px;
     color: white;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 52px;
+    margin-bottom: 10px;
 }
 
 #map1 .wrapper {
@@ -236,7 +236,7 @@ div.map1_tooltip {
 }
 
 #map1 .legendItem input[id="white"] {
-    cursor: default;
+    cursor: pointer;
     background: black;
     color: black;
 }
@@ -254,7 +254,7 @@ div.map1_tooltip {
 
 #map1 .legendItem {
     list-style-type: none;
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     padding-top: 0;
 }
@@ -265,6 +265,8 @@ div.map1_tooltip {
     height: 10px;
     position: relative;
     margin-left: 2px;
+    margin-top: 4px;
+      margin-bottom: 4px;
 }
 
 #map1 .legendItem label,
@@ -378,7 +380,7 @@ div.map1_tooltip {
 
 /*set the attributes for the axis labels*/
 #eth_gen_bar .axis {
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 12px;
     color: #2E2E2E;
@@ -426,8 +428,8 @@ div.eth_gen_tooltip {
 }
 
 /*creates a class to use for font*/
-#eth_gen_bar option.ChivoRegular {
-    font-family: 'Chivo', sans-serif;
+#eth_gen_bar option.RobotoRegular {
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #2E2E2E;
@@ -480,13 +482,14 @@ div.map2_tooltip {
 }
 
 #map2 p.title {
-    font-family: 'Chivo', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
     color: white;
     line-height: 20px;
     text-align: center;
-    margin-top: 0;
+    margin-top: 52px;
+    margin-bottom: 10px;
 }
 
 #map2 .wrapper {
@@ -544,7 +547,7 @@ div.map2_tooltip {
 
 #map2 .legendItem {
     list-style-type: none;
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 10pt;
 }
@@ -643,7 +646,7 @@ div.map2_tooltip {
     fill: none;
     color: none;
     stroke: #22222a;
-    stroke-width: 2.7px;
+    stroke-width: 2px;
 }
 
 #map2 label {
@@ -651,5 +654,3 @@ div.map2_tooltip {
     height: 10px;
     color: white;
 }
-
-
