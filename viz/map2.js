@@ -270,8 +270,10 @@
 
         function zoomed() {
             map_base.attr('transform',
-                'translate(' + d3.event.transform.x + ',' + (d3.event.transform.y +80) + ') scale(' + d3.event.transform.k + ')');
-            //
+                'translate(' + d3.event.transform.x + ',' + (d3.event.transform.y ) + ') scale(' + d3.event.transform.k + ')');
+               mapOverlay.attr('transform',
+                'translate(' + d3.event.transform.x + ',' + d3.event.transform.y + ') scale(' + d3.event.transform.k + ')');
+
                   };
 
         function transition(zoomLevel) {
@@ -409,13 +411,13 @@
         var mapOverlay = svg.append("g")
             .attr("id", "map")
             ;
-        map_base.append("g")
+        mapOverlay.append("g")
             .attr("id", "states")
             .selectAll("path")
             .data(topojson.feature(us, us.objects.states).features)
             .enter().append("path")
             .attr("d", path);
-        map_base.append("path")
+        mapOverlay.append("path")
             .datum(topojson.mesh(us, us.objects.states, function (a, b) {
                 return a !== b;
             }))

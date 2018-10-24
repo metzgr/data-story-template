@@ -22,7 +22,7 @@
          var max_r = (div_width-40)/8;
 
          if (vertical){
-            max_r = 100;
+            max_r = 80;
          }
 
     var padding = 10;
@@ -94,7 +94,6 @@
             .select("g");
 
 
-
         /* funciton that iterate through each school type pie chart adding chart and labels */
         function multiple(d) {
             var r = radius(+d.number);
@@ -104,7 +103,7 @@
                    return r * 2.2 + 30;
                }
                    else {
-                    return div_width;
+                    return div_width + 35;
                    }
                 }
                     )
@@ -113,6 +112,7 @@
                    return max_r*2 + 85 ;
                }
                    else {
+
                     return r*2 + 105 ; //extra padding to create some vertical seperation
                    }
                 }
@@ -123,7 +123,7 @@
                         return "translate(" + (1.1 * r + 15) + "," + ((max_r)*2 +20- r) + ")";
                     }
                     else {
-                    return "translate(" + (div_width/4) + "," + ((r)*2 +20- r) + ")";
+                    return "translate(" + (div_width/4)*1.3  +"," + ((r)*2 +20- r) + ")";
 
                     }
                     }
