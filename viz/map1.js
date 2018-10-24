@@ -416,13 +416,13 @@
             .attr("id", "map")
             ;
 
-        map_base.attr("id", "states")
+mapOverlay.attr("id", "states")
             .selectAll("path")
             .data(topojson.feature(us, us.objects.states).features)
             .enter().append("path")
             .attr("d", path);
 
-        map_base.append("path")
+mapOverlay.append("path")
             .datum(topojson.mesh(us, us.objects.states, function (a, b) {
                 return a !== b;
             }))
@@ -437,6 +437,8 @@
                 .attr("class", "zoomButton") //All share the 'zoom' class
                 .attr("id", "zoom_in") //The ID will tell us which direction to head
                 .attr("transform", "translate(" + (5) + "," + (5) + ")");
+
+
 
             zoomIn.append("svg:image").attr('x', 0)
                 .attr('y', 0)
