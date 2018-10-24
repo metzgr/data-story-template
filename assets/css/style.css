@@ -997,7 +997,7 @@ article h3 {
 @media screen and (min-width: 100.000em) {
   article h3 {
     font-size: 2.250em;
-  line-height: calc(1.125em + 0.5vw);
+  line-height: 1.3;
   }
 }
 

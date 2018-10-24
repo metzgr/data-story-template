@@ -256,7 +256,7 @@ div.map1_tooltip {
     list-style-type: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    padding-top: 0;
+    padding-top: 10px;
 }
 
 #map1 .legendItem li {
@@ -265,8 +265,6 @@ div.map1_tooltip {
     height: 10px;
     position: relative;
     margin-left: 2px;
-    margin-top: 4px;
-      margin-bottom: 4px;
 }
 
 #map1 .legendItem label,
@@ -453,7 +451,7 @@ div.eth_gen_tooltip {
 #eth_gen_bar path.yAxisLine3 {
     stroke: #2E2E2E;
     stroke-width: 1px;
-    stroke-dasharray: 3;
+    stroke-dasharray: 1;
 }
 
 

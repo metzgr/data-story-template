@@ -8,7 +8,7 @@
     function makeChart() {
         getSize();
         makeMap1("",usFeatures,districts);
-    } 
+    }
 
     function getSize(){
         d3.select('#chart4_content_1').selectAll("svg").remove();
@@ -16,7 +16,7 @@
         var div_width = parseInt(d3.select('#chart4_content_1').style('width'));
         var div_height = $(window).height() - 100; //add padding for top menu
 
-    //actual map size 
+    //actual map size
     var width = div_width,
         height = div_width * 2/3;
 
@@ -34,16 +34,16 @@
     /* color scheme */
     var color = d3.scaleThreshold()
         .domain([0.01, 25, 50, 75, 99.99])
-        .range(["#C1E7F2", "#74CAE2", "#2EB4E7", "#099ACC", "#0883A0", "#046B99"]);
+        .range(["#E7572E", "#F67E5C", "#FFBBA8", "#C6E8F6", "#7AD0EF", "#2EB4E7"]);
 
- 
+
 
     var formatDecimalComma = d3.format(",");
 
     /* ```````````````````` CONVIENIENCE FUNCTIONS ```````````````````` */
     function get_fill(d) {
         if (d.properties.tbl2pct === null || d.properties.tbl2pct == "?") {
-            return "#909090";
+            return "#6A6A6F";
         } else {
             return color(+d.properties.tbl2pct);
         }
@@ -94,7 +94,7 @@
     }
 
     function mouseover(d) {
-        //highlight selected school district 
+        //highlight selected school district
         d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
         div.transition().duration(100)
             .style("display", "inline-block");
@@ -165,11 +165,11 @@
             }) //pad for legend
             ;
 
-  
+
     //set up legend seperatly for small and large screens
     if (div_width<500){
-    var  legend_data = [[div_width/2, 15,"#C1E7F2","null","1","1"],[div_width/2, 37,"#74cae2","0,25","2","2"],[div_width/2, 49,"#2EB4E7","25,50","3","3"], [div_width/2, 61,"#099ACC","50,75","4","4"],
-    [div_width/2, 73,"#0883A0","75,99.99","5","5"],[div_width/2, 95,"#046B99","99.99,100","7","7"],[div_width/2 , 110,"#909090","missing","8","8"]];
+    var  legend_data = [[div_width/2, 15,"#E7572E","null","1","1"],[div_width/2, 37,"#F67E5C","0,25","2","2"],[div_width/2, 49,"#FFBBA8","25,50","3","3"], [div_width/2, 61,"#C6E8F6","50,75","4","4"],
+    [div_width/2, 73,"#7AD0EF","75,99.99","5","5"],[div_width/2, 95,"#2EB4E7","99.99,100","7","7"],[div_width/2 , 110,"#6A6A6F","missing","8","8"]];
 
     var legend_label_data = [[div_width/2-3, 23,"No schools offered it","1"],
                                 [div_width/2-3, 45,"0-25","2"],
@@ -180,8 +180,8 @@
                                 [div_width/2-3, 118,"Missing data","8"]];
 
     } else {
-    var  legend_data = [[div_width/2 -200, 13,"#C1E7F2","null","1","1"],[div_width/2 -100, 13,"#74cae2","0,25","2","3"],[div_width/2-50, 13,"#2EB4E7","25,50","3","4"], [div_width/2, 13,"#099ACC","50,75","4","5"],
-    [div_width/2+50, 13,"#0883A0","75,99.99","5","6"],[div_width/2+150, 13,"#046B99","99.99,100","7","7"],[div_width/2 -25, 68,"#909090","missing","8","8"]];
+    var  legend_data = [[div_width/2 -200, 13,"#E7572E","null","1","1"],[div_width/2 -100, 13,"#F67E5C","0,25","2","3"],[div_width/2-50, 13,"#FFBBA8","25,50","3","4"], [div_width/2, 13,"#C6E8F6","50,75","4","5"],
+    [div_width/2+50, 13,"#7AD0EF","75,99.99","5","6"],[div_width/2+150, 13,"#2EB4E7","99.99,100","7","7"],[div_width/2 -25, 68,"#6A6A6F","missing","8","8"]];
 
     var legend_label_data = [[div_width/2 -152, 35,"No schools offered it","1"],
                                 [div_width/2 -100, 35,">0","2"],
@@ -215,7 +215,7 @@
         .data(legend_data)
         .enter()
         .append("rect");
-        
+
     legend.attr("x", d=>d[0])
         .attr("y", d=>d[1])
         .attr("width", 48)
@@ -227,12 +227,12 @@
         .attr("idtwo",d=>d[5])
         ;
 
- 
+
     var legend_text = svg_legend.selectAll("map1Leg")
         .data(legend_label_data)
         .enter()
         .append("text");
-        
+
     legend_text.attr("x", d=>d[0])
         .attr("y", d=>d[1])
          .style("fill", "white")
@@ -311,7 +311,7 @@
         var nolegendButtons = $('#map1 .nolegendButton');
         var triangles = $('#map1 .triangle')
 
-        /* Design of the legend iteractivity was based off the implementaiton by WeStat available at: 
+        /* Design of the legend iteractivity was based off the implementaiton by WeStat available at:
         https://github.com/Westat-Transportation/Westat-Transportation.github.io/blob/9293c1c382757e8a08eed80852812c2f7eee99b2/EnglishLearners/demo/index.html */
         legendButtons.on("click", function () {
             triangles.each(function () {
@@ -383,27 +383,27 @@
                         if (+d.properties.tbl2pct > buttonValue0) {
                             return color(+d.properties.tbl2pct);
                         } else {
-                            return "white";
+                            return "#383840";
                         }
                     } else if (buttonValue == "missing") {
 
                         if (d.properties.tbl2pct === null || d.properties.tbl2pct == "?") {
-                            return "#909090"
+                            return "#6A6A6F"
                         } else {
-                            return "white"
+                            return "#383840"
                         }
 
                     } else if (buttonValueSplit[0] === "null") {
                         if (d.properties.tbl2pct < 0.01 && d.properties.tbl2pct !== null) {
                             return color(0);
                         } else {
-                            return "white";
+                            return "#383840";
                         }
                     } else if (buttonValue0 >= 0) {
                         if (d.properties.tbl2pct > buttonValue0 && d.properties.tbl2pct < buttonValue1) {
                             return color(+d.properties.tbl2pct);
                         } else {
-                            return "white";
+                            return "#383840";
                         }
                     }
                 });
