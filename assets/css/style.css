@@ -385,7 +385,7 @@ ul hr {
 
 .onWHOHASACCESSWHERE {
   margin-left: 25%;
-} 
+}
 
 .onWHOENROLLSWHERE {
   margin-left: 65%;
@@ -395,11 +395,11 @@ ul hr {
   .onWHYALGEBRAI {
     margin-left: 5.4%;
   }
-  
+
   .onWHOHASACCESSWHERE {
     margin-left: 31%;
-  } 
-  
+  }
+
   .onWHOENROLLSWHERE {
     margin-left: 70%;
   }
@@ -991,12 +991,12 @@ article h3 {
   margin-bottom: 26px;
   color: #22222A;
   line-height: calc(1.125em + 0.5vw);
-  font-size: 2em;
+  font-size: 2.250em;
 }
 
 @media screen and (min-width: 100.000em) {
   article h3 {
-    font-size: 2em;
+    font-size: 2.250em;
   line-height: calc(1.125em + 0.5vw);
   }
 }
@@ -1082,10 +1082,8 @@ article sup a {
   border-bottom: none;
 }
 
-#map-transition {
-  width: 100%;
-  background-image: linear-gradient(-180deg, #F9FAFB 11%, #22222A 100%);
-  height: 300px;
+.map-transition .wrap {
+  padding-top: 52px;
 }
 
 .more-info {
@@ -1135,7 +1133,7 @@ article sup a {
 
 .tab-menu li {
   margin-left: 3px;
-  font-size: 1.063em;
+  font-size: 17px;
   color: #22222A;
 }
 
