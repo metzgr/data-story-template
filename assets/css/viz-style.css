@@ -129,16 +129,6 @@ div.type_tooltip {
 /* parent container ID: pie_chart */
 /* --- */
 
-#pie_chart .pie {
-    padding: 0 0px 5px 0px;
-}
-
-#pie_chart svg {
-    padding: 0px 10px 40px 0px;
-
-}
-
-
 #pie_chart .pieTextTitle {
     font-family: 'Roboto', sans-serif;
     /* 700 for bold */
