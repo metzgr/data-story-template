@@ -186,6 +186,7 @@ div.map1_tooltip {
     border-radius: 2px;
     pointer-events: none;
     opacity: .9;
+    z-index: 100;
 }
 
 #map1 p.title {
@@ -478,6 +479,7 @@ div.map2_tooltip {
     border: 0px;
     border-radius: 2px;
     pointer-events: none;
+    z-index: 100;
 }
 
 #map2 p.title {

@@ -377,7 +377,7 @@ div.header-content nav.main-home {
 ul hr {
   height: 2px;
   width: 10%;
-  margin: 0;
+  margin: 0 auto 0 0;
   background: #7EC255;
   border: none;
   transition: .3s ease-in-out;
@@ -1246,6 +1246,10 @@ article sup a {
   font-size: 13px;
 
     color: rgba(34, 34, 42, .7);
+}
+
+.notes-section {
+  font-size: 12px;
 }
 
 /* Preloader */
