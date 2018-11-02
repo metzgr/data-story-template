@@ -478,6 +478,10 @@ div.header-content .close a, div.header-content nav a, div.header-content nav sp
   z-index: 2
 }
 
+.white-info-text {
+  color: #fff;
+}
+
 /* OG
 
 .wrap {
@@ -668,7 +672,7 @@ section.intro .bigger {
   width: 50%;
   margin: 0 -20% 0 0;
   -webkit-box-flex: 0;
-  flex: 0 0 50%
+  flex: 0 0 70%
 }
 
 @media (max-width:1050px) {
