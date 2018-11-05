@@ -197,42 +197,6 @@ div.map1_tooltip {
     margin-bottom:
 }
 
-/*Set up instances of legenditems with colors matching the d3 color scale*/
-#map1 .legendItem input[id="oneHundred"]+label {
-    background: #046B99;
-}
-
-#map1 .legendItem input[id="seventyFive"]+label {
-    background-color: #0883A0;
-}
-
-#map1 .legendItem input[id="fifty"]+label {
-    background: #099ACC;
-}
-
-#map1 .legendItem input[id="twentyFive"]+label {
-    background: #2EB4E7;
-}
-
-#map1 .legendItem input[id="zero"]+label {
-    background: #74cae2;
-}
-
-#map1 .legendItem input[id="none"]+label {
-    background: #C1E7F2;
-}
-
-#map1 .legendItem input[id="missing"]+label {
-    background: #909090;
-    position: absolute;
-}
-
-#map1 .legendItem input[id="white"] {
-    cursor: pointer;
-    background: black;
-    color: black;
-}
-
 #map1 input[type=radio] {
     cursor: pointer;
     height: 10px;
@@ -292,11 +256,16 @@ div.map1_tooltip {
     color: white
 }
 
-#map1 .legendItem input[class*="legendButton"]:hover {
+#map1 .legendButton input[class*="legendButton"]:hover {
     border: 1px solid #CCC;
 }
 
+#map1 .legendButton{
+    cursor: pointer;
+}
+
 #map1 .legendButton.hasSelector.highlightButton{
+
     opacity: 1;
 }
 
@@ -586,6 +555,10 @@ div.map2_tooltip {
 
 #map2 .legendItem input[class*="legendButton"]:hover {
     border: 1px solid #CCC;
+}
+
+#map2 .legendButton{
+    cursor: pointer;
 }
 
 #map2 .legendButton.hasSelector.highlightButton{
