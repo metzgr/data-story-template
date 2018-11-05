@@ -28,7 +28,7 @@
 
         //Define map projection
         var projection = albersUsaPr()
-            .scale(1200 * width / 940)
+            .scale(1280 * width / 940)
             .translate([div_width / 2, (height) / 2.2]);
 
         /* color scheme */
@@ -92,6 +92,8 @@
                 }
             }
         }
+
+        
 
         function mouseover(d) {
             //highlight selected school district
@@ -183,14 +185,14 @@
                 var legend_data = [[div_width / 2 - 200, 13, "#E7572E", "null", "1", "1"], [div_width / 2 - 100, 13, "#F67E5C", "0,25", "2", "3"], [div_width / 2 - 50, 13, "#FFBBA8", "25,50", "3", "4"], [div_width / 2, 13, "#C6E8F6", "50,75", "4", "5"],
                 [div_width / 2 + 50, 13, "#7AD0EF", "75,99.99", "5", "6"], [div_width / 2 + 150, 13, "#2EB4E7", "99.99,100", "7", "7"], [div_width / 2 - 25, 68, "#6A6A6F", "missing", "8", "8"]];
 
-                var legend_label_data = [[div_width / 2 - 152, 35, "No schools offered it", "1"],
-                [div_width / 2 - 100, 35, ">0", "2"],
-                [div_width / 2 - 50, 35, "25", "3"],
-                [div_width / 2, 35, "50", "4"],
-                [div_width / 2 + 50, 35, "75", "5"],
-                [div_width / 2 + 100, 35, "<100", "6"],
-                [div_width / 2 + 150, 35, "All schools offered it", "7"],
-                [div_width / 2, 89, "Missing data", "8"]];
+                var legend_label_data = [[div_width / 2 - 152, 39, "No schools offered it", "1"],
+                [div_width / 2 - 100, 39, ">0", "2"],
+                [div_width / 2 - 50, 39, "25", "3"],
+                [div_width / 2, 39, "50", "4"],
+                [div_width / 2 + 50, 39, "75", "5"],
+                [div_width / 2 + 100, 39, "<100", "6"],
+                [div_width / 2 + 150, 39, "All schools offered it", "7"],
+                [div_width / 2, 93, "Missing data", "8"]];
 
 
                 var triangle = d3.symbol()
@@ -205,12 +207,11 @@
                     .attr("fill", "white")
                     .attr("class", "triangle")
                     .attr("id", function (d) { return d[4]; })
-                    // .attr("x", function(d) {return d[0]; })
-                    // .attr("y",10)
-                    .attr("transform", function (d) { return "translate(" + (d[0] + 24) + "," + (d[1] - 8) + ") rotate(-60)"; });
+                    .attr("transform", function (d) { return "translate(" + (d[0] + 24) + "," + (d[1] - 12) + ") rotate(-60)"; });
                 ;
 
             }
+ 
             var legend = svg_legend.selectAll("map1Leg")
                 .data(legend_data)
                 .enter()
@@ -226,6 +227,14 @@
                 .attr("id", function (d) { return d[4]; })
                 .attr("idtwo", function (d) { return d[5]; })
                 ;
+
+
+           // legend.on('mouseover', function(d, i) {
+           //      console.log( d, i);
+           //      console.log(triangle)
+           //      triangle.attr("fill","white");
+           //      triangle.attr("stroke","white");
+           //      })
 
 
             var legend_text = svg_legend.selectAll("map1Leg")
