@@ -312,7 +312,7 @@ div.map1_tooltip {
     fill: none;
     color: none;
     stroke: #22222a;
-    stroke-width: 2px;
+    stroke-width: 1.5px;
 }
 
 #map1 label {
@@ -611,7 +611,7 @@ div.map2_tooltip {
     fill: none;
     color: none;
     stroke: #22222a;
-    stroke-width: 2px;
+    stroke-width: 1.5px;
 }
 
 #map2 label {

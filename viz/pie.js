@@ -33,7 +33,7 @@
 
     var color = d3.scaleOrdinal()
         .domain([0, 1])
-        .range(["#F5F5F5", "#2EB4E7"]);
+        .range(["#F3F3F5", "#2EB4E7"]);
 
 
     var color_rural = d3.scaleOrdinal()

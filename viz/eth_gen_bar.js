@@ -99,7 +99,7 @@
             .data(data)
             .enter().append("rect")
             .attr("class", "barBackground")
-            .attr("fill", "#F5F5F5")
+            .attr("fill", "#F3F3F5")
             .attr("x", function (d) {
                 return x(0);
             }) //coordinates start at 0
