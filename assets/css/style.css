@@ -247,7 +247,7 @@ h3 {
   font-size: 12px;
   line-height: 16px;
   letter-spacing: .1em;
-  color: rgba(34, 34, 42, .6)
+  color: rgba(34, 34, 42, .7)
 }
 
 h3.large {
@@ -277,7 +277,7 @@ p {
 }
 
 p strong {
-  font-weight: 700
+  font-weight: 500
 }
 
 ul {
@@ -863,14 +863,13 @@ section .title-card {
 }
 
 section.title-card .title-card h2 {
-  font-family: 'Abhaya Libre', serif;
+  font-family: 'Roboto Mono', serif;
   line-height: 1.2;
   margin-bottom: calc(1em + 1vw);
   letter-spacing: -0.5px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: calc(1.188em + 0.5vw);
   font-size: calc(2.250em + 1vw);
-  max-width: 400px;
 }
 
 @media (max-width:53.125em) {
@@ -949,11 +948,18 @@ div.progress {
 }
 
 .intro p {
-  font-family: 'Abhaya Libre', serif;
+  font-family: 'Roboto Mono', serif;
   letter-spacing: -.5px;
   color: #fff;
-  line-height: calc(1.250em + 0.5vw);
-  font-size: calc(2.250em + 1vw);
+  font-weight: 300;
+  line-height: calc(1.550em + 0.5vw);
+  font-size: calc(1.4em + 1vw);
+}
+
+@media screen and (min-width: 1051px) {
+  .intro p {
+      max-width: 70%;
+  }
 }
 
 .intro .logo-overlay {
@@ -1018,19 +1024,18 @@ article p {
 }
 
 article h3 {
-  font-family: 'Abhaya Libre', serif;
-  font-weight: 400;
+  font-family: 'Roboto Mono', serif;
+  font-weight: 300;
   letter-spacing: -.5px;
   margin-bottom: 26px;
   color: #22222A;
-  line-height: calc(1.125em + 0.5vw);
+  line-height: calc(1.188em + 0.5vw);
   font-size: 2.250em;
 }
 
 @media screen and (min-width: 100.000em) {
   article h3 {
     font-size: 2.250em;
-  line-height: 1.3;
   }
 }
 
@@ -1050,23 +1055,15 @@ sup {
 /* Dropcap */
 
 .opener p:first-of-type::first-letter {
-  font-family: 'Abhaya Libre', serif;
-  font-weight: 500;
-  color: #7EC255;
   color: #22222A;
-  margin-right: 0.1em;
-  margin-bottom: 0;
-  line-height: 0.1;
-  padding-top: 30px;
-  display: block;
   float: left;
-  font-size: 4.3em;
-}
-
-@supports (initial-letter) {
-  .sidebar {
-    float: left;
-  }
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: 300;
+  font-size: 85px;
+  line-height: 60px;
+  padding-top: 6px;
+  padding-right: 10px;
+  padding-left: 0px;
 }
 
 section.intro h3 {
@@ -1085,7 +1082,6 @@ section.intro h3 {
 article h4 {
   font-family: 'Roboto', sans-serif;
   line-height: 1.7;
-  letter-spacing: .01em;
   font-weight: 600;
   color: #22222A;
   margin-bottom: 1.625em;
@@ -1162,6 +1158,7 @@ article sup a {
   float: left;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
+  color: rgba(34, 34, 42, .6);
 }
 
 .tab-menu li {
@@ -1175,7 +1172,7 @@ article sup a {
 }
 
 .tab-menu a {
-  opacity: .7;
+  opacity: .6;
 }
 
 .tab-menu a.active {
@@ -1475,6 +1472,7 @@ header.shrinked div.header-content nav a, header.shrinked div.header-content nav
 #hero h3 {
   color: #fff;
   font-size: 14px;
+  font-weight: 500;
   letter-spacing: 1.5px;
 }
 
@@ -1484,5 +1482,13 @@ header.shrinked div.header-content nav a, header.shrinked div.header-content nav
     letter-spacing: 2.5px;
 
     font-size: 15px;
+  }
+}
+
+@media (min-width:53.125em) {
+  /* Up to 850px */
+  .more-padding {
+    padding-left: 50px;
+    /* 30px */
   }
 }
