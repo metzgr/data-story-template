@@ -315,6 +315,12 @@ div.map1_tooltip {
     stroke-width: 1.5px;
 }
 
+@media (min-width: 1280px) {
+  #map1 #state-borders {
+  stroke-width: 2px;
+  }
+}
+
 #map1 label {
     width: 50px;
     height: 10px;
@@ -612,6 +618,12 @@ div.map2_tooltip {
     color: none;
     stroke: #22222a;
     stroke-width: 1.5px;
+}
+
+@media (min-width: 1280px) {
+  #map2 #state-borders {
+  stroke-width: 2px;
+  }
 }
 
 #map2 label {
