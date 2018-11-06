@@ -99,7 +99,7 @@
 
         function mouseover(d) {
             //highlight selected school district
-            d3.select(this).style('stroke', 'white').style('stroke-width', '1px');
+            d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
             div2.transition().duration(100)
                 .style("display", "inline-block");
             div2.html(hoverText(d))
