@@ -953,7 +953,13 @@ div.progress {
   color: #fff;
   font-weight: 300;
   line-height: calc(1.550em + 0.5vw);
-  font-size: calc(1.4em + 1vw);
+  font-size: calc(1.2em + 1vw);
+}
+
+@media screen and (min-width: 100.000em) {
+  .intro p {
+    font-size: calc(1.4em + 1vw);
+  }
 }
 
 @media screen and (min-width: 1051px) {
@@ -1030,12 +1036,12 @@ article h3 {
   margin-bottom: 26px;
   color: #22222A;
   line-height: calc(1.188em + 0.5vw);
-  font-size: 2.250em;
+  font-size: 1.938em;
 }
 
 @media screen and (min-width: 100.000em) {
   article h3 {
-    font-size: 2.250em;
+    font-size: 2em;
   }
 }
 
