@@ -1259,6 +1259,14 @@ article sup a {
   font-size: 12px;
 }
 
+.notes-section ol {
+  margin-bottom: 26px;
+}
+
+.notes-section li {
+  line-height: 1.65;
+}
+
 /* Preloader */
 
 .js-loading *,
