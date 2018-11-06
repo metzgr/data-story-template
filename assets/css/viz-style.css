@@ -315,7 +315,7 @@ div.map1_tooltip {
     stroke-width: 1.5px;
 }
 
-@media (min-width: 1280px) {
+@media screen and (min-width: 100.000em) {
   #map1 #state-borders {
   stroke-width: 2px;
   }
@@ -620,7 +620,7 @@ div.map2_tooltip {
     stroke-width: 1.5px;
 }
 
-@media (min-width: 1280px) {
+@media screen and (min-width: 100.000em) {
   #map2 #state-borders {
   stroke-width: 2px;
   }
