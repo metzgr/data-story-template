@@ -96,6 +96,7 @@
         
 
         function mouseover(d) {
+            console.log("cc")
             //highlight selected school district
             d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
             div.transition().duration(100)
@@ -227,14 +228,6 @@
                 .attr("id", function (d) { return d[4]; })
                 .attr("idtwo", function (d) { return d[5]; })
                 ;
-
-
-           // legend.on('mouseover', function(d, i) {
-           //      console.log( d, i);
-           //      console.log(triangle)
-           //      triangle.attr("fill","white");
-           //      triangle.attr("stroke","white");
-           //      })
 
 
             var legend_text = svg_legend.selectAll("map1Leg")

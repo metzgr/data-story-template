@@ -304,6 +304,11 @@ div.map1_tooltip {
     fill: none;
 }
 
+#map1 .zoomButton {
+    cursor: pointer;
+}
+
+
 #map1 #states .active {
     fill: none;
 }
@@ -548,6 +553,11 @@ div.map2_tooltip {
     /*border:1px solid #2e2e2e;*/
     opacity: 1;
 }
+
+#map2 .zoomButton {
+    cursor: pointer;
+}
+
 
 #map2 .legendItem label {
     padding-top: 1px;
