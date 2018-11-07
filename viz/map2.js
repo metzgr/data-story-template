@@ -1,14 +1,14 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
+   
     getSize();
 
     window.addEventListener("resize", makeChart);
 
     function makeChart() {
         getSize();
-        makeMap2("", usFeatures, districts);
+        makeMap2(mapDataFetchError, usFeatures, districts);
     }
-
 
     function getSize() {
         d3.select('#chart6_content_1').selectAll("svg").remove();
@@ -26,10 +26,11 @@
             height = div_height;
         }
 
-         //Define map projection
+        //Define map projection
         var projection = albersUsaPr()
             .scale(1280 * width / 940)
             .translate([div_width / 2, (height) / 2.2]);
+
         /* color scheme */
         var color = d3.scaleThreshold()
             .domain([0.01, 25, 50, 75, 99.99])

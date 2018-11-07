@@ -7,7 +7,7 @@
 
     function makeChart() {
         getSize();
-        makeMap1("", usFeatures, districts);
+        makeMap1(mapDataFetchError, usFeatures, districts);
     }
 
     function getSize() {
