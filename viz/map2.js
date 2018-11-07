@@ -1,6 +1,18 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
-   
+    
+    // spinner configs
+    var loader_appearance = {
+        length: 10,
+        radius: 20,
+        color: '#046B99',
+        lines: 10,
+        trail: 50,
+        className: 'loader',
+    };
+
+    var target = document.getElementById('map2');
+
     getSize();
 
     window.addEventListener("resize", makeChart);
@@ -11,6 +23,9 @@
     }
 
     function getSize() {
+        // start spinner
+        var loader = new Spinner(loader_appearance).spin(target);
+
         d3.select('#chart6_content_1').selectAll("svg").remove();
 
         var div_width = parseInt(d3.select('#chart6_content_1').style('width'));
@@ -255,6 +270,9 @@
                 .attr("class", "legendButtonText")
                 .attr("id", function (d) { return d[3]; })
                 .attr("idtwo", function (d) { return d[3]; });
+
+             // stop spinner
+             loader.stop();
 
             var svg = d3.select("#map2")
                 .append("svg")

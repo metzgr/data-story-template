@@ -1409,6 +1409,10 @@ article sup a {
   min-height: 300px;
 }
 
+.map_containers {
+  min-height: 600px;
+}
+
 header {
   height: 120px;
   -webkit-transition: all 0.2s ease-out;

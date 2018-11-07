@@ -1,6 +1,18 @@
 // self-calling anonymous function for private scope
 (function () { // write everything inside the bracket of this function
 
+    // spinner configs
+    var loader_appearance = {
+        length: 10,
+        radius: 20,
+        color: '#046B99',
+        lines: 10,
+        trail: 50,
+        className: 'loader',
+    };
+
+    var target = document.getElementById('map1');
+
     getSize();
 
     window.addEventListener("resize", makeChart);
@@ -11,6 +23,9 @@
     }
 
     function getSize() {
+        // start spinner
+        var loader = new Spinner(loader_appearance).spin(target);
+
         d3.select('#chart4_content_1').selectAll("svg").remove();
 
         var div_width = parseInt(d3.select('#chart4_content_1').style('width'));
@@ -93,7 +108,7 @@
             }
         }
 
-        
+
 
         function mouseover(d) {
             console.log("cc")
@@ -212,7 +227,7 @@
                 ;
 
             }
- 
+
             var legend = svg_legend.selectAll("map1Leg")
                 .data(legend_data)
                 .enter()
@@ -235,7 +250,7 @@
                 .enter()
                 .append("text");
 
-            legend_text.attr("x", function(d) {return d[0]; })
+            legend_text.attr("x", function (d) { return d[0]; })
                 .attr("y", function (d) { return d[1]; })
                 .style("fill", "white")
                 .text(function (d) { return d[2]; })
@@ -255,9 +270,12 @@
                 .style("font-size", "12px")
                 .style("font-family", "Roboto")
                 .attr("class", "legendButtonText")
-                .attr("id", function(d) {return d[3]; })
-                .attr("idtwo", function(d) {return d[3]; });
+                .attr("id", function (d) { return d[3]; })
+                .attr("idtwo", function (d) { return d[3]; });
+            
 
+            // stop spinner
+            loader.stop();
 
             //Create main SVG element
             // get the corrext container for map1
