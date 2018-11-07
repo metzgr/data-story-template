@@ -5,12 +5,15 @@
     window.stateAbbData = {};
     window.districts = {};
     window.usFeatures = {};
+    window.mapDataFetchError = {};
 
-    function makeMap(error, us, distr) {
+    function passData(error, us, distr) {
+        // store fetched data in two global variables that will be used later
         usFeatures = us;
         districts = distr;
-        makeMap1(error, us, distr);
-        makeMap2(error, us, distr);
+        mapDataFetchError = error;
+        // makeMap1(mapDataFetchError, usFeatures, districts);
+        // makeMap2(mapDataFetchError, usFeatures, districts);
     }
 
     d3.json("viz/data/stateAbb.json", function (data) {
@@ -20,6 +23,6 @@
     d3.queue()
         .defer(d3.json, 'viz/data/us.json')
         .defer(d3.json, 'viz/data//with_attributes_v8.json')
-        .await(makeMap);
+        .await(passData);
 
 })();

@@ -13,6 +13,11 @@ window.addEventListener("load", function () {
     loader_wrapper.style.webkitTransition = "all 1s ease-out";
     loader_wrapper.style.opacity = 0;
 
-    setTimeout(function () { document.body.removeChild(loader_wrapper) }, 1000);
+    makeMap1(mapDataFetchError, usFeatures, districts);
+    makeMap2(mapDataFetchError, usFeatures, districts);
+
+    setTimeout(function () {
+        document.body.removeChild(loader_wrapper);
+    }, 1500);
 
 });
