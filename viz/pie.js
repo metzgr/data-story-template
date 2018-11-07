@@ -78,7 +78,6 @@
         };
     }, function (error, data) {
         if (error) throw error;
-        // console.log(data)
         radius.domain([0, d3.max(data, function (d) {
             return d.number;
         })]);

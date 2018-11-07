@@ -48,9 +48,7 @@
         var scrolledDistance = window.pageYOffset;
 
         if (scrolledDistance > (map1_top - 150)) { // magic numbers to fine tune UX so that user see the spinner
-            console.log(map1_div.getElementsByTagName("svg").length)
             if (map1_div.getElementsByTagName("svg").length === 0) {
-                console.log(map1_div.getElementsByTagName("svg").length)
                 makeMap1(mapDataFetchError, usFeatures, districts);
             }
         }

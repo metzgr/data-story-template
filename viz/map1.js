@@ -111,7 +111,6 @@
 
 
         function mouseover(d) {
-            console.log("cc")
             //highlight selected school district
             d3.select(this).style('stroke', 'black').style('stroke-width', '1px');
             div.transition().duration(100)
