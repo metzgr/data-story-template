@@ -1158,13 +1158,14 @@ article sup a {
 
 .tab-menu li {
   display: inline-block;
+  color: rgba(34, 34, 42, .5);
 }
 
 .tab-menu li:first-child {
   float: left;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  color: rgba(34, 34, 42, .6);
+  color: rgba(34, 34, 42, .7);
 }
 
 .tab-menu li {

@@ -1,4 +1,4 @@
-grade_level,n_sch_total,sch_offered_alg,percentage_offered_alg
+grade_level,n_sch_total,sch_offered_alg,pct_offered_alg
 8,29385,17323,0.59
 9_or_10,25773,21733,0.843
 11_or_12,25773,15397,0.597
